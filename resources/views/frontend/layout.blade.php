@@ -522,7 +522,7 @@
       </div>
     </section>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <body class="bg-gray-100 text-gray-800">
   <div class="section sec-testimonials py-10">
     <div class="container mx-auto px-4">
@@ -624,116 +624,35 @@
         <div class="row justify-content-center text-center mb-5">
           <div class="col-lg-6 mb-5">
             <h2 class="font-weight-bold heading text-primary mb-4">
-              Our Agents
+              Kategori
             </h2>
-            <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit totam?
-              Quod maiores.
-            </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="h-100 person">
-              <img
-                src="images/person_1-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
-              <div class="person-contents">
-                <h2 class="mb-0"><a href="#">James Doe</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
-
-                <ul class="social list-unstyled list-inline dark-hover">
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                </ul>
-              </div>
+          <div class="col-lg-4 col-md-6">
+                <a href="workwear.html">
+                    <div class="image-box">
+                        <img src="images/eki.png" />
+                    </div>
+                    <p class="collection-title">Pecah Beling</p>
+                </a>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="h-100 person">
-              <img
-                src="images/person_2-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
-              <div class="person-contents">
-                <h2 class="mb-0"><a href="#">Jean Smith</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
-
-                <ul class="social list-unstyled list-inline dark-hover">
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                </ul>
-              </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="reworked.html">
+                    <div class="image-box">
+                        <img src="images/clothes.jpg"/>
+                    </div>
+                    <p class="collection-title">Pakaian</p>
+                </a>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="h-100 person">
-              <img
-                src="images/person_3-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
-              <div class="person-contents">
-                <h2 class="mb-0"><a href="#">Alicia Huston</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
-
-                <ul class="social list-unstyled list-inline dark-hover">
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                </ul>
-              </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="y2k.html">
+                    <div class="image-box">
+                        <img src="images/perabotan.jpg" alt="Y2K 2000s Core" class="img-fluid" />
+                    </div>
+                    <p class="collection-title">Perabotan</p>
+                </a>
+            </div>
             </div>
           </div>
         </div>
