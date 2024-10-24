@@ -467,45 +467,55 @@
 
     <section class="features-1">
       <div class="container">
+        <div style="display: flex; justify-content: flex-start;">
+          <div class="box" style="padding: 20px; border: 0px solid #ffffff; background-color: #ffffff;">
+            <h3 style="color: black; font-weight: 650;">Belanja sesuai budget</h3>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="box-feature">
-              <span class="flaticon-house"></span>
-              <h3 class="mb-3">Our Properties</h3>
-              <p>
+            <div class="box-feature" style="cursor: pointer;">
+              <!-- <span class="flaticon-house"></span> -->
+              <h3 class="mb-3">Harga dibawah</h3>
+              <h4 class="mb-3">100 Ribu</h4>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates, accusamus.
-              </p>
+              </p> -->
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-            <div class="box-feature">
-              <span class="flaticon-building"></span>
-              <h3 class="mb-3">Property for Sale</h3>
-              <p>
+            <div class="box-feature" style="cursor: pointer;">
+              <!-- <span class="flaticon-building"></span> -->
+              <h3 class="mb-3">Harga dibawah</h3>
+              <h4 class="mb-3">250 Ribu</h4>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates, accusamus.
-              </p>
+              </p> -->
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="box-feature">
-              <span class="flaticon-house-3"></span>
-              <h3 class="mb-3">Real Estate Agent</h3>
-              <p>
+            <div class="box-feature" style="cursor: pointer;">
+              <!-- <span class="flaticon-house-3"></span> -->
+              <h3 class="mb-3">Harga dibawah</h3>
+              <h4 class="mb-3">350 Ribu</h4>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates, accusamus.
-              </p>
+              </p> -->
             </div>
           </div>
           <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-            <div class="box-feature">
-              <span class="flaticon-house-1"></span>
-              <h3 class="mb-3">House for Sale</h3>
-              <p>
+            <div class="box-feature" style="cursor: pointer;">
+              <!-- <span class="flaticon-house-1"></span> -->
+              <h3 class="mb-3">Harga dibawah</h3>
+              <h4 class="mb-3">500 Ribu</h4>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptates, accusamus.
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
