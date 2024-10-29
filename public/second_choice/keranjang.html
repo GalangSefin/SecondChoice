@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja</title>
+    <link rel="stylesheet" href="css/kerannjang.css">
+</head>
+<body>
+
+    <div class="cart-container">
+        <button id="cart-button">Keranjang</button>
+        <h2>Keranjang Anda</h2>
+
+        <!-- Div ini akan kosong sebelum tombol diklik -->
+        <div id="cart-details" class="cart-visible">           
+
+            <div class="cart-item">
+                <div class="account-info">
+                    <img src="../images/akun.jpg" alt="Account Logo" class="account-logo">
+                    <span class="account-name">Nama Akun</span>
+                </div>
+
+                <img src="../images/celana.jpeg" alt="Product Image" class="product-image">
+
+                <div class="product-info">
+                    <div class="product-header">
+                    <h3>Celana Skena Kabupaten</h3>
+                    <button class="delete-button" onclick="deleteItem()">
+                        <img src="../images/sampah.jpg" alt="Hapus">
+                    </button>
+                    </div>
+
+                <div class="product-details">
+                    <p>Rp 175.000</p>
+                    <button class="checkout-button">Checkout</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="account-info">
+                    <img src="../images/akun.jpg" alt="Account Logo" class="account-logo">
+                    <span class="account-name">Nama Akun</span>
+                </div>
+                <img src="../images/airterjun.jpg" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>Info Hiling</h3>              
+                    <div class="product-details">
+                        <p>Rp 175.000</p>
+                        <button class="checkout-button">Checkout</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="account-info">
+                    <img src="../images/akun.jpg" alt="Account Logo" class="account-logo">
+                    <span class="account-name">Nama Akun</span>
+                </div>
+                <img src="../images/flanel.jpg" alt="Product Image" class="product-image">
+                <div class="product-info">
+                    <h3>Flanel Outfit Mapala</h3>
+                    <div class="product-details">
+                        <p>Rp 375.000</p>
+                        <button class="checkout-button">Checkout</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/keranjangg.js"></script>
+
+</body>
+</html>
