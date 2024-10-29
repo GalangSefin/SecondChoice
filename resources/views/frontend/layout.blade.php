@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/tiny-slider.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/aos.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/style.css') }}" />
+    
 
     <title>
       Property &mdash; Free Bootstrap 5 Website Template by Untree.co
@@ -658,112 +659,81 @@
       </div>
     </div>
 
-    <div class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>Contact</h3>
-              <address>43 Raymouth Rd. Baltemoer, London 3910</address>
-              <ul class="list-unstyled links">
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li>
-                  <a href="mailto:info@mydomain.com">info@mydomain.com</a>
-                </li>
-              </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Belanja Aman Harga Bersahabat </p>
+                        <a href="#"><img src="img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Perlengkapan</a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>Sources</h3>
-              <ul class="list-unstyled float-start links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Vision</a></li>
-                <li><a href="#">Mission</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-              </ul>
-              <ul class="list-unstyled float-start links">
-                <li><a href="#">Partners</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Creative</a></li>
-              </ul>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>2024
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
             </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>Links</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-              </ul>
-
-              <ul class="list-unstyled social">
-                <li>
-                  <a href="#"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#"><span class="icon-linkedin"></span></a>
-                </li>
-                <li>
-                  <a href="#"><span class="icon-pinterest"></span></a>
-                </li>
-                <li>
-                  <a href="#"><span class="icon-dribbble"></span></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.widget -->
-          </div>
-          <!-- /.col-lg-4 -->
         </div>
-        <!-- /.row -->
+    </footer>
+    <!-- Footer Section End -->
 
-        <div class="row mt-5">
-          <div class="col-12 text-center">
-            <!-- 
-              **==========
-              NOTE: 
-              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
-              **==========
-            -->
-
-            <p>
-              Copyright &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              . All Rights Reserved. &mdash; Designed with love by
-              <a href="https://untree.co">Untree.co</a>
-              <!-- License information: https://untree.co/license/ -->
-            </p>
-            <div>
-              Distributed by
-              <a href="https://themewagon.com/" target="_blank">themewagon</a>
-            </div>
-          </div>
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
         </div>
-      </div>
-      <!-- /.container -->
     </div>
-    <!-- /.site-footer -->
-
     <!-- Preloader -->
     <!-- <div id="overlayer"></div>
     <div class="loader">
