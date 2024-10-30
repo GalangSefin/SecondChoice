@@ -22,10 +22,12 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/tiny-slider.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/aos.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/style.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('second_choice/css/stylesfooter.css') }}" />
     
 
     <title>
-      Property &mdash; Free Bootstrap 5 Website Template by Untree.co
+      SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
   </head>
   <body>
@@ -658,107 +660,55 @@
         </div>
       </div>
     </div>
-
-<<<<<<< HEAD
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                        </div>
-                        <p>Belanja Aman Harga Bersahabat </p>
-                        <a href="#"><img src="img/payment.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Clothing Store</a></li>
-                            <li><a href="#">Perlengkapan</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#">Sale</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Delivary</a></li>
-                            <li><a href="#">Return & Exchanges</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>NewLetter</h6>
-                        <div class="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                            <form action="#">
-                                <input type="text" placeholder="Your email">
-                                <button type="submit"><span class="icon_mail_alt"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-=======
-    <div class="site-footer">
+    <footer class="site-footer">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="widget">
-              <h3>Contact</h3>
-              <address>Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</address>
-              <ul class="list-unstyled links">
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li>
-                  <a href="mailto:info@mydomain.com">info@mydomain.com</a>
-                </li>
-              </ul>
->>>>>>> a821de2c768aba2fa4319d07ecf315c2a5f5b0e0
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="footer__copyright__text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>2024
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        </p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+        <div class="footer-columns">
+          <!-- Column 1: Preloved -->
+          <div class="footer-column">
+            <h3>Preloved</h3>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
 
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
+          <!-- Column 2: Discover -->
+          <div class="footer-column">
+            <h3>Discover</h3>
+            <ul>
+              <li><a href="#">Cara kerjanya</a></li>
+              <li><a href="#">Mulai jualan</a></li>
+              <li><a href="#">Thrift shops</a></li>
+              <li><a href="#">Nama olshop</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Help -->
+          <div class="footer-column">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <!-- Preloader -->
-    <!-- <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <a href="#"><span class="icon-instagram"></span></a>
+          <a href="#"><span class="icon-tiktok"></span></a>
+          <a href="#"><span class="icon-facebook"></span></a>
+          <a href="#"><span class="icon-x"></span></a>
+          <a href="#"><span class="icon-linkedin"></span></a>
+        </div>
+
+        <!-- Privacy and Terms -->
+        <div class="footer-bottom">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
       </div>
-    </div> -->
-
+    </footer>
     <script src="{{ asset('second_choice/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('second_choice/js/tiny-slider.js') }}"></script>
     <script src="{{ asset('second_choice/js/aos.js') }}"></script>
