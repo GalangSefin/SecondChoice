@@ -659,6 +659,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -705,6 +706,22 @@
                         </div>
                     </div>
                 </div>
+=======
+    <div class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget">
+              <h3>Contact</h3>
+              <address>Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</address>
+              <ul class="list-unstyled links">
+                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+                <li>
+                  <a href="mailto:info@mydomain.com">info@mydomain.com</a>
+                </li>
+              </ul>
+>>>>>>> a821de2c768aba2fa4319d07ecf315c2a5f5b0e0
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
