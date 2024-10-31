@@ -9,14 +9,14 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    padding: 15px 30px;
+    padding: 15px 100px;
     border-bottom: 1px solid #e0e0e0;
 }
 
 .logo img {
-    width: 205px; /* Sesuaikan lebar gambar */
-    height: auto; /* Menjaga proporsi gambar */
-    margin-right: 5px; /* Jarak antara gambar dan teks */
+    width: 205px;
+    height: auto;
+    margin-right: 5px;
 }
 
 .nav-bar input[type="search"] {
@@ -43,187 +43,104 @@ body {
 }
 
 .icons {
-    display: flex; /* Mengatur flexbox untuk penyelarasan */
-    justify-content: flex-end; /* Menyelaraskan konten ke kanan */
-    align-items: center; /* Menyelaraskan item secara vertikal */
+    display: flex;
+    align-items: center;
 }
-
-.icons .icon {
-    margin: 0 8px;
-    font-size: 20px; /* Ukuran font untuk ikon */
-}
-
-.icons .profile-icon {
-    margin: 0 8px;
-    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: 25px; /* Pastikan lebar dan tinggi sama */
-    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    justify-content: center; /* Menyelaraskan item secara horizontal */
-    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
-    font-size: 13px; /* Ukuran font yang sesuai */
-    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
-    color: white;
-}
-
 
 .profile-icon {
     background-color: #4db6ac;
     padding: 10px;
     border-radius: 50%;
     color: white;
-}
-
-main {
-    padding: 30px;
-}
-
-.profile-section {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-icon-large {
-    background-color: #4db6ac;
-    padding: 40px;
-    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: 25px; /* Pastikan lebar dan tinggi sama */
-    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    justify-content: center; /* Menyelaraskan item secara horizontal */
-    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
-    font-size: 26px; /* Ukuran font yang sesuai */
-    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
-    color: white;
-    margin-right: 20px;
-}
-
-.profile-info h1 {
-    margin: 0;
-}
-
-.profile-info p {
-    color: #888;
-    margin: 5px 0 10px;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 14px;
-    margin: 5px;
+    font-size: 13px;
     cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.edit-profile {
-    background-color: #656765; 
-    color: white;
-}
-
-.add-product {
-    background-color: #656765; 
-    color: white;
-}
-
-button:hover {
-    opacity: 0.8; /* Mengubah opasitas saat hover */
-}
-
-.tabs {
+    width: 25px;
+    height: 25px;
     display: flex;
-    margin-bottom: 20px;
-}
-
-.tab {
-    text-decoration: none;
-    color: #888;
-    padding: 10px 15px;
-    margin-right: 20px;
-}
-
-.tab.active {
-    border-bottom: 2px solid #ffffff;
-    color: black;
-}
-
-.no-items {
-    text-align: center;
-}
-
-.no-items img {
-    width: 50px;
-}
-
-.no-items p {
-    color: #888;
-}
-
-footer {
-    background-color: white;
-    padding: 30px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: space-around;
-}
-
-.footer-links div {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-links h4 {
-    margin-bottom: 10px;
-}
-
-/* styles.css */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    width: 100%;
-}
-
-.tabs {
-    display: inline-flex;
-    justify-content: space-around;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
 }
 
-.tab {
-    color: #333;
-    font-size: 14px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* Space between icon and text */
-}
-
-.tab i {
-    font-size: 16px;
-}
-
-.tab.active {
+.main-menu {
     font-weight: bold;
-    color: black; /* Warna hitam untuk tab aktif */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between each menu item */
 }
 
-.tab:hover {
-    color: #007BFF; /* Warna hover */
+.main-menu > li {
+    position: relative;
 }
 
-.tab.active i {
-    color: black; /* Ikon hitam pada tab aktif */
+.main-menu > li > a {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.main-menu > li.active-menu > a {
+    color: #870017; /* Blue color for active menu */
+}
+
+.main-menu > li:hover > a {
+    color: #870017;
+}
+
+.label1 {
+    position: relative;
+}
+
+.label1::after {
+    content: attr(data-label1);
+    font-size: 10px;
+    color: #fff;
+    background-color: #f74877;
+    border-radius: 10px;
+    padding: 2px 6px;
+    position: absolute;
+    top: -8px;
+    right: -15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sub-menu {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.sub-menu li {
+    padding: 8px 20px;
+}
+
+.sub-menu a {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    transition: color 0.4s;
+}
+
+.main-menu > li:hover > a {
+    color: #870017;
+}
+
+.main-menu > li:hover > .sub-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub-menu li:hover a {
+    color: #870017;
 }
