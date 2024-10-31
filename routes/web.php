@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.layout');
-});
+    return view('frontend.home');
+})->name('home');
+
+Route::get('/messages', function () {
+    return view('frontend.messages');
+})->name('messages');
 
 Auth::routes();
 
