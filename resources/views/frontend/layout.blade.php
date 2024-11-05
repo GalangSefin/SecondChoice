@@ -51,8 +51,8 @@
         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
           <li><a href="index.html" style="color: black;">Home</a></li>
           <li><a href="about.html" style="color: black;">Categories</a></li>
-          <li><a href="properties.html" style="color: black;">Login</a></li>
-          <li><a href="login.html" style="color: black;">Register</a></li>
+          <li><a href="/second_choice/login.html" style="color: black;">Login</a></li>
+          <li><a href="/second_choice/cobareg.html" style="color: black;">Register</a></li>
         </ul>
 
         <a
