@@ -2,8 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< Updated upstream
 use App\Http\Controllers\AuthController;
 
+=======
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +24,23 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
+<<<<<<< Updated upstream
+
+Route::get('/messages', function () {
+    return view('frontend.messages');
+})->name('messages');
+=======
+>>>>>>> Stashed changes
 
 Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
 
-Auth::routes();
+Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
+Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+Auth::routes(['login' => false, 'register' => false]); // Disable default auth routes
 
 // Rute untuk logout
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -44,3 +61,27 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('frontend.dashboard', ['layout' => 'after_login']);
+    })->name('dashboard');
+    Route::get('/messages', 'MessageController@index')->name('messages');
+    Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+    Route::get('/cart', 'CartController@index')->name('cart');
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/purchases', 'PurchaseController@index')->name('purchases');
+    Route::get('/settings', 'SettingController@index')->name('settings');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+// Route untuk simulasi after login
+Route::get('/after-login', function () {
+    return view('frontend.layouts.after_login');
+})->name('after.login');
+
+// Modifikasi route login yang ada
+Route::post('/login', function (Request $request) {
+    // Handle login logic
+    return redirect()->route('after.login');
+})->name('login.submit');
