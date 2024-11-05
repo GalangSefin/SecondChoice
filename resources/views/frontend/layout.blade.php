@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
     <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="second_choice/css/dropdown.css" />
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
@@ -42,15 +43,30 @@
     <div class="menu-bg-wrap" style="background-color: rgba(255, 255, 255, 0.83); color: #333;">
       <div class="site-navigation" style="box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.0); padding-bottom: 1.5px;">
         <a href="index.html" class="logo m-0 float-start">
-          <img src="images/logo scnd.png" style="width: 205px; height: auto;">
+          <img src="images/logo scnd.png" style="width: 205px; height: auto; margin: 15px;">
         </a>
 
-        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+        <!-- <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
           <li><a href="index.html" style="color: black;">Home</a></li>
           <li><a href="about.html" style="color: black;">Categories</a></li>
           <li><a href="/second_choice/login.html" style="color: black;">Login</a></li>
           <li><a href="/second_choice/cobareg.html" style="color: black;">Register</a></li>
-        </ul>
+        </ul> -->
+
+      <ul>
+        <li><a href="#contact">Register </a></li>
+        <li><a href="#business">Login</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Categories</a>
+              <div class="dropdown-content">
+                <a href="#">Elektronik</a>
+                <a href="#">Pakaian</a>
+                <a href="#">Pecah Belah</a>
+                <a href="#">Perabotan</a>
+              </div>
+          </li>
+        <li><a href="#home">Home</a></li>
+      </ul>
 
         <a
           href="#"
