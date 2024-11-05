@@ -59,8 +59,8 @@
           <li><a href="{{ route('home') }}" style="color: black;">Home</a></li>
           <li><a href="{{ route('messages') }}" style="color: black;">Messages</a></li>
           <li><a href="about.html" style="color: black;">Categories</a></li>
-          <li><a href="properties.html" style="color: black;">Login</a></li>
-          <li><a href="login.html" style="color: black;">Register</a></li>
+          <li><a href="/second_choice/login.html" style="color: black;">Login</a></li>
+          <li><a href="/second_choice/cobareg.html" style="color: black;">Register</a></li>
         </ul>
 
         <a
