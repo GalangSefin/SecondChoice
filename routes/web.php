@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
->>>>>>> Stashed changes
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,13 +20,6 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
-<<<<<<< Updated upstream
-
-Route::get('/messages', function () {
-    return view('frontend.messages');
-})->name('messages');
-=======
->>>>>>> Stashed changes
 
 Route::get('/messages', function () {
     return view('frontend.messages');

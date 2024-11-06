@@ -54,9 +54,7 @@
                 SECOND CHOICE
               </a>
             </div>
-<<<<<<< Updated upstream
 
-<<<<<<< Updated upstream
     <nav class="site-nav" style="background-color: rgba(255, 255, 255, 0.0); color: #333;">
   <div class="container">
     <div class="menu-bg-wrap" style="background-color: rgba(255, 255, 255, 0.83); color: #333;">
@@ -65,22 +63,6 @@
           <img src="images/logo scnd.png" style="width: 205px; height: auto; margin: 15px;">
         </a>
 
-<<<<<<< HEAD
-      <ul>
-        <li><a href="second_choice/cobareg.html">Register </a></li>
-        <li><a href="second_choice/login.html">Login</a></li>
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">Categories</a>
-              <div class="dropdown-content">
-                <a href="#">Elektronik</a>
-                <a href="#">Pakaian</a>
-                <a href="#">Pecah Belah</a>
-                <a href="#">Perabotan</a>
-              </div>
-          </li>
-        <li><a href="#home">Home</a></li>
-      </ul>
-=======
         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
           <li><a href="{{ route('home') }}" style="color: black;">Home</a></li>
           <li><a href="{{ route('messages') }}" style="color: black;">Messages</a></li>
@@ -88,7 +70,6 @@
           <li><a href="/second_choice/login.html" style="color: black;">Login</a></li>
           <li><a href="/second_choice/cobareg.html" style="color: black;">Register</a></li>
         </ul>
->>>>>>> 28df72d0b9fe40e0697d4ae7942ff225c342c52a
 
         <a
           href="#"
@@ -105,7 +86,6 @@
 </nav>
 
     <!-- Konten Utama -->
-=======
             <!-- Search Bar -->
             <div class="search-section">
               <form action="#" class="d-flex search-form">
@@ -173,7 +153,6 @@
     </nav>
 
     <!-- Langsung mulai konten setelah navbar -->
->>>>>>> Stashed changes
 =======
 
             <!-- Search Bar -->
@@ -329,7 +308,6 @@
     </div>
 
     <!-- Langsung mulai konten setelah navbar -->
->>>>>>> Stashed changes
     @yield('content')
 
     <!-- Footer -->
