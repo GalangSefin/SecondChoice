@@ -152,7 +152,6 @@
     </nav>
 
     <!-- Langsung mulai konten setelah navbar -->
-=======
 
             <!-- Search Bar -->
             <div class="search-section">
