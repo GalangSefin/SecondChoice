@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecondChoice | Tambah Alamat</title>
+</head>
+<body>
+    <head>
+        <div class="nav-bar">
+            <a href="#" class="logo"><img src="images/logo scnd.png" alt=""></a>
+            <input type="search" placeholder="Search Jersey...">
+            <div class="nav-links">
+                <a href="#" class="tab active">Wanita</a>
+                <a href="#" class="tab active">Pria</a>
+                <a href="#" class="tab active">Branded</a>
+                <a href="#" class="tab active">Anak</a>
+                <a href="#" class="sell-link">Jual</a>
+                <div class="icons">
+                    <a href="#" ><img src="images/mail.png" alt=""></a>
+                    <a href="#" ><img src="images/cart[1].png" alt=""></a>
+                    <a href="#" class="profile-icon">C</a>
+                </div>                
+            </div>
+        </div>
+   
+
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/stylecheckout.css">
+    <link rel="stylesheet" href="css/stylesnavbar.css">
+  
+</head>
+
+<body>
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Alamat</h4>
+                        <div class="breadcrumb__links">
+                            <a href="./index.html">Home</a>
+                            <a href="./shop.html">Shop</a>
+                            <span>Alamat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <form action="#">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Nama Depan<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Nama Belakang<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Nomor Telepon <span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Kota<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Alamat Lengkap <span>*</span></p>
+                                <input type="text" placeholder="Nama Jalan" class="checkout__input__add">
+                                <input type="text" placeholder="Rumah,Kantor,Sekolah (opsional)">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Kode Pos<span>*</span></p>
+                                <input type="text">
+                            </div>    
+                            <button class="site-btn" onclick="location.href='Checkout.html'">Simpan Alamat</button>
+                            <script>
+                                function cekAlamat() {
+                                    // Ambil nilai input alamat
+                                    var alamat = document.getElementById("Alamat").value;
+                        
+                                    // Cek apakah input kosong
+                                    if (alamat.trim() === "") {
+                                        alert("Harap isi alamat terlebih dahulu!");
+                                    } else {
+                                        // Jika sudah diisi, pindah ke halaman lain
+                                        location.href = 'Checkout.html'; // Ganti dengan URL halaman tujuan
+                                    }
+                                }
+                            </script>
+                        </div>
+    </section>
+    <!-- Checkout Section End -->
+
+    
+    <!-- Search Begin -->
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
