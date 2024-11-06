@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
     <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="second_choice/css/dropdown.css" />
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
@@ -60,7 +59,7 @@
     <div class="menu-bg-wrap" style="background-color: rgba(255, 255, 255, 0.83); color: #333;">
       <div class="site-navigation" style="box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.0); padding-bottom: 1.5px;">
         <a href="index.html" class="logo m-0 float-start">
-          <img src="images/logo scnd.png" style="width: 205px; height: auto; margin: 15px;">
+          <img src="images/logo scnd.png" style="width: 205px; height: auto;">
         </a>
 
         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
