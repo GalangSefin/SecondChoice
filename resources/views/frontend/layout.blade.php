@@ -138,7 +138,7 @@
         </div>
       </div>
 
-      <!-- Bagian bawah navbar
+      <!-- Bagian bawah navbar -->
       <div class="nav-bottom">
         <div class="container">
           <div class="categories">
@@ -150,7 +150,7 @@
             </ul>
           </div>
         </div>
-      </div> -->
+      </div>
     </nav>
 
     <!-- Tambahkan setelah nav dan sebelum content -->
