@@ -11,6 +11,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f8f8;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .nav-bar {
@@ -23,9 +25,9 @@ body {
 }
 
 .logo img {
-    width: 205px; /* Sesuaikan lebar gambar */
-    height: auto; /* Menjaga proporsi gambar */
-    margin-right: 5px; /* Jarak antara gambar dan teks */
+    width: 205px; 
+    height: auto; 
+    margin-right: 5px; 
 }
 
 .nav-bar input[type="search"] {
@@ -52,26 +54,26 @@ body {
 }
 
 .icons {
-    display: flex; /* Mengatur flexbox untuk penyelarasan */
-    justify-content: flex-end; /* Menyelaraskan konten ke kanan */
-    align-items: center; /* Menyelaraskan item secara vertikal */
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
 }
 
 .icons .icon {
     margin: 0 8px;
-    font-size: 20px; /* Ukuran font untuk ikon */
+    font-size: 20px; 
 }
 
 .icons .profile-icon {
     margin: 0 8px;
-    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: 25px; /* Pastikan lebar dan tinggi sama */
-    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    justify-content: center; /* Menyelaraskan item secara horizontal */
-    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
-    font-size: 13px; /* Ukuran font yang sesuai */
-    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
+    width: 25px; 
+    height: 25px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 50%; 
+    font-size: 13px; 
+    cursor: pointer; 
     color: white;
 }
 
@@ -102,14 +104,14 @@ main {
 .profile-icon-large {
     background-color: #4db6ac;
     padding: 40px;
-    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
-    height: 25px; /* Pastikan lebar dan tinggi sama */
-    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    justify-content: center; /* Menyelaraskan item secara horizontal */
-    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
-    font-size: 26px; /* Ukuran font yang sesuai */
-    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
+    width: 25px; 
+    height: 25px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    font-size: 26px; 
+    cursor: pointer; 
     color: white;
     margin-right: 20px;
 }
@@ -143,7 +145,7 @@ button {
 }
 
 button:hover {
-    opacity: 0.8; /* Mengubah opasitas saat hover */
+    opacity: 0.8; 
 }
 
 .tabs {
@@ -195,7 +197,6 @@ footer {
     margin-bottom: 10px;
 }
 
-/* styles.css */
 footer {
     text-align: center;
     padding: 10px;
@@ -217,7 +218,7 @@ footer {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 8px; 
 }
 
 .tab i {
@@ -226,13 +227,56 @@ footer {
 
 .tab.active {
     font-weight: bold;
-    color: black; /* Warna hitam untuk tab aktif */
+    color: black; 
 }
 
 .tab:hover {
-    color: #007BFF; /* Warna hover */
+    color: #007BFF; 
 }
 
 .tab.active i {
-    color: black; /* Ikon hitam pada tab aktif */
+    color: black; 
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* Gaya untuk dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Menempelkan dropdown ke sisi kanan */
+    background-color: #fff;
+    min-width: 160px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow-y: auto; /* Menambahkan overflow jika konten terlalu besar */
+    max-height: 300px; /* Batasi tinggi maksimum dropdown */
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
