@@ -30,8 +30,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/login-popup.css') }}" />
-<<<<<<< HEAD
-=======
     <style>
       .brand-section .logo img {
   width: 250px;       /* Atur ukuran lebar logo */
@@ -44,7 +42,6 @@
 }
 
     </style>
->>>>>>> 70df8675c3cb76b737544be814bea2ade07b4e00
 
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
@@ -68,10 +65,7 @@
                 <img src="images/logo scnd.png" alt="Logo">
               </a>
             </div>
-<<<<<<< HEAD
-=======
             
->>>>>>> 70df8675c3cb76b737544be814bea2ade07b4e00
 
             <!-- Search Bar -->
             <div class="search-section">
@@ -111,12 +105,6 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-<<<<<<< HEAD
-                        <!-- <a href="{{ route('wishlist') }}" class="icon-link">
-                            <i class="fa-regular fa-heart"></i>
-                        </a> -->
-=======
->>>>>>> 70df8675c3cb76b737544be814bea2ade07b4e00
                         <a href="{{ route('cart') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
