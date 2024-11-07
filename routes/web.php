@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +15,12 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('frontend.layout');
-});
-
-Auth::routes();
-
-// Rute untuk logout
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+})->name('home');
 
 // Rute untuk halaman home (jika dibutuhkan)
-Route::get('/home', function () {
-    return view('frontend.layout'); // Mengarahkan ke layout.blade.php
-})->name('home');
+Route::get('/logout', function () {
+    return redirect()->route('home');
+})->name('logout');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
