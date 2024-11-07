@@ -92,9 +92,9 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <a href="{{ route('wishlist') }}" class="icon-link">
+                        <!-- <a href="{{ route('wishlist') }}" class="icon-link">
                             <i class="fa-regular fa-heart"></i>
-                        </a>
+                        </a> -->
                         <a href="{{ route('cart') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <!-- Bagian bawah navbar -->
+      <!-- Bagian bawah navbar
       <div class="nav-bottom">
         <div class="container">
           <div class="categories">
@@ -140,7 +140,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </nav>
 
     <!-- Tambahkan setelah nav dan sebelum content -->

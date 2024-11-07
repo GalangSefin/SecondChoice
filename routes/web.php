@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,9 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 
-Route::get('/messages', function () {
-    return view('frontend.messages');
-})->name('messages');
+// Route::get('/messages', function () {
+//     return view('frontend.messages');
+// })->name('messages');
 
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
@@ -55,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('frontend.dashboard', ['layout' => 'after_login']);
     })->name('dashboard');
-    Route::get('/messages', 'MessageController@index')->name('messages');
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages'); 
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
     Route::get('/profile', 'ProfileController@index')->name('profile');
