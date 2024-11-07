@@ -512,8 +512,70 @@
       </div>
     </div>
   </div>
+<<<<<<< Updated upstream
+  
 
+    <div class="section">
+      <div class="row justify-content-center footer-cta" data-aos="fade-up">
+        <div class="col-lg-7 mx-auto text-center">
+          <h2 class="mb-4">Be a part of our growing real state agents</h2>
+          <p>
+            <a
+              href="#"
+              target="_blank"
+              class="btn btn-primary text-white py-3 px-4"
+              >Apply for Real Estate agent</a
+            >
+          </p>
+        </div>
+        <!-- /.col-lg-7 -->
+      </div>
+      <!-- /.row -->
+    </div>
 
+    <div class="section section-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-6 mb-5">
+            <h2 class="font-weight-bold heading text-primary mb-4">
+              Kategori
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+                <a href="workwear.html">
+                    <div class="image-box">
+                        <img src="images/eki.png" />
+                    </div>
+                    <p class="collection-title">Pecah Beling</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="reworked.html">
+                    <div class="image-box">
+                        <img src="images/clothes.jpg"/>
+                    </div>
+                    <p class="collection-title">Pakaian</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="y2k.html">
+                    <div class="image-box">
+                        <img src="images/perabotan.jpg" alt="Y2K 2000s Core" class="img-fluid" />
+                    </div>
+                    <p class="collection-title">Perabotan</p>
+                </a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+@endsection 
+=======
+
+  
   <div class="section">
     <div class="row justify-content-center footer-cta" data-aos="fade-up">
       <div class="col-lg-7 mx-auto text-center">

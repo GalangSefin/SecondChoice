@@ -2,11 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
 
+=======
+use App\Http\Controllers\AuthController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+>>>>>>> 70df8675c3cb76b737544be814bea2ade07b4e00
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +29,19 @@ Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
 
+<<<<<<< HEAD
 // Route::get('/messages', function () {
 //     return view('frontend.messages');
 // })->name('messages');
+=======
+Route::get('/messages', function () {
+    return view('frontend.messages');
+})->name('messages');
+
+Route::get('/messages', function () {
+    return view('frontend.messages');
+})->name('messages');
+>>>>>>> 70df8675c3cb76b737544be814bea2ade07b4e00
 
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
@@ -75,3 +92,4 @@ Route::post('/login', function (Request $request) {
     // Handle login logic
     return redirect()->route('after.login');
 })->name('login.submit');
+
