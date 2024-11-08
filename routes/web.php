@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\JualController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -83,3 +84,6 @@ Route::post('/login', function (Request $request) {
     // Handle login logic
     return redirect()->route('after.login');
 })->name('login.submit');
+
+//jual
+Route::get('/jual', [JualController::class, 'index'])->name('jual');
