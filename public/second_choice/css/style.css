@@ -9615,7 +9615,7 @@ body {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
   font-family: "Work Sans", sans-serif;
-  color: #00204a; }
+  color: #870017; }
 
 a {
   -webkit-transition: .3s all ease;
@@ -9718,7 +9718,7 @@ textarea {
   .hero .form-search .form-control {
     margin-right: 10px; }
   .hero .form-search .btn {
-    background-color: #005555;
+    background-color: #870017;
     padding-left: 30px;
     padding-right: 30px;
     color: #fff; }
@@ -9799,7 +9799,7 @@ textarea {
   -o-transition: .3s all ease;
   transition: .3s all ease; }
   .btn.btn-primary {
-    background: #005555;
+    background: #870017;
     color: #fff; }
   .btn:hover {
     top: -2px;
