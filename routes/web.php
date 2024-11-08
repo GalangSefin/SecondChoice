@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\JualController;
 
 
 
@@ -84,3 +85,7 @@ Route::post('/login', function (Request $request) {
 
 //route kategori
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+
+//rote jual
+Route::get('/jual', [JualController::class, 'index'])->name('jual');
+

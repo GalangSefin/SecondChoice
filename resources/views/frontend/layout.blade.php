@@ -102,6 +102,7 @@
                     <a href="#" class="btn register-trigger">Sign up</a>
                 @else
                     <div class="nav-icons">
+                      <a href="{{ route('home') }}" class="btn btn-home">Home</a>
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
