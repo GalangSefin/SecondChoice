@@ -8,8 +8,8 @@
             <div class="slider-section">
                 <div class="slider-wrapper" style="background-image: url('images/sell.jpg');">
                     <div class="slide">
-                        <div class="slide-content">
-                            <div class="slide-label">Sell</div>
+                        <div class="slide-content-left">
+                            <div class="slide-label-left">Sell</div>
                             <h2>Mulai berjualan</h2>
                             <div class="slide-buttons">
                                 <a href="#" class="btn-primary">Jual</a>
@@ -24,8 +24,8 @@
             <div class="slider-section">
                 <div class="slider-wrapper" style="background-image: url('images/explore.jpg');">
                     <div class="slide">
-                        <div class="slide-content">
-                            <div class="slide-label">New</div>
+                        <div class="slide-content-right">
+                            <div class="slide-label-right">New</div>
                             <h2>Explore item terbaru</h2>
                             <div class="slide-buttons">
                                 <a href="#" class="btn-primary">Shop now</a>
