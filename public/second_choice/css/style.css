@@ -9194,7 +9194,11 @@ textarea.form-control-lg {
 .logo {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.8) !important;
-  font-weight: 500; }
+  font-weight: 500;
+  
+ }
+  
+
   .logo:hover {
     color: #fff !important; }
 
@@ -10616,4 +10620,291 @@ input.num-product::-webkit-outer-spin-button,
 input.num-product::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; 
+}
+
+.brand-section .logoscnd img {
+  width: 250px;               /* Atur ukuran lebar logo */
+  height: auto;               /* Menjaga proporsi tinggi logo */
+  transition: transform 0.3s ease;  /* Menambahkan animasi transisi */
+  margin-left: 50px;          /* Mengatur jarak kiri logo */
+}
+
+
+.brand-section .logoscnd img:hover {
+  transform: scale(1.1);  /* Logo akan membesar 10% saat di-hover */
+}
+/* Section Styling */
+.bg0 {
+  background-color: #f8f8f8;
+}
+
+.p-t-23 {
+  padding-top: 23px;
+}
+
+.p-b-140 {
+  padding-bottom: 140px;
+}
+
+.ltext-103 {
+  font-size: 28px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cl5 {
+  color: #5e5e5e;
+}
+
+.stext-106 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stext-106:hover {
+  color: #333;
+}
+
+.hov1 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.how-active1 {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.flex-w {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-sb-m {
+  justify-content: space-between;
+}
+
+.m-tb-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.m-r-32 {
+  margin-right: 32px;
+}
+
+.m-tb-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.flex-c-m {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-show-filter, .js-show-search {
+  cursor: pointer;
+}
+
+.stext-106.cl6 {
+  color: #555;
+}
+
+.size-104 {
+  font-size: 14px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.zmdi {
+  font-size: 16px;
+}
+
+/* Panel Search */
+.panel-search {
+  display: none;
+}
+
+.panel-search .bor8 {
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.panel-search input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.panel-search button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+/* Panel Filter */
+.panel-filter {
+  display: none;
+}
+
+.wrap-filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f1f1f1;
+}
+
+.filter-col1, .filter-col2, .filter-col3, .filter-col4 {
+  width: 22%;
+}
+
+.filter-col1 ul, .filter-col2 ul, .filter-col3 ul, .filter-col4 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-col1 li, .filter-col2 li, .filter-col3 li, .filter-col4 li {
+  margin-bottom: 6px;
+}
+
+.filter-link {
+  text-decoration: none;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.filter-link:hover {
+  color: #007bff;
+}
+
+.filter-link-active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.filter-col3 .fs-15 {
+  font-size: 15px;
+}
+
+.mtext-102 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.mtext-107 {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Product Item */
+.isotope-item {
+  padding-bottom: 35px;
+}
+
+.block2 {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.block2-pic {
+  position: relative;
+}
+
+.block2-pic img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.block2-pic:hover img {
+  transform: scale(1.1);
+}
+
+.block2-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.block2-btn:hover {
+  background-color: #0056b3;
+}
+
+.block2-txt {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block2-txt-child1 a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.block2-txt-child1 a:hover {
+  color: #007bff;
+}
+
+.block2-txt-child1 .stext-105 {
+  font-size: 14px;
+  color: #777;
+}
+
+.block2-txt-child2 {
+  text-align: right;
+}
+
+.btn-addwish-b2 {
+  position: relative;
+}
+
+.icon-heart1 {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-heart2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.btn-addwish-b2:hover .icon-heart1 {
+  display: none;
+}
+
+.btn-addwish-b2:hover .icon-heart2 {
+  display: block;
 }
