@@ -1,6 +1,7 @@
 @extends('frontend.layout')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('second_choice/css/profile.css') }}" />
 <div class="container mt-5">
     <h2>Profile Pengguna</h2>
 
@@ -14,9 +15,7 @@
                 <a href="{{ route('settings') }}">
                     <button class="edit-profile">Edit profil</button>
                 </a>
-                <a href="{{ route('product.create') }}">
-                    <button class="add-product">Tambah produk</button>
-                </a>
+                
             </div>
         </div>
 
@@ -36,15 +35,14 @@
     </section>
 
     <!-- Bagian Informasi Profile Detail -->
-    <div class="profile-details mt-4">
+    <!-- <div class="profile-details mt-4">
         <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
-        <p><strong>Tanggal Bergabung:</strong> {{ Auth::user()->created_at->format('d M Y') }}</p>
-    </div>
+    </div> -->
 
     <!-- Bagian Tindakan Profile -->
-    <div class="profile-actions">
+    <!-- <div class="profile-actions">
         <a href="{{ route('settings') }}" class="btn btn-primary">Edit Profile</a>
         <a href="{{ route('logout') }}" class="btn btn-danger"
            onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
@@ -54,5 +52,6 @@
             @csrf
         </form>
     </div>
-</div>
+
+  </div> -->
 @endsection
