@@ -9613,9 +9613,14 @@ body {
     opacity: 1;
     visibility: visible; }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
+h1, .h1, h3, .h3, h4, .h4, h5, .h5, .logo {
   font-family: "Work Sans", sans-serif;
-  color: #870017; }
+  color: #fff; }
+
+h2, .h2 {
+  font-family: "Work Sans", sans-serif;
+  color: #870017;
+}
 
 a {
   -webkit-transition: .3s all ease;

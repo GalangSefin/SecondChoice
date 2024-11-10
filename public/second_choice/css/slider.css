@@ -61,6 +61,13 @@
     line-height: 1.2;
 }
 
+.slide h3 {
+    font-family: 'Wonder Woman', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
 /* Styling khusus untuk slide kanan (Explore item) */
 .slider-section:last-child .slide-content {
     color: white;
