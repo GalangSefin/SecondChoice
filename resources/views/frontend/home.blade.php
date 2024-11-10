@@ -12,7 +12,8 @@
                             <div class="slide-label-left">Sell</div>
                             <h2>Mulai berjualan</h2>
                             <div class="slide-buttons">
-                                <a href="#" class="btn-primary">Jual</a>
+                              <a href="{{ route('jual') }}" class="btn btn-Jual">Jual</a>
+                              
                                 <a href="#" class="btn-secondary">Lihat tutorial</a>
                             </div>
                         </div>
