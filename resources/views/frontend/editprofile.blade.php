@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar with Dropdown Menu</title>
-    <link rel="stylesheet" href="css/stylesnavbar.css">
+    <title>Profile Settings - Preloved</title>
+    <link rel="stylesheet" href="css/styleedit.css">
+    <link rel="stylesheet" href="css/stylesnavbar2.css">
 </head>
 <body>
+    <!-- Navbar -->
     <header>
         <div class="nav-bar">
             <a href="#" class="logo"><img src="images/logo scnd.png" alt="Logo"></a>
@@ -34,7 +36,7 @@
                                 <a href="profile.html">Profil</a>
                                 <a href="#">Pembelian</a>
                                 <a href="editprofile.html">Settings</a>
-                                <a href="../second_choice/resources/views/frontend/layout.blade.php">Log out</a>
+                                <a href="#">Log out</a>
                             </div>
                         </div>
                     </div>
@@ -42,5 +44,35 @@
             </div>
         </div>
     </header>
+
+    <!-- Settings Section -->
+    <div class="settings-container">
+        <h1>Settings</h1>
+        <div class="settings-menu">
+            <a href="profile.html">Profile</a>
+            <a href="#">Account</a>
+        </div>
+
+        <!-- Profile Form -->
+        <div class="profile-form">
+            <div class="profile-picture">
+                <img src="url_foto.jpg" alt="Foto Profil" class="profile-photo">
+                <button>Ganti gambar</button>
+                <button>Hapus</button>
+            </div>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" value="Cahya Kumala Dewi">
+
+                <label for="bio">Bio</label>
+                <textarea id="bio" rows="3" placeholder="Perkenalkan dirimu atau jelasin produk-produk yang kamu jual. Bio akan muncul di profil publikmu."></textarea>
+
+                <label for="website">Website</label>
+                <input type="text" id="website" value="https://instagram.com/preloved.app" placeholder="Link ke Instagram atau website pribadimu">
+
+                <button type="submit">Update profile</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

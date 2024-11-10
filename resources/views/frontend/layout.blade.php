@@ -89,6 +89,7 @@
                     <a href="#" class="btn register-trigger">Sign up</a>
                 @else
                     <div class="nav-icons">
+                      <a href="{{ route('home') }}" class="btn btn-home">Home</a>
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
@@ -103,9 +104,9 @@
                                 <i class="fa-regular fa-user"></i>
                             </a>
                             <div class="dropdown-menu" id="userDropdownMenu">
-                                <a href="{{ route('profile') }}" class="dropdown-item">
-                                    <i class="fa-regular fa-user"></i> Profile
-                                </a>
+                              <a href="{{ route('profile.index') }}" class="dropdown-item">
+                                  <i class="fa-regular fa-user"></i> Profile
+                              </a>
                                 <a href="{{ route('purchases') }}" class="dropdown-item">
                                     <i class="fa-solid fa-bag-shopping"></i> Purchases
                                 </a>
