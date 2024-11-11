@@ -29,11 +29,10 @@
             <h2>{{ Auth::user()->name }}</h2>
             <p>@{{ Auth::user()->username }}</p>
         </div>
-        <a href="{{ route('uploadproduk') }}"><button>+ Upload produk</button></a>
+        <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
         <nav>
             <ul>
                 <li><a href="{{ route('dashboard') }}">Overview</a></li>
-                <li><a href="{{ route('pesanan') }}">Pesanan</a></li>
             </ul>
         </nav>
     </aside>
@@ -62,7 +61,7 @@
 
         <section class="listings">
             <h2>Daftar</h2>
-            <p>Tidak ada produk <a href="{{ route('uploadproduk') }}">Tambahkan Produk</a>.</p>
+            <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
         </section>
     </main>
 </div>

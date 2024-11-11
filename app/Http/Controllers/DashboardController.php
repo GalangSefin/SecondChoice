@@ -22,7 +22,7 @@ class DashboardController extends Controller
        $productsSold = 0; // Replace with actual calculation or database query
        $orders = []; // Replace with actual data from database
 
-       return view('dashboard.index', [
+       return view('frontend.Dashboard', [
            'totalEarnings' => $totalEarnings,
            'productsSold' => $productsSold,
            'orders' => $orders,
