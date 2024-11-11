@@ -30,6 +30,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/login-popup.css') }}" />
+    <style>
+      .brand-section .logo img {
+  width: 250px;       /* Atur ukuran lebar logo */
+  height: auto;       /* Menjaga proporsi tinggi logo */
+  transition: transform 0.3s ease;  /* Menambahkan animasi transisi */
+}
+
+.brand-section .logo img:hover {
+  transform: scale(1.1);  /* Logo akan membesar 10% saat di-hover */
+}
+
+    </style>
 
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
@@ -50,12 +62,13 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-                SECOND CHOICE
+              <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
               </a>
             </div>
+            
 
             <!-- Search Bar -->
-            <!-- <div class="search-section">
+            <div class="search-section">
               <form action="#" class="d-flex search-form">
                 <div class="search-input-wrapper">
                   <svg class="search-icon" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +93,7 @@
                   </div>
                 </div>
               </form>
-            </div> -->
+            </div>
 
             <!-- Login/Signup Buttons -->
             <div class="auth-buttons">
@@ -92,9 +105,6 @@
                       <a href="{{ route('home') }}" class="btn btn-home">Home</a>
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a href="{{ route('wishlist') }}" class="icon-link">
-                            <i class="fa-regular fa-heart"></i>
                         </a>
                         <a href="{{ route('cart') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>

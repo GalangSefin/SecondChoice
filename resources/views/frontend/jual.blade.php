@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Choice</title>
-    <link rel="stylesheet" href="second_choice/css/dashboard.css">
-   
-</head>
-<body>
+@extends('frontend.layout')
+
+@section('content')
+<link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
+
+<div class="dashboard-container">
     <nav class="navbar">
         <div class="nav-bar">
-            <a href="#" class="logo"><img src="images/logo scnd.png" alt=""></a>
+            <a href="#" class="logo"><img src="{{ asset('images/logo scnd.png') }}" alt=""></a>
             <input type="search" placeholder="Search Jersey...">
             <div class="nav-links">
                 <a href="#" class="tab active">Wanita</a>
@@ -19,11 +15,14 @@
                 <a href="#" class="tab active">Anak</a>
                 <a href="#" class="sell-link">Jual</a>
                 <div class="icons">
-                    <a href="#" ><img src="images/mail.png" alt=""></a>
-                    <a href="#" ><img src="images/cart[1].png" alt=""></a>
+                    <a href="#" ><img src="{{ asset('images/mail.png') }}" alt=""></a>
+                    <a href="#" ><img src="{{ asset('images/cart[1].png') }}" alt=""></a>
                     <a href="#" class="profile-icon">C</a>
-                </div>        
+                </div>
+            </div>        
+        </div>
     </nav>
+
     <div class="dashboard">
         <aside class="sidebar">
             <div class="profile">
@@ -31,7 +30,7 @@
                 <h2>User</h2>
                 <p>@user123</p>
             </div>
-            <a href="uploadproduk.html"><button>+ Upload produk</button>
+            <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
             <nav>
                 <ul>
                     <li><a href="Dashboard.html">Overview</a></li>
@@ -40,10 +39,12 @@
             </nav>
         </aside>
 
-    <main class="content">
-        <header>
-            <h1>Pesanan</h1>
-            <p>Tidak ada pesanan</p>
-        </header>
-</body>
-</html>
+        <main class="content">
+            <header>
+                <h1>Pesanan</h1>
+                <p>Tidak ada pesanan</p>
+            </header>
+        </main>
+    </div>
+</div>
+@endsection

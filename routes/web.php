@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -88,3 +89,9 @@ Route::post('/login', function (Request $request) {
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk menampilkan form produk
+Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
+
+// Route untuk mengirimkan produk (POST request)
+Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
