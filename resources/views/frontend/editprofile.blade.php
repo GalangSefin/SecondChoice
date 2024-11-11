@@ -1,78 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Settings - Preloved</title>
-    <link rel="stylesheet" href="css/styleedit.css">
-    <link rel="stylesheet" href="css/stylesnavbar2.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <header>
-        <div class="nav-bar">
-            <a href="#" class="logo"><img src="images/logo scnd.png" alt="Logo"></a>
-            <input type="search" placeholder="Search Jersey...">
-            <div class="nav-links">
-                <div class="relative">
-                <a href="#" class="tab active">Wanita</a>
-                <a href="#" class="tab active">Pria</a>
-                <a href="#" class="tab active">Branded</a>
-                <a href="#" class="tab active">Anak</a>
-                <a href="#" class="sell-link">Jual</a>
-                </div>
-                
-                <!-- Icons section -->
-                <div class="icons">
-                    <a href="#"><img src="images/mail.png" alt="Mail Icon"></a>
-                    <a href="#"><img src="images/cart[1].png" alt="Cart Icon"></a>
-                    <a href="#" class="profile-icon">C</a>
-                    
-                    <!-- Dropdown menu placed next to profile icon -->
-                    <div class="dropdown">
-                        <div class="icon">
-                            <span>☰</span>
-                            <div class="dropdown-content">
-                                <a href="profile.html">Profil</a>
-                                <a href="#">Pembelian</a>
-                                <a href="editprofile.html">Settings</a>
-                                <a href="#">Log out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
+@extends('frontend.layout')
+
+@section('content')
+<link rel="stylesheet" href="{{ asset('second_choice/css/styleedit.css') }}" />
+<div class="container mt-5">
+    <h2>Pengaturan Profil</h2>
+
+    <!-- Bagian Profile Section -->
+    <section class="profile-section">
+        <div class="profile-header">
+            <div class="profile-icon-large">{{ substr(Auth::user()->name, 0, 1) }}</div>
+            <div class="profile-info">
+                <h1>{{ Auth::user()->name }}</h1>
+                <p>@{{ Auth::user()->username }}</p>
             </div>
         </div>
-    </header>
 
-    <!-- Settings Section -->
-    <div class="settings-container">
-        <h1>Settings</h1>
-        <div class="settings-menu">
-            <a href="profile.html">Profile</a>
-            <a href="#">Account</a>
-        </div>
-
-        <!-- Profile Form -->
+        <!-- Form Edit Profile -->
         <div class="profile-form">
             <div class="profile-picture">
-                <img src="url_foto.jpg" alt="Foto Profil" class="profile-photo">
-                <button>Ganti gambar</button>
-                <button>Hapus</button>
+                <img src="{{ asset('second_choice/images/default_profile.png') }}" alt="Foto Profil" class="profile-photo">
+                <button class="btn btn-secondary">Ganti Gambar</button>
+                <button class="btn btn-danger">Hapus</button>
             </div>
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" value="Cahya Kumala Dewi">
 
-                <label for="bio">Bio</label>
-                <textarea id="bio" rows="3" placeholder="Perkenalkan dirimu atau jelasin produk-produk yang kamu jual. Bio akan muncul di profil publikmu."></textarea>
+            <form action="{{ route('updateProfile') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" class="form-control" value="{{ Auth::user()->name }}" required>
+                </div>
 
-                <label for="website">Website</label>
-                <input type="text" id="website" value="https://instagram.com/preloved.app" placeholder="Link ke Instagram atau website pribadimu">
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" class="form-control" rows="3" placeholder="Perkenalkan dirimu atau jelasin produk yang kamu jual.">{{ Auth::user()->bio }}</textarea>
+                </div>
 
-                <button type="submit">Update profile</button>
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" class="form-control" value="{{ Auth::user()->website }}" placeholder="Link ke Instagram atau website pribadimu">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Profil</button>
             </form>
         </div>
+    </section>
+
+
+    <!-- Bagian Jika Belum Ada Item -->
+    <div class="no-items">
+        <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
+        <p>Belum ada item</p>
     </div>
-</body>
-</html>
+</div>
+@endsection

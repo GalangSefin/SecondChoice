@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+use App\Http\Controllers\SettingController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -41,7 +42,8 @@ Route::get('/home', function () {
     return view('frontend.layout'); // Mengarahkan ke layout.blade.php
 })->name('home');
 
-Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+// Admin Routes
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
     Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
@@ -50,28 +52,27 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
+// Protected Routes (Requires Auth)
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('frontend.dashboard', ['layout' => 'after_login']);
     })->name('dashboard');
-    Route::get('/messages', [MessageController::class, 'index'])->name('messages'); 
+
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/purchases', 'PurchaseController@index')->name('purchases');
-    Route::get('/settings', 'SettingController@index')->name('settings');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    // // Tambahan Route Baru (Langkah 3)
-    // Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index'); // Halaman Profil Pengguna
-    // Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Halaman Tambah Produk
-});
-
-// Rute untuk halaman profil pengguna
-Route::middleware(['auth'])->group(function () {
+    // Routes untuk halaman profil pengguna
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    // Routes untuk halaman pengaturan (Settings)
+    Route::get('/settings', [SettingController::class, 'editProfile'])->name('settings');
+    Route::post('/update-profile', [SettingController::class, 'updateProfile'])->name('updateProfile');
 });
 
 // Route untuk simulasi after login
