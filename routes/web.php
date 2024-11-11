@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+use App\Http\Controllers\HomeController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
