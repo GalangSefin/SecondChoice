@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+use App\Http\Controllers\DashboardController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -51,9 +52,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('frontend.dashboard', ['layout' => 'after_login']);
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Update route dashboard
     Route::get('/messages', [MessageController::class, 'index'])->name('messages'); 
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');

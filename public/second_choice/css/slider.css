@@ -104,6 +104,11 @@
     color: #000;
 }
 
+.slider-section:last-child .btn-primary:hover {
+    background: #fff;
+    color: #870017;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .dual-slider-container {
