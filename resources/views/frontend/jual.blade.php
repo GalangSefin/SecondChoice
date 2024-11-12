@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
 
 @section('content')
-<div class="container mt-5">
-    <h2>Dashboard</h2>
+<!-- <div class="container mt-5"> -->
+    <!-- <h2>Dashboard</h2> -->
 
     <!-- Bagian Navbar
     <nav class="navbar">
