@@ -11,7 +11,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\UpProdukController;  
+use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
+  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -42,7 +44,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rute untuk halaman home (jika dibutuhkan)
 Route::get('/home', function () {
-    return view('frontend.layout'); // Mengarahkan ke layout.blade.php
+    return view('frontend.layout'); 
 })->name('home');
 
 // Admin Routes
@@ -73,6 +75,8 @@ Route::middleware(['auth'])->group(function () {
     // Routes untuk halaman pengaturan (Settings)
     Route::get('/settings', [SettingController::class, 'editProfile'])->name('settings');
     Route::post('/update-profile', [SettingController::class, 'updateProfile'])->name('updateProfile');
+
+    Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 });
 
 // Route untuk simulasi after login
