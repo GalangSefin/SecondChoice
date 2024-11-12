@@ -12,7 +12,7 @@
         <a href="{{ url('uploadproduk') }}"><button>+ Upload produk</button></a>
         <nav>
             <ul>
-            <li><a href="{{ route('dashboard.index') }}">Overview</a></li>
+            <li><a href="{{ route('dashboard.index') }}">Overview</a></li>  
             </ul>
         </nav>
     </aside>

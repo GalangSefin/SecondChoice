@@ -1,5 +1,5 @@
 @extends('frontend.layout')
-<link rel="stylesheet" href="{{ asset('css/.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
 
 @section('content')
 <div class="container mt-5">
