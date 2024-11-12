@@ -64,6 +64,7 @@
             </div>
         </div>
     @endguest
+
 <div class="section">
   <div class="container">
     <div class="row mb-5 align-items-center">
@@ -577,7 +578,5 @@
 
   
   
-
-
 
   @endsection

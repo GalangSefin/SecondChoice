@@ -61,7 +61,7 @@
           <div class="site-navigation">
             <!-- Logo -->
             <div class="brand-section">
-              <a href="{{ route('home') }}" class="logo">
+              <a href="{{ route('after.login') }}" class="logo">
                 <img src="images/logo scnd.png" alt="Logo">
               </a>
             </div>

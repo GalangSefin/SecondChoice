@@ -18,7 +18,7 @@
         <!-- Form Edit Profile -->
         <div class="profile-form">
             <div class="profile-picture">
-                <img src="{{ asset('second_choice/images/default_profile.png') }}" alt="Foto Profil" class="profile-photo">
+                <img src="{{ asset('second_choice/images/dino.png') }}" alt="Foto Profil" class="profile-photo">
                 <button class="btn btn-secondary">Ganti Gambar</button>
                 <button class="btn btn-danger">Hapus</button>
             </div>
@@ -48,7 +48,7 @@
 
     <!-- Bagian Jika Belum Ada Item -->
     <div class="no-items">
-        <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
+        <img src="{{ asset('second_choice/images/kuning.png') }}" alt="Eyes Icon">
         <p>Belum ada item</p>
     </div>
 </div>
