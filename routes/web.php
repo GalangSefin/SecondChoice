@@ -9,13 +9,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
-<<<<<<< HEAD
-use App\Http\Controllers\HomeController;
-=======
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UpProdukController;  
->>>>>>> 605835197566a4c43a1a371e7b63b4a25f521aa7
 
 // |--------------------------------------------------------------------------
 // | Web Routes
