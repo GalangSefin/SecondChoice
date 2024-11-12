@@ -1,5 +1,5 @@
 
-            .Alamat {
+.Alamat {
 	color: #111111;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -98,13 +98,6 @@
 	transform: rotate(127deg);
 	content: "";
 	opacity: 0;
-}
-
-.checkout__input__checkbox p {
-	color: #0d0d0d;
-	font-size: 14px;
-	line-height: 24px;
-	margin-bottom: 22px;
 }
 
 .checkout__order {

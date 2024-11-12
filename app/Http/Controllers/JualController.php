@@ -8,6 +8,6 @@ class JualController extends Controller
 {
     public function index()
     {
-        return view('jual.jual');  // Pastikan ada view jual.blade.php
+        return view('frontend.jual');  // Pastikan ada view jual.blade.php
     }
 }
