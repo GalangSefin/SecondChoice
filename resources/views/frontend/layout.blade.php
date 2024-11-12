@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/login-popup.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
 
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
