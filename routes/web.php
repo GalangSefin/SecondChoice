@@ -52,7 +52,7 @@ Route::get('/home', function () {
 
 // Protected Routes (Requires Auth)
 Route::middleware(['auth'])->group(function () {
-    
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
