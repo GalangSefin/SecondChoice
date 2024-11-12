@@ -9,7 +9,13 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+<<<<<<< HEAD
 use App\Http\Controllers\HomeController;
+=======
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;  
+>>>>>>> 605835197566a4c43a1a371e7b63b4a25f521aa7
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -55,10 +61,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
 
 // Protected Routes (Requires Auth)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('frontend.dashboard', ['layout' => 'after_login']);
-    })->name('dashboard');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Update route dashboard
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');

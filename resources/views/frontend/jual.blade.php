@@ -33,7 +33,7 @@
             <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
             <nav>
                 <ul>
-                    <li><a href="Dashboard.html">Overview</a></li>
+                    <li><a href="{{ route('dashboard') }}">Overview</a></li>
                     <li><a href="Pesanan.html">Pesanan</a></li>
                 </ul>
             </nav>

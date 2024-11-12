@@ -27,7 +27,7 @@
                     <div class="slide">
                         <div class="slide-content-right">
                             <div class="slide-label-right">New</div>
-                            <h2>Explore item terbaru</h2>
+                            <h3>Explore item terbaru</h3>
                             <div class="slide-buttons">
                                 <a href="#" class="btn-primary">Shop now</a>
                             </div>
