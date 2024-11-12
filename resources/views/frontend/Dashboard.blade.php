@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
+<link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
 
 <nav class="navbar">
     <div class="nav-bar">

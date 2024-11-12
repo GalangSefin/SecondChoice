@@ -160,10 +160,11 @@
         <button class="close-button">&times;</button>
         <h2>Login</h2>
         
-        <button class="google-login-btn">
-            <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
-            Continue with Google
-        </button>
+        <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
+          <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
+          Continue with Google
+      </button>
+      
         
         <div class="divider">atau</div>
         
@@ -190,10 +191,10 @@
         <button class="close-button">&times;</button>
         <h2>Create account</h2>
         
-        <button class="google-login-btn">
-            <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
-            Continue with Google
-        </button>
+        <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
+          <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
+          Continue with Google
+      </button>
         
         <div class="divider">atau</div>
         

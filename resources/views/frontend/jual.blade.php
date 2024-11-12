@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
 
 <div class="dashboard-container">
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <div class="nav-bar">
             <a href="#" class="logo"><img src="{{ asset('images/logo scnd.png') }}" alt=""></a>
             <input type="search" placeholder="Search Jersey...">
@@ -21,7 +21,7 @@
                 </div>
             </div>        
         </div>
-    </nav>
+    </nav> -->
 
     <div class="dashboard">
         <aside class="sidebar">
