@@ -10622,17 +10622,16 @@ input.num-product::-webkit-inner-spin-button {
   margin: 0; 
 }
 
-.brand-section .logoscnd img {
-  width: 250px;               /* Atur ukuran lebar logo */
-  height: auto;               /* Menjaga proporsi tinggi logo */
+.brand-section .logo img {
+  width: 250px;       /* Atur ukuran lebar logo */
+  height: auto;       /* Menjaga proporsi tinggi logo */
   transition: transform 0.3s ease;  /* Menambahkan animasi transisi */
-  margin-left: 50px;          /* Mengatur jarak kiri logo */
 }
 
-
-.brand-section .logoscnd img:hover {
+.brand-section .logo img:hover {
   transform: scale(1.1);  /* Logo akan membesar 10% saat di-hover */
 }
+
 /* Section Styling */
 .bg0 {
   background-color: #f8f8f8;

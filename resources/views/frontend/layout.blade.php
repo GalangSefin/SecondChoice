@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
+
     <link rel="shortcut icon" href="favicon.png" />
 
     <meta name="description" content="" />
@@ -30,19 +31,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/login-popup.css') }}" />
-    <style>
-      .brand-section .logo img {
-  width: 250px;       /* Atur ukuran lebar logo */
-  height: auto;       /* Menjaga proporsi tinggi logo */
-  transition: transform 0.3s ease;  /* Menambahkan animasi transisi */
-}
-
-.brand-section .logo img:hover {
-  transform: scale(1.1);  /* Logo akan membesar 10% saat di-hover */
-}
-
-    </style>
-
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -102,7 +90,6 @@
                     <a href="#" class="btn register-trigger">Sign up</a>
                 @else
                     <div class="nav-icons">
-                      <a href="{{ route('home') }}" class="btn btn-home">Home</a>
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
@@ -140,13 +127,26 @@
       </div>
 
       <!-- Bagian bawah navbar -->
+       
       <div class="nav-bottom">
         <div class="container">
           <div class="categories">
             <ul>
-              <li><a href="#">Wanita</a></li>
-              <li><a href="#">Pria</a></li>
-              <li><a href="#">Branded</a></li>
+              <li><a href="{{ route('home') }}">Home</a></li>
+              <div data-v-95b28ccd class="category__trigger flex" onclick="toggleDropdown()">
+                <svg data-v-95b28ccd xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                  <!-- Tambahkan konten SVG di sini -->
+                </svg>
+                <span data-v-95b28ccd class="category__trigger__name font-white">Kategori</span>
+              </div>
+              
+              <div class="dropdown-content">
+                <a href="#">Subkategori 1</a>
+                <a href="#">Subkategori 2</a>
+                <a href="#">Subkategori 3</a>
+              </div>
+
+              <li><a href="#">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>
           </div>
@@ -220,57 +220,10 @@
 
     <!-- Langsung mulai konten setelah navbar -->
     @yield('content')
-
+    
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-columns">
-          <!-- Column 1: Preloved -->
-          <div class="footer-column">
-            <h3>Preloved</h3>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 2: Discover -->
-          <div class="footer-column">
-            <h3>Discover</h3>
-            <ul>
-              <li><a href="#">Cara kerjanya</a></li>
-              <li><a href="#">Mulai jualan</a></li>
-              <li><a href="#">Thrift shops</a></li>
-              <li><a href="#">Nama olshop</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Help -->
-          <div class="footer-column">
-            <h3>Help</h3>
-            <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Social Media Icons -->
-        <div class="social-icons">
-          <a href="#"><span class="icon-instagram"></span></a>
-          <a href="#"><span class="icon-tiktok"></span></a>
-          <a href="#"><span class="icon-facebook"></span></a>
-          <a href="#"><span class="icon-x"></span></a>
-          <a href="#"><span class="icon-linkedin"></span></a>
-        </div>
-
-        <!-- Privacy and Terms -->
-        <div class="footer-bottom">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-        </div>
-      </div>
-    </footer>
+    @include('frontend.footer')
+    
 
     <!-- Scripts -->
     <script src="{{ asset('second_choice/js/bootstrap.bundle.min.js') }}"></script>

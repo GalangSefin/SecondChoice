@@ -19,7 +19,11 @@ use App\Http\Controllers\HomeController;
 // | routes are loaded by the RouteServiceProvider and all of them will
 // | be assigned to the "web" middleware group. Make something great!
 // |
-// */
+
+
+
+// routes/web.php
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -40,7 +44,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rute untuk halaman home (jika dibutuhkan)
 Route::get('/home', function () {
-    return view('frontend.layout'); // Mengarahkan ke layout.blade.php
+    return view('frontend.home'); // Mengarahkan ke layout.blade.php
 })->name('home');
 
 Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -86,6 +90,9 @@ Route::post('/login', function (Request $request) {
     // Handle login logic
     return redirect()->route('after.login');
 })->name('login.submit');
+
+
+
 
 Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
