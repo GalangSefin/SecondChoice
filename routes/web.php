@@ -58,8 +58,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('frontend.dashboard', ['layout' => 'after_login']);
-    })->name('dashboard');
+        return view('frontend.dashboard', ['layout' => 'after_login']);})->name('dashboard');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages'); 
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
