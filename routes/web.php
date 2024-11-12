@@ -9,9 +9,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UpProdukController;  
+use App\Http\Controllers\DashboardController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -26,7 +26,7 @@ use App\Http\Controllers\UpProdukController;
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
-
+ 
 Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
@@ -73,6 +73,10 @@ Route::middleware(['auth'])->group(function () {
     // Routes untuk halaman pengaturan (Settings)
     Route::get('/settings', [SettingController::class, 'editProfile'])->name('settings');
     Route::post('/update-profile', [SettingController::class, 'updateProfile'])->name('updateProfile');
+
+    // Routes for DashboardController
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
 });
 
 // Route untuk simulasi after login
