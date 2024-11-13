@@ -150,7 +150,7 @@
                 <a href="#">Subkategori 3</a>
               </div>
 
-              <li><a href="#">Jual</a></li>
+              <li><a href="{{ route('jual') }}">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>
           </div>

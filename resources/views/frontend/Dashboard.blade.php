@@ -33,6 +33,7 @@
         <nav>
             <ul>
                 <li><a href="{{ route('dashboard') }}">Overview</a></li>
+                <li><a href="{{ route('pesanan') }}">Pesanan</a></li>
             </ul>
         </nav>
     </aside>

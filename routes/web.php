@@ -10,9 +10,11 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\UpProdukController;  
+use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\pesananController;
+  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -72,6 +74,8 @@ Route::middleware(['auth'])->group(function () {
     // Routes for DashboardController
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
+
+    Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 });
 
 // Admin Routes
@@ -82,6 +86,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+
 });
 
 // Route untuk simulasi after login
