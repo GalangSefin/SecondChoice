@@ -227,3 +227,7 @@ footer {
 .tab.active i {
     color: black; /* Ikon hitam pada tab aktif */
 }
+.Footer_logo {
+    width: 18vw; /* 10% dari lebar viewport */
+    height: auto;
+}

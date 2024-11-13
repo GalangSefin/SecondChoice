@@ -54,13 +54,13 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-                <img src="images/logo scnd.png" alt="Logo">
+              <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
               </a>
             </div>
             
 
             <!-- Search Bar -->
-            <!-- <div class="search-section">
+            <div class="search-section">
               <form action="#" class="d-flex search-form">
                 <div class="search-input-wrapper">
                   <svg class="search-icon" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@
                   </div>
                 </div>
               </form>
-            </div> -->
+            </div>
 
             <!-- Login/Signup Buttons -->
             <div class="auth-buttons">

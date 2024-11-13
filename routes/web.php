@@ -9,8 +9,10 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
 use App\Http\Controllers\HomeController;
 
 // |--------------------------------------------------------------------------
@@ -61,10 +63,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'],
 
 // Protected Routes (Requires Auth)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('frontend.dashboard', ['layout' => 'after_login']);
-    })->name('dashboard');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Update route dashboard
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
@@ -106,3 +105,9 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk menampilkan form produk
+Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
+
+// Route untuk mengirimkan produk (POST request)
+Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
