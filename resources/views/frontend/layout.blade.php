@@ -54,7 +54,7 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-              <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
+                <img src="images/logo scnd.png" alt="Logo">
               </a>
             </div>
             
@@ -150,7 +150,7 @@
                 <a href="#">Subkategori 3</a>
               </div>
 
-              <li><a href="#">Jual</a></li>
+              <li><a href="{{ route('jual') }}">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>
           </div>

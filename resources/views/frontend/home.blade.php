@@ -64,6 +64,7 @@
             </div>
         </div>
     @endguest
+
 <div class="section">
   <div class="container">
     <div class="row mb-5 align-items-center">
@@ -547,7 +548,7 @@
           <div class="col-lg-4 col-md-6">
                 <a href="workwear.html">
                     <div class="image-box">
-                        <img src="images/eki.png" />
+                        <img src="images/dino.png" />
                     </div>
                     <p class="collection-title">Pecah Beling</p>
                 </a>
@@ -555,7 +556,7 @@
             <div class="col-lg-4 col-md-6">
                 <a href="reworked.html">
                     <div class="image-box">
-                        <img src="images/clothes.jpg"/>
+                        <img src="images/kuning.jpg"/>
                     </div>
                     <p class="collection-title">Pakaian</p>
                 </a>
@@ -577,7 +578,5 @@
 
   
   
-
-
 
   @endsection

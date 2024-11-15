@@ -4,15 +4,16 @@
 @section('content')
 <div class="dashboard container mt-5">
     <aside class="sidebar">
-        <div class="profile">
-            <div class="avatar">U</div>
-            <h2>User</h2>
-            <p>@user123</p>
+            <div class="profile">
+            <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
+            <h2>{{ Auth::user()->name }}</h2>
+            <p>@{{ Auth::user()->username }}</p>
         </div>
-        <a href="{{ url('uploadproduk') }}"><button>+ Upload produk</button></a>
-        <nav>
+            <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
+            <nav>
             <ul>
-            <li><a href="{{ route('dashboard.index') }}">Overview</a></li>  
+            <li><a href="{{ route('dashboard') }}">Overview</a></li> 
+            <li><a href="{{ route('pesanan') }}">Pesanan</a></li> 
             </ul>
         </nav>
     </aside>
@@ -40,7 +41,7 @@
 
         <section class="listings">
             <h2>Daftar</h2>
-            <p>Tidak ada produk <a href="{{ url('uploadproduk') }}">Tambahkan Produk</a>.</p>
+            <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
         </section>
     </main>
 </div>
