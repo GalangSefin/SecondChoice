@@ -19,6 +19,25 @@
             </div>
         </div>
 
+        Bagian Informasi Profile Detail
+    <div class="profile-details mt-4">
+        <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
+        <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+        <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
+    </div>
+
+    <!-- Bagian Tindakan Profile
+    <div class="profile-actions">
+        <a href="{{ route('settings') }}" class="btn btn-primary">Edit Profile</a>
+        <a href="{{ route('logout') }}" class="btn btn-danger"
+           onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+            Logout
+        </a>
+        <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div> -->
+
         <!-- Bagian Tab Menu -->
         <footer>
             <div class="tabs">
@@ -34,24 +53,6 @@
         </div>
     </section>
 
-    <!-- Bagian Informasi Profile Detail -->
-    <!-- <div class="profile-details mt-4">
-        <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
-        <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-        <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
-    </div> -->
 
-    <!-- Bagian Tindakan Profile -->
-    <!-- <div class="profile-actions">
-        <a href="{{ route('settings') }}" class="btn btn-primary">Edit Profile</a>
-        <a href="{{ route('logout') }}" class="btn btn-danger"
-           onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
-            Logout
-        </a>
-        <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </div>
-
-  </div> -->
+  </div>
 @endsection
