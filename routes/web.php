@@ -9,7 +9,12 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -28,7 +33,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
-
+ 
 Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
@@ -47,19 +52,9 @@ Route::get('/home', function () {
     return view('frontend.home'); // Mengarahkan ke layout.blade.php
 })->name('home');
 
-// Admin Routes
-Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
-    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
-    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
-    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-});
-
 // Protected Routes (Requires Auth)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Update route dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
@@ -75,6 +70,23 @@ Route::middleware(['auth'])->group(function () {
     // Routes untuk halaman pengaturan (Settings)
     Route::get('/settings', [SettingController::class, 'editProfile'])->name('settings');
     Route::post('/update-profile', [SettingController::class, 'updateProfile'])->name('updateProfile');
+
+    // Routes for DashboardController
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
+
+    Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
+});
+
+// Admin Routes
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
+    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+
 });
 
 // Route untuk simulasi after login

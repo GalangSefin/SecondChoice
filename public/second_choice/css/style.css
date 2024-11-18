@@ -76,6 +76,16 @@
   :root {
     scroll-behavior: smooth; } }
 
+    /* public/css/app.css */
+.content-wrapper {
+  padding-left: 2000px;
+  padding-right: 20px;
+  /* Atau bisa pakai persentase */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Maksimal lebar halaman */
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -6547,7 +6557,8 @@ textarea.form-control-lg {
   margin-top: 1.5rem !important; }
 
 .mt-5 {
-  margin-top: 3rem !important; }
+  /* margin-top: 3rem !important;  */
+}
 
 .mt-auto {
   margin-top: auto !important; }
@@ -9626,7 +9637,8 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  text-decoration: none; }
+  text-decoration: none; 
+}
 
 .form-control {
   font-size: 16px;

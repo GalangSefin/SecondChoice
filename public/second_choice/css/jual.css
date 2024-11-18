@@ -11,14 +11,14 @@ body {
 }
 
 /* Header */
-header {
+/* header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-}
+} */
 
 .logo {
     font-weight: bold;

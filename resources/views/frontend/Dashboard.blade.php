@@ -1,38 +1,19 @@
 @extends('frontend.layout')
+<link rel="stylesheet" href="{{ asset('css/jual.css') }}" />
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
-
-<nav class="navbar">
-    <div class="nav-bar">
-        <a href="#" class="logo"><img src="{{ asset('second_choice/images/logo scnd.png') }}" alt="Logo Second Choice"></a>
-        <input type="search" placeholder="Search Jersey...">
-        <div class="nav-links">
-            <a href="#" class="tab active">Wanita</a>
-            <a href="#" class="tab active">Pria</a>
-            <a href="#" class="tab active">Branded</a>
-            <a href="#" class="tab active">Anak</a>
-            <a href="#" class="sell-link">Jual</a>
-            <div class="icons">
-                <a href="#"><img src="{{ asset('second_choice/images/mail.png') }}" alt="Mail Icon"></a>
-                <a href="#"><img src="{{ asset('second_choice/images/cart[1].png') }}" alt="Cart Icon"></a>
-                <a href="#" class="profile-icon">{{ substr(Auth::user()->name, 0, 1) }}</a>
-            </div>
-        </div>        
-    </div>
-</nav>
-
-<div class="dashboard">
+<div class="dashboard container mt-5">
     <aside class="sidebar">
-        <div class="profile">
+            <div class="profile">
             <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
             <h2>{{ Auth::user()->name }}</h2>
             <p>@{{ Auth::user()->username }}</p>
         </div>
-        <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
-        <nav>
+            <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
+            <nav>
             <ul>
-                <li><a href="{{ route('dashboard') }}">Overview</a></li>
+            <li><a href="{{ route('dashboard') }}">Overview</a></li> 
+            <li><a href="{{ route('pesanan') }}">Pesanan</a></li> 
             </ul>
         </nav>
     </aside>
@@ -42,7 +23,6 @@
             <h1>Selamat Datang</h1>
             <p>Berikut status pendapatanmu</p>
         </header>
-        
         <section class="status">
             <div class="status-item">
                 <p>Total pendapatan</p>
