@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchases</title>
-    <link rel="stylesheet" href="css/purchases.css">
-</head>
-<body>
+@extends('frontend.layout')
+
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/purchases.css') }}" />
 
 <div class="container">
     <h1 class="title">Purchases</h1>
@@ -14,7 +9,7 @@
     <!-- First Item -->
     <div class="card">
         <div class="image-container">
-            <img src="images/croptop.jpg" alt="Crop Top">
+            <img src="{{ asset('images/croptop.jpg') }}" alt="Crop Top">
         </div>
         <div class="details">
             <h2>Crop Top</h2>
@@ -29,7 +24,7 @@
     <!-- Second Item -->
     <div class="card">
         <div class="image-container">
-            <img src="images/galon.jpeg" alt="Galon Aqua">
+            <img src="{{ asset('images/galon.jpeg') }}" alt="Galon Aqua">
         </div>
         <div class="details">
             <h2>Galon Aqua</h2>
@@ -44,7 +39,7 @@
     <!-- Third Item -->
     <div class="card">
         <div class="image-container">
-            <img src="images/kulkas.jpg" alt="Kulkas Bekas">
+            <img src="{{ asset('images/kulkas.jpg') }}" alt="Kulkas Bekas">
         </div>
         <div class="details">
             <h2>Kulkas Bekas</h2>
@@ -59,7 +54,7 @@
     <!-- Fourth Item -->
     <div class="card">
         <div class="image-container">
-            <img src="images/celana.jpg" alt="Celana">
+            <img src="{{ asset('images/celana.jpg') }}" alt="Celana">
         </div>
         <div class="details">
             <h2>Celana Pendek Jeans</h2>
@@ -71,7 +66,6 @@
         </div>
     </div>
 </div>
-<script src="js/purchases.js"></script>
 
-</body>
-</html>
+<script src="{{ asset('js/purchases.js') }}"></script>
+@endsection
