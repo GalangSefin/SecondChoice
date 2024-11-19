@@ -14,6 +14,12 @@ class Product extends Model
         'category', 'type', 'name', 'description', 'price', 'stock', 'condition'
     ];
 
+    // nyobak
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {

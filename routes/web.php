@@ -33,6 +33,11 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
+
+// login route
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); // Proses login
+
  
 Route::get('/messages', function () {
     return view('frontend.messages');
@@ -94,15 +99,7 @@ Route::get('/after-login', function () {
     return view('frontend.layouts.after_login');
 })->name('after.login');
 
-// Modifikasi route login yang ada
-Route::post('/login', function (Request $request) {
-    // Handle login logic
-    return redirect()->route('after.login');
-})->name('login.submit');
-
-
-
-
+// Social Login routes
 Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
@@ -115,3 +112,11 @@ Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('p
 
 // Route untuk mengirimkan produk (POST request)
 Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
+
+// Routes untuk CRUD produk
+Route::get('/produk', [UpProdukController::class, 'index'])->name('produk.index'); // Tampilkan semua produk
+Route::get('/produk/create', [UpProdukController::class, 'create'])->name('produk.create'); // Tampilkan form tambah produk
+Route::post('/produk', [UpProdukController::class, 'store'])->name('produk.store'); // Simpan produk baru
+Route::get('/produk/{id}/edit', [UpProdukController::class, 'edit'])->name('produk.edit'); // Tampilkan form edit produk
+Route::put('/produk/{id}', [UpProdukController::class, 'update'])->name('produk.update'); // Update produk
+Route::delete('/produk/{id}', [UpProdukController::class, 'destroy'])->name('produk.destroy'); // Hapus produk

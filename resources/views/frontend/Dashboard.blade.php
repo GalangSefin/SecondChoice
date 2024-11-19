@@ -40,8 +40,26 @@
         </section>
 
         <section class="listings">
-            <h2>Daftar</h2>
-            <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
+           <h2>Daftar Produk</h2>
+            @if ($products->isEmpty())
+                <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
+            @else
+            <div class="product-grid">
+            @foreach ($products as $product)
+                <div class="product-item">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                    <h3>{{ $product->name }}</h3>
+                    <p>Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                    <a href="{{ route('produk.edit', $product->id) }}">Edit</a>
+                    <form action="{{ route('produk.delete', $product->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Yakin ingin menghapus produk ini?')">Hapus</button>
+                    </form>
+                </div>
+            @endforeach
+        </div>
+    @endi
         </section>
     </main>
 </div>

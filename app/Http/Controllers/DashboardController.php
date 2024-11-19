@@ -21,12 +21,13 @@ class DashboardController extends Controller
        $totalEarnings = 0; // Replace with actual calculation or database query
        $productsSold = 0; // Replace with actual calculation or database query
        $orders = []; // Replace with actual data from database
+       $products = Product::where('dashboard', Auth::id())->get();
 
-       return view('frontend.Dashboard', [
+       return view('frontend.Dashboard', compact('products')); [
            'totalEarnings' => $totalEarnings,
            'productsSold' => $productsSold,
            'orders' => $orders,
            'user' => Auth::user()
-       ]);
+       ];
    }
 }

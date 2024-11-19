@@ -122,6 +122,35 @@ h2 {
     margin-top: 5px;
 }
 
+
+/* nyoba */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    width: 200px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+
 /* Responsif */
 @media (max-width: 768px) {
     .grid {
