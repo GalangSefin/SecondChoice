@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{{ asset('second_choice/css/uploadproduk.css') }}">
 
 <div class="UploadProduk">
-    <!-- <header>
-        <h1 class="collection-title">Second Choice</h1>
-    </header> -->
     
     <div class="form-container">
         <h2 class="collection-title">Tambah Produk</h2>
@@ -17,16 +14,17 @@
         </div>
         
         <!-- Upload Photo Section -->
-        <div class="upload-photo">
-            <label for="tambahfoto">Tambah Foto</label>
-            <div class="image-grid" id="imageGrid">
-                <!-- "Tambah foto" button slot -->
-                <div class="image-slot add-photo" onclick="document.getElementById('fileInput').click()">
-                    <span>Foto</span>
-                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;" onchange="previewImages()">
-                </div>
-            </div>
+<div class="upload-photo">
+    <label for="tambahfoto">Tambah Foto</label>
+    <div class="image-grid" id="imageGrid">
+        <!-- "Tambah foto" button slot -->
+        <div class="image-slot add-photo" onclick="document.getElementById('fileInput').click()">
+            <span>Foto</span>
+            <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;" onchange="previewImages()">
         </div>
+    </div>
+</div>
+
         
         <!-- Product Detail Section -->
         <div class="detail-section">
@@ -78,9 +76,9 @@
                     </select>
                 </div>
                 <div class="form-actions">
-                    <button type="button" class="save-draft">Save as draft</button>
-                    <button type="submit" class="submit-btn">Tambah Produk</button>
-                </div>
+                 <button type="button" class="save-draft">Save as draft</button>
+                 <button type="submit" class="submit-btn" onclick="showPopup('Produk berhasil ditambahkan!')">Tambah Produk</button>
+                 </div>
             </form>
         </div>
     </div>
@@ -115,6 +113,10 @@
     function removeImage(button) {
         const imageSlot = button.parentElement;
         imageSlot.remove();
+    }
+
+    function showPopup(message) {
+        alert(message);
     }
 </script>
 @endsection

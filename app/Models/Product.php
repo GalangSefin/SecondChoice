@@ -9,14 +9,27 @@ class Product extends Model
 {
     use HasFactory;
 
-    // Kolom-kolom yang boleh diisi
+    // Menentukan nama tabel jika tidak sesuai dengan konvensi
+    protected $table = 'products';
+
+    // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
-        'category', 'type', 'name', 'description', 'price', 'stock', 'condition'
+        'name', 
+        'price', 
+        'category', 
+        'stock', 
+        'condition', 
+        'image'
     ];
 
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {
         return $this->hasMany(ProductImage::class);  // Relasi satu ke banyak (one-to-many)
+    }
+
+    public function user()
+    {
+    return $this->belongsTo(User::class);
     }
 }

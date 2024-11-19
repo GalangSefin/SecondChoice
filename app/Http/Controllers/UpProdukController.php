@@ -32,6 +32,7 @@ class UpProdukController extends Controller
 
        // Membuat produk baru
        $produk = new Product();
+       $produk->user_id = auth()->id();  // Mengambil ID pengguna yang sedang login
        $produk->category = $validated['category'];
        $produk->type = $validated['type'];
        $produk->name = $validated['name'];
@@ -56,8 +57,8 @@ class UpProdukController extends Controller
            }
        }
 
-       // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
-       return redirect()->route('product.show', $produk->id)
-                        ->with('success', 'Produk berhasil ditambahkan!');
+    //    // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
+    //    return redirect()->route('product.show', $produk->id)
+    //                     ->with('success', 'Produk berhasil ditambahkan!');
    }
 }

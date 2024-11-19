@@ -14,7 +14,9 @@ use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\pesananController;
-  
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ProductController;
+
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -76,6 +78,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
 
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
+
+    // Routes untuk PurchaseController
+    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
+    Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
+
+    // Produk Routes
+    Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
+    Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
+    Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
+
 });
 
 // Admin Routes
@@ -101,17 +113,9 @@ Route::post('/login', function (Request $request) {
 })->name('login.submit');
 
 
-
-
 Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
-
-// Route untuk menampilkan form produk
-Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
-
-// Route untuk mengirimkan produk (POST request)
-Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');

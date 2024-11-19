@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Product;
 
 class ProfileController extends Controller
 {
-    // Menampilkan halaman profil pengguna
-    public function index()
-    {
-        $user = auth()->user();
-        return view('frontend.profile', compact('user'));
-    }
+     // Menampilkan halaman profil pengguna
+     public function index()
+{
+    // Mengambil data pengguna yang sedang login
+    $user = auth()->user();
+
+    // Mengambil daftar produk milik pengguna yang sedang login
+    $products = Product::where('user_id', $user->id)->with('images')->get();
+
+    // Mengirim data pengguna dan daftar produk ke view profile
+    return view('frontend.profile', compact('user', 'products'));
+}
 
     // Menampilkan halaman edit profil (jika diperlukan)
     public function show()

@@ -7,18 +7,16 @@
 
     <!-- Bagian Profile Section -->
     <section class="profile-section">
-        <div class="profile-header">
-            <div class="profile-icon-large">{{ substr(Auth::user()->name, 0, 1) }}</div>
-            <div class="profile-info">
-                <h1>{{ Auth::user()->name }}</h1>
-                <p>@{{ Auth::user()->username }}</p>
+    <div class="profile">
+            <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
+            <h2>{{ Auth::user()->name }}</h2>
+            <!-- <p>@{{ Auth::user()->username }}</p> -->
             </div>
-        </div>
 
         <!-- Form Edit Profile -->
         <div class="profile-form">
             <div class="profile-picture">
-                <img src="{{ asset('second_choice/images/dino.png') }}" alt="Foto Profil" class="profile-photo">
+                <img src="{{ asset('public/images/dino.png') }}" alt="Foto Profil" class="profile-photo">
                 <button class="btn btn-secondary">Ganti Gambar</button>
                 <button class="btn btn-danger">Hapus</button>
             </div>
