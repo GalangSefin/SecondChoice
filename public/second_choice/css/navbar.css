@@ -446,3 +446,8 @@ button.dropdown-item:hover {
 .icon-link:after {
     display: none !important;
 }
+/*efek ptoduk awal*/
+.clickable:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}

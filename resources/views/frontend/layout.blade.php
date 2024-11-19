@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="shortcut icon" href="favicon.png" />
 
