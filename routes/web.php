@@ -14,7 +14,9 @@ use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-  
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ProductController;
+
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -81,6 +83,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
 
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
+
+    // Routes untuk PurchaseController
+    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
+    Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
+
+    // Produk Routes
+    Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
+    Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
+    Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
+
 });
 
 // Admin Routes
@@ -99,24 +111,16 @@ Route::get('/after-login', function () {
     return view('frontend.layouts.after_login');
 })->name('after.login');
 
-// Social Login routes
+// Modifikasi route login yang ada
+Route::post('/login', function (Request $request) {
+    // Handle login logic
+    return redirect()->route('after.login');
+})->name('login.submit');
+
+
 Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
-
-// Route untuk menampilkan form produk
-Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('produk.upload');
-
-// Route untuk mengirimkan produk (POST request)
-Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
-
-// Routes untuk CRUD produk
-Route::get('/produk', [UpProdukController::class, 'index'])->name('produk.index'); // Tampilkan semua produk
-Route::get('/produk/create', [UpProdukController::class, 'create'])->name('produk.create'); // Tampilkan form tambah produk
-Route::post('/produk', [UpProdukController::class, 'store'])->name('produk.store'); // Simpan produk baru
-Route::get('/produk/{id}/edit', [UpProdukController::class, 'edit'])->name('produk.edit'); // Tampilkan form edit produk
-Route::put('/produk/{id}', [UpProdukController::class, 'update'])->name('produk.update'); // Update produk
-Route::delete('/produk/{id}', [UpProdukController::class, 'destroy'])->name('produk.destroy'); // Hapus produk

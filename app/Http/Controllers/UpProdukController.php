@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class UpProdukController extends Controller
 {
@@ -16,7 +15,7 @@ class UpProdukController extends Controller
    }
 
    // Menangani pengiriman produk
-   public function store(Request $request)
+   public function kirimProduk(Request $request)
    {
        // Validasi data yang dikirimkan
        $validated = $request->validate([
@@ -32,16 +31,17 @@ class UpProdukController extends Controller
        ]);
 
        // Membuat produk baru
-       $product = Product::create([
-        'category' => $validated['category'],
-        'type' => $validated['type'],
-        'name' => $validated['name'],
-        'description' => $validated['description'] ?? '',
-        'price' => $validated['price'],
-        'stock' => $validated['stock'],
-        'condition' => $validated['condition'],
-        'user_id' => Auth::id(), // Asosiasi dengan pengguna
-    ]);
+       $produk = new Product();
+       $produk->category = $validated['category'];
+       $produk->type = $validated['type'];
+       $produk->name = $validated['name'];
+       $produk->description = $validated['description'] ?? '';  // Jika tidak ada deskripsi, kosongkan
+       $produk->price = $validated['price'];
+       $produk->stock = $validated['stock'];
+       $produk->condition = $validated['condition'];
+
+       // Simpan produk pertama kali untuk mendapatkan ID
+       $produk->save();
 
        // Menangani unggahan gambar (jika ada)
        if ($request->hasFile('images')) {
@@ -50,12 +50,14 @@ class UpProdukController extends Controller
                $path = $image->store('products', 'public');
 
                // Jika Anda memiliki model ProductImage untuk mengelola gambar produk
-               $product->images()->create(['path' => $path]);
+               $produk->images()->create([
+                   'path' => $path,
+               ]);
            }
        }
 
        // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
-       return redirect()->route('dashboard')
+       return redirect()->route('dashboard', $produk->id)
                         ->with('success', 'Produk berhasil ditambahkan!');
    }
 }

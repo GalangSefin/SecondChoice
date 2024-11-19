@@ -108,7 +108,7 @@
                               <a href="{{ route('profile.index') }}" class="dropdown-item">
                                   <i class="fa-regular fa-user"></i> Profile
                               </a>
-                                <a href="{{ route('purchases') }}" class="dropdown-item">
+                                <a href="{{ route('purchases.index') }}" class="dropdown-item">
                                     <i class="fa-solid fa-bag-shopping"></i> Purchases
                                 </a>
                                 <a href="{{ route('settings') }}" class="dropdown-item">
