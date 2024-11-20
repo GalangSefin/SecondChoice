@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ProductImage;
+
 
 class UpProdukController extends Controller
 {
@@ -31,31 +33,34 @@ class UpProdukController extends Controller
        ]);
 
        // Membuat produk baru
-       $produk = new Product();
-       $produk->user_id = auth()->id();  // Mengambil ID pengguna yang sedang login
-       $produk->category = $validated['category'];
-       $produk->type = $validated['type'];
-       $produk->name = $validated['name'];
-       $produk->description = $validated['description'] ?? '';  // Jika tidak ada deskripsi, kosongkan
-       $produk->price = $validated['price'];
-       $produk->stock = $validated['stock'];
-       $produk->condition = $validated['condition'];
+       $produk = Product::create([
+        'user_id' => auth()->id(),
+        'category' => $validated['category'],
+        'type' => $validated['type'],
+        'name' => $validated['name'],
+        'description' => $validated['description'] ?? '',
+        'price' => $validated['price'],
+        'stock' => $validated['stock'],
+        'condition' => $validated['condition'],
+    ]);
 
-       // Simpan produk pertama kali untuk mendapatkan ID
-       $produk->save();
 
        // Menangani unggahan gambar (jika ada)
-       if ($request->hasFile('images')) {
-           foreach ($request->file('images') as $image) {
-               // Menyimpan gambar ke folder 'products' di storage
-               $path = $image->store('products', 'public');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Menyimpan gambar ke folder 'public/products'
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $imagePath = $image->storeAs('public/products', $imageName);
 
-               // Jika Anda memiliki model ProductImage untuk mengelola gambar produk
-               $produk->images()->create([
-                   'path' => $path,
-               ]);
-           }
-       }
+                // Menyimpan path gambar ke tabel 'product_images'
+                ProductImage::create([
+                    'product_id' => $produk->id,
+                    'image_name' => $imageName,
+                    'image_path' => $imagePath,
+                    'image_url' => Storage::url($imagePath),
+                ]);
+            }
+        }
 
     //    // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
     //    return redirect()->route('product.show', $produk->id)

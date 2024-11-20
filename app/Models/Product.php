@@ -14,6 +14,9 @@ class Product extends Model
 
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
+        'user_id',
+        'type',
+        'description',
         'name', 
         'price', 
         'category', 
