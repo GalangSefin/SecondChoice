@@ -41,7 +41,20 @@
 
         <section class="listings">
             <h2>Daftar</h2>
-            <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
+            @if(isset($products) && $products->isNotEmpty())
+    <ul>
+        @foreach($products as $product)
+            <li>
+                <img src="{{ asset('storage/' . $product->images->first()->path) }}" alt="{{ $product->name }}">
+                <h3>{{ $product->name }}</h3>
+                <p>{{ $product->description }}</p>
+            </li>
+        @endforeach
+    </ul>
+@else
+    <p>Tidak ada produk <a href="{{ route('produk.upload') }}">Tambahkan Produk</a>.</p>
+@endif
+
         </section>
     </main>
 </div>

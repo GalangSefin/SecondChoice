@@ -14,12 +14,14 @@ class Product extends Model
 
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
-        'name', 
-        'price', 
+        'id', 
         'category', 
-        'stock', 
-        'condition', 
-        'image'
+        'type', 
+        'name', 
+        'description', 
+        'price',
+        'stock',
+        'condition'
     ];
 
     // nyobak
@@ -31,6 +33,6 @@ class Product extends Model
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {
-        return $this->hasMany(ProductImage::class);  // Relasi satu ke banyak (one-to-many)
+        return $this->hasMany(ProductImage::class, 'product_id');  // Relasi satu ke banyak (one-to-many)
     }
 }
