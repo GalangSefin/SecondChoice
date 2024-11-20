@@ -53,6 +53,14 @@
                             @endif
                         </div>
                         <div class="listing-info">
+                            <!-- Menampilkan gambar produk -->
+                        <div class="listing-image">
+                             @if ($product->images->isNotEmpty())
+                                <img src="{{ Storage::url('products/' . $product->images->first()->image_name) }}" alt="{{ $product->name }}">
+                                @else
+                                 <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+                                @endif
+                        </div>
                             <h3>{{ $product->name }}</h3>
                             <p>{{ $product->description }}</p>
                             <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>

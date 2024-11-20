@@ -14,21 +14,19 @@ class Product extends Model
 
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
+        'user_id',
+        'type',
+        'description',
         'id', 
         'category', 
         'type', 
         'name', 
-        'description', 
-        'price',
-        'stock',
-        'condition'
+        'price', 
+        'category', 
+        'stock', 
+        'condition', 
+        'image'
     ];
-
-    // nyobak
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     // Relasi dengan model ProductImage (jika ada)
     public function images()
