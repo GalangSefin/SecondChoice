@@ -13,17 +13,7 @@
             <input type="text" id="idproduk" name="idproduk" value="PROD-12345" readonly>
         </div>
         
-        <!-- Upload Photo Section -->
-<div class="upload-photo">
-    <label for="tambahfoto">Tambah Foto</label>
-    <div class="image-grid" id="imageGrid">
-        <!-- "Tambah foto" button slot -->
-        <div class="image-slot add-photo" onclick="document.getElementById('fileInput').click()">
-            <span>Foto</span>
-            <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;" onchange="previewImages()">
-        </div>
-    </div>
-</div>
+        
 
         
         <!-- Product Detail Section -->
@@ -31,6 +21,19 @@
             <h3>Detail</h3>
             <form action="{{ route('kirimProduk') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                
+                <!-- Upload Photo Section -->
+                <div class="upload-photo">
+                    <label for="tambahfoto">Tambah Foto</label>
+                    <div class="image-grid" id="imageGrid">
+                        <!-- "Tambah foto" button slot -->
+                    <div class="image-slot add-photo" onclick="document.getElementById('fileInput').click()">
+                        <span>Foto</span>
+                        <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;" onchange="previewImages()">
+                    </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="category">Kategori</label>
                     <select name="category" id="category">

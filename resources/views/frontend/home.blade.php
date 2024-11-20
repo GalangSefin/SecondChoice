@@ -68,9 +68,10 @@
       <div class="container mx-auto px-4 py-8">
           <div class="flex justify-between items-center mb-6">
               <h1 class="text-3xl font-bold">Produk Terbaru</h1>
-              <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
-                Lihat Lainya
+              <a href="{{ route('products.viewall') }}" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
+                Lihat Lainnya
               </a>
+              
           </div>
           <div class="grid grid-cols-4 gap-6">
               <div class="text-center clickable">

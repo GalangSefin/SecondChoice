@@ -18,22 +18,22 @@ class UpProdukController extends Controller
 
    // Menangani pengiriman produk
    public function kirimProduk(Request $request)
-   {
-       // Validasi data yang dikirimkan
-       $validated = $request->validate([
-           'category' => 'required|string',
-           'type' => 'required|string',
-           'name' => 'required|string|max:255',
-           'description' => 'nullable|string',
-           'price' => 'required|numeric|min:0',
-           'stock' => 'required|integer|min:0',
-           'condition' => 'required|string',
-           'images' => 'nullable|array',
-           'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-       ]);
+{
+    // Validasi inputan
+    $validated = $request->validate([
+        'category' => 'required|string',
+        'type' => 'required|string',
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'condition' => 'required|string',
+        'images' => 'nullable|array',
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-       // Membuat produk baru
-       $produk = Product::create([
+    // Membuat produk baru
+    $produk = Product::create([
         'user_id' => auth()->id(),
         'category' => $validated['category'],
         'type' => $validated['type'],
@@ -44,23 +44,19 @@ class UpProdukController extends Controller
         'condition' => $validated['condition'],
     ]);
 
+    // Menangani unggahan gambar
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            // Mengambil konten gambar dalam format binary
+            $imageContent = file_get_contents($image);
 
-       // Menangani unggahan gambar (jika ada)
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                // Menyimpan gambar ke folder 'public/products'
-                $imageName = time() . '_' . $image->getClientOriginalName();
-                $imagePath = $image->storeAs('public/products', $imageName);
-
-                // Menyimpan path gambar ke tabel 'product_images'
-                ProductImage::create([
-                    'product_id' => $produk->id,
-                    'image_name' => $imageName,
-                    'image_path' => $imagePath,
-                    'image_url' => Storage::url($imagePath),
-                ]);
-            }
+            // Menyimpan gambar sebagai binary ke tabel product_images
+            ProductImage::create([
+                'product_id' => $produk->id,
+                'image' => $imageContent,  // Menyimpan gambar dalam bentuk binary
+            ]);
         }
+    }
 
     //    // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
     //    return redirect()->route('product.show', $produk->id)
