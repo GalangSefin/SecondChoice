@@ -17,9 +17,6 @@ class Product extends Model
         'user_id',
         'type',
         'description',
-        'id', 
-        'category', 
-        'type', 
         'name', 
         'price', 
         'category', 
@@ -32,5 +29,10 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id');  // Relasi satu ke banyak (one-to-many)
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
