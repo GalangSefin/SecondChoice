@@ -10,6 +10,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -100,3 +101,22 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+//about
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+
+//keranjang
+Route::get('/keranjang', function () {
+    return view('frontend.keranjang');
+})->name('keranjang'); // Route resource untuk keranjang
+// Route::prefix('cart')->group(function () {
+//     Route::get('/', [CartController::class, 'index'])->name('cart.index'); // Menampilkan isi keranjang
+//     Route::post('/add', [CartController::class, 'store'])->name('cart.store'); // Menambahkan item ke keranjang
+//     Route::put('/update/{id}', [CartController::class, 'update'])->name('cart.update'); // Mengupdate item di keranjang
+//     Route::delete('/remove/{id}', [CartController::class, 'destroy'])->name('cart.destroy'); // Menghapus item dari keranjang
+// });
+
+
+

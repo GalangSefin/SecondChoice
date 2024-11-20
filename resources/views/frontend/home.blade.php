@@ -9,12 +9,14 @@
                 <div class="slider-wrapper" style="background-image: url('images/sell.jpg');">
                     <div class="slide">
                         <div class="slide-content">
-                            <div class="slide-label">Sell</div>
-                            <h2>Mulai berjualan</h2>
-                            <div class="slide-buttons">
-                              <a href="{{ route('jual') }}" class="btn btn-Jual">Jual</a>
+                            <div class="slide-label">Jual</div>
+                            <h2>Jual Produkmu Sendiri</h2>
+                            <div class="slide-button">
+                              <a href="{{ route('jual') }}" class="btn-secondary rounded-full hover:bg-red hover:text-white transition-colors duration-300">Jual</a>
                               
-                                <a href="#" class="btn-secondary">Lihat tutorial</a>
+                              <a href="#" class="btn-secondary rounded-full hover:bg-black hover:text-white transition-colors duration-300">
+                                <span class="hover:text-white">Cara Jualan</span>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -26,10 +28,10 @@
                 <div class="slider-wrapper" style="background-image: url('images/explore.jpg');">
                     <div class="slide">
                         <div class="slide-content">
-                            <div class="slide-label">New</div>
-                            <h2>Explore item terbaru</h2>
+                            <div class="slide-label">Baru</div>
+                            <h2>Telusuri Item Terbaru</h2>
                             <div class="slide-buttons">
-                                <a href="#" class="btn-primary">Shop now</a>
+                                <a href="#" class="btn-primary">Belanja Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
                   <p>Other</p>
               </div>
               <div class="text-center clickable">
-                  <img alt="Black jeans" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/2tRYoh3hsbKKEhqsflYQjVTVCM7h2ztq2Iezse1elRPyEvJPB.jpg" width="300"/>
+                  <img alt="Black jeans" class="w-full h-auto rounded-lg" height="250" src="https://storage.googleapis.com/a1aa/image/2tRYoh3hsbKKEhqsflYQjVTVCM7h2ztq2Iezse1elRPyEvJPB.jpg" width="250"/>
                   <p class="mt-2 font-bold">Rp 250.000</p>
                   <p>Agnès B</p>
                   <p>XS</p>

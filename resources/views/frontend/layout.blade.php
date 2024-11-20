@@ -94,7 +94,7 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <a href="{{ route('cart') }}" class="icon-link">
+                        <a href="{{ route('keranjang') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <div class="user-dropdown">
