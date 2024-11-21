@@ -58,8 +58,8 @@ class UpProdukController extends Controller
         }
     }
 
-    //    // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
-    //    return redirect()->route('product.show', $produk->id)
-    //                     ->with('success', 'Produk berhasil ditambahkan!');
+       // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
+       return redirect()->route('produk.upload', $produk->id)
+                        ->with('success', 'Produk berhasil ditambahkan!');
    }
 }
