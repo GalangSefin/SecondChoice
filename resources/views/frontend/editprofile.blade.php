@@ -38,6 +38,12 @@
                     <input type="text" id="website" name="website" class="form-control" value="{{ Auth::user()->website }}" placeholder="Link ke Instagram atau website pribadimu">
                 </div>
 
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="website" name="website" class="form-control" value="{{ Auth::user()->website }}" placeholder="Link ke Instagram atau website pribadimu">
+                </div>
+
+
                 <button type="submit" class="btn btn-primary">Update Profil</button>
             </form>
         </div>

@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -98,7 +100,7 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <a href="{{ route('cart') }}" class="icon-link">
+                        <a href="{{ route('checkout.index') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <div class="user-dropdown">

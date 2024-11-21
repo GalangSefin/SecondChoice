@@ -16,6 +16,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 
 
 // |--------------------------------------------------------------------------
@@ -124,3 +125,15 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Proses data pengiriman
+Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+
+// Halaman pembayaran
+Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+
+// Route untuk halaman keranjang belanja (cart)
+Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
