@@ -29,4 +29,11 @@ class DashboardController extends Controller
            'user' => Auth::user()
        ]);
    }
+
+    public function dashboard()
+    {
+        $products = Product::with('images')->get(); // Ambil semua produk dengan gambar
+        return view('frontend.dashboard');
+    }
+
 }
