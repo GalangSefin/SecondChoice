@@ -64,325 +64,193 @@
             </div>
         </div>
     @endguest
-<div class="section">
-  <div class="container">
-    <div class="row mb-5 align-items-center">
-      <div class="col-lg-6">
-        <h2 class="font-weight-bold text-primary heading">
-          Popular Properties
-        </h2>
-      </div>
-      <div class="col-lg-6 text-lg-end">
-        <p>
-          <a
-            href="#"
-            target="_blank"
-            class="btn btn-primary text-white py-3 px-4">View all properties</a>
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="property-slider-wrap">
-          <div class="property-slider">
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+    <body class="bg-white">
+      <div class="container mx-auto px-4 py-8">
+          <div class="flex justify-between items-center mb-6">
+              <h1 class="text-3xl font-bold">Produk Terbaru</h1>
+              <a href="{{ route('products.viewall') }}" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
+                Lihat Lainnya
               </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_4.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_5.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_6.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_7.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_8.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
-
-            <div class="property-item">
-              <a href="property-single.html" class="img">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
-              </a>
-
-              <div class="property-content">
-                <div class="price mb-2"><span>$1,291,000</span></div>
-                <div>
-                  <span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
-                  <span class="city d-block mb-3">California, USA</span>
-
-                  <div class="specs d-flex mb-4">
-                    <span class="d-block d-flex align-items-center me-3">
-                      <span class="icon-bed me-2"></span>
-                      <span class="caption">2 beds</span>
-                    </span>
-                    <span class="d-block d-flex align-items-center">
-                      <span class="icon-bath me-2"></span>
-                      <span class="caption">2 baths</span>
-                    </span>
-                  </div>
-
-                  <a
-                    href="property-single.html"
-                    class="btn btn-primary py-2 px-3">See details</a>
-                </div>
-              </div>
-            </div>
-            <!-- .item -->
+              
           </div>
+          <div class="grid grid-cols-4 gap-6">
+              <div class="text-center clickable">
+                  <img alt="Black hoodie" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/WqIYEfoFlAQpI6uPfyOEN90Z2ZRhElyiGui9XXLed7jVi3knA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 140.000</p>
+                  <p>Champion</p>
+                  <p>M</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Brown pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/HBf8C9TNaehH7kecDe2SRyfnlmsNAazKcGmE0MS6Y7avIem8E.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 150.000</p>
+                  <p>Uniqlo</p>
+                  <p>Other</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Black jeans" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/2tRYoh3hsbKKEhqsflYQjVTVCM7h2ztq2Iezse1elRPyEvJPB.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 250.000</p>
+                  <p>Agnès B</p>
+                  <p>XS</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Black vintage top" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/fqsValKY6hU6YiiI6eOy6Qlz2Tfj4amhjTi2gsQXlhLhi3knA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 65.000</p>
+                  <p>Vintage</p>
+                  <p>One size</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Black vintage jacket" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/tf3yWeUiMeFZQJXzcfDkzeTF41VBhAq6BvuBsifsJZzUQ8m8E.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 95.000</p>
+                  <p>Vintage</p>
+                  <p>M</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Leopard print cardigan" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/fpzjbZFZNg0KV6peOByUBonVpsbiJxgk5MYD9lUG1dpGxbyTA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 100.000</p>
+                  <p>Uniqlo</p>
+                  <p>M</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Colorful vintage shirt" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/ZHswUrwhGD5fK6ZyPbNaGeb20dkkawycyg9IGVCzH1ENxbyTA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 55.000</p>
+                  <p>Vintage</p>
+                  <p>M</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Green sweater" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/Q1SezFJlmmTELCwTPHnB3Mfx3ZbUJOcGe6e78iCY4o1hEvJPB.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 95.000</p>
+                  <p>Uniqlo</p>
+                  <p>M</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Black pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/lTus5TfOKFWzV60ORNhakY4ue6HGeoZvgZP60mbGqzXeEvJPB.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 300.000</p>
+                  <p>Uniqlo</p>
+                  <p>One size</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Black vintage shirt" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/HKJxQk9ObX4rDRramed6aCjzY0EPeJ0kHaHdCGajHWHJxbyTA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 200.000</p>
+                  <p>Vintage</p>
+                  <p>XL</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Levi's jeans and hoodie" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/SJ91OvuzihoCOZTPHgIyyeV7bkbFGC0Wq0a3iheZUObfh3knA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 230.000</p>
+                  <p>Levi's</p>
+                  <p>Other</p>
+              </div>
+              <div class="text-center clickable">
+                  <img alt="Red and black vintage pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/TAXRm3vIR3JXJF6ddc9WW8zS93yKFcVIf6HzqVSlRVyh4N5JA.jpg" width="300"/>
+                  <p class="mt-2 font-bold">Rp 375.000</p>
+                  <p>Vintage</p>
+                  <p>S</p>
+              </div>
+          </div>
+      </div>
+  </body>
+  
+    <section class="px-4 pt-24 space-y-10 sm:px-6 sm:pt-20 xl:mx-auto xl:max-w-7xl lg:px-8">
+      <!-- Header Section -->
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <h2 class="text-3xl font-bold">Kategori Populer</h2>
+        <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
+          Lihat Lainya
+        </a>
+      </div>
 
-          <div
-            id="property-nav"
-            class="controls"
-            tabindex="0"
-            aria-label="Carousel Navigation">
-            <span
-              class="prev"
-              data-controls="prev"
-              aria-controls="property"
-              tabindex="-1">Prev</span>
-            <span
-              class="next"
-              data-controls="next"
-              aria-controls="property"
-              tabindex="-1">Next</span>
+      <!-- Collections Grid -->
+      <div class="mt-6 flow-root">
+        <div class="-my-2">
+          <div class="relative box-content h-64 overflow-x-auto py-2 xl:overflow-visible">
+            <div class="min-w-screen-xl flex space-x-8 px-4 sm:px-6 lg:px-8 xl:grid xl:grid-cols-5 xl:gap-8 xl:space-x-0 xl:px-8">
+              <!-- Collection Item: Smartphones -->
+              <a href="/collections/smartphones" class="group relative flex h-64 w-56 flex-col overflow-hidden rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 xl:w-auto">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img 
+                    src="images/bajuhanger.jpg" 
+                    alt="Pakaian" 
+                    class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+                  >
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">
+                  Pakaian
+                </span>
+              </a>
+    
+              <!-- Collection Item: Clothes -->
+              <a href="/collections/clothes" class="group relative flex h-64 w-56 flex-col overflow-hidden rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 xl:w-auto">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img 
+                    src="images/tools-table.png" 
+                    alt="Perabotan" 
+                    class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+                  >
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">
+                  Peralatan
+                </span>
+              </a>
+    
+              <!-- Collection Item: Accessories -->
+              <a href="/collections/accessories" class="group relative flex h-64 w-56 flex-col overflow-hidden rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 xl:w-auto">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img 
+                    src="images/perabotan.jpg" 
+                    alt="Accessories" 
+                    class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+                  >
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">
+                  Perabotan
+                </span>
+              </a>
+    
+              <!-- Collection Item: Shoes -->
+              <a href="/collections/shoes" class="group relative flex h-64 w-56 flex-col overflow-hidden rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 xl:w-auto">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img 
+                    src="images/elektro.jpg" 
+                    alt="Shoes" 
+                    class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+                  >
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">
+                  Perlengkapan Elektronik
+                </span>
+              </a>
+    
+              <!-- Collection Item: Bags -->
+              <a href="/collections/bags" class="group relative flex h-64 w-56 flex-col overflow-hidden rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 xl:w-auto">
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img 
+                    src="images/pecah.png" 
+                    alt="Bags" 
+                    class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+                  >
+                </span>
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">
+                  Pecah Belah
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+    
+    
 
-<section class="features-1">
+    <section class="features-1 pt-20 pb-16 px-8">
   <div class="container">
     <div style="display: flex; justify-content: flex-start;">
-      <div class="box" style="padding: 20px; border: 0px solid #ffffff; background-color: #ffffff;">
-        <h3 style="color: black; font-weight: 650;">Belanja sesuai budget</h3>
+      <div class="box" style="padding: 20px; border: 0px solid;">
+        <h1 class="text-3xl font-bold">Produk Terbaru</h1>
       </div>
     </div>
 
@@ -435,7 +303,7 @@
   </div>
 </section>
 
-<script src="https://cdn.tailwindcss.com"></script>
+{{-- <ulasan pelanggan > --}}
 
 <body class="bg-gray-100 text-gray-800">
   <div class="section sec-testimonials py-10">
@@ -513,71 +381,5 @@
       </div>
     </div>
   </div>
-
-  
-
-    <div class="section">
-      <div class="row justify-content-center footer-cta" data-aos="fade-up">
-        <div class="col-lg-7 mx-auto text-center">
-          <h2 class="mb-4">Be a part of our growing real state agents</h2>
-          <p>
-            <a
-              href="#"
-              target="_blank"
-              class="btn btn-primary text-white py-3 px-4"
-              >Apply for Real Estate agent</a
-            >
-          </p>
-        </div>
-        <!-- /.col-lg-7 -->
-      </div>
-      <!-- /.row -->
-    </div>
-
-    <div class="section section-5 bg-light">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-lg-6 mb-5">
-            <h2 class="font-weight-bold heading text-primary mb-4">
-              Kategori
-            </h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-                <a href="workwear.html">
-                    <div class="image-box">
-                        <img src="images/eki.png" />
-                    </div>
-                    <p class="collection-title">Pecah Beling</p>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <a href="reworked.html">
-                    <div class="image-box">
-                        <img src="images/clothes.jpg"/>
-                    </div>
-                    <p class="collection-title">Pakaian</p>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <a href="y2k.html">
-                    <div class="image-box">
-                        <img src="images/perabotan.jpg" alt="Y2K 2000s Core" class="img-fluid" />
-                    </div>
-                    <p class="collection-title">Perabotan</p>
-                </a>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  
-  
-
-
 
   @endsection

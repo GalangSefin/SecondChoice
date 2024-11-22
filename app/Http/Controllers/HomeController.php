@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -21,9 +20,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $search = $request->search;
+
+        if ($search) {
+            $produk = Product::where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('category', 'LIKE', '%' . $search . '%')
+                ->get();
+        } else {
+            $produk = Product::all(); // Ambil semua produk jika pencarian kosong
+        }
+
+        // Mengarahkan ke file viewall.blade.php dengan data $produk
+        return view('ViewAll', compact('produk'));
     }
 }
 

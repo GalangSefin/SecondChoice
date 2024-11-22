@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
 
-<nav class="navbar">
+<!-- <nav class="navbar">
     <div class="nav-bar">
         <a href="#" class="logo"><img src="{{ asset('second_choice/images/logo scnd.png') }}" alt="Logo Second Choice"></a>
         <input type="search" placeholder="Search Jersey...">
@@ -20,7 +20,7 @@
             </div>
         </div>        
     </div>
-</nav>
+</nav> -->
 
 <div class="dashboard">
     <aside class="sidebar">
@@ -33,6 +33,7 @@
         <nav>
             <ul>
                 <li><a href="{{ route('dashboard') }}">Overview</a></li>
+                <li><a href="{{ route('pesanan') }}">Pesanan</a></li>
             </ul>
         </nav>
     </aside>
