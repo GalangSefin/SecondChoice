@@ -14,8 +14,9 @@ class ProductController extends Controller
      */
     public function viewAll()
     {
-        // Mengambil data produk dari database
-        $products = Product::all(); // atau bisa menggunakan query lain sesuai kebutuhan
+
+        // Mengambil semua daftar produk tanpa filter berdasarkan user
+        $products = Product::with('images')->paginate(9);
 
         // Mengirim data produk ke view
         return view('frontend.ViewAll', compact('products'));

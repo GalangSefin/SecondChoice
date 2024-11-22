@@ -47,7 +47,7 @@
                     <div class="listing-item">
                         <div class="listing-image">
                             @if ($product->images->isNotEmpty())
-                                <img src="{{ asset('storage/' . $product->images->first()->path) }}" alt="{{ $product->name }}">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
                             @else
                                 <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
                             @endif
