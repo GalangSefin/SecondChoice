@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Product; // pastikan ada model Product
 use Illuminate\Support\Facades\Log;

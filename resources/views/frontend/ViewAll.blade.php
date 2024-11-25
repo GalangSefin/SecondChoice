@@ -59,6 +59,21 @@
             </form>
         </div>
 
+        <h1>Daftar Semua Produk</h1>
+    <form action="{{ route('ViewAll') }}" method="GET">
+        <input type="text" name="search" placeholder="Cari produk..." value="{{ request('search') }}">
+        <button type="submit">Cari</button>
+    </form>
+
+    @if($produk->isNotEmpty())
+        <ul>
+            @foreach($produk as $item)
+                <li>{{ $item->name }} - {{ $item->category }}</li>
+            @endforeach
+        </ul>
+    @else
+        <p>Tidak ada produk ditemukan.</p>
+    @endi
         <!-- Menggunakan ul dan li untuk tampilan produk -->
         <ul class="grid">
             @forelse($products as $product)

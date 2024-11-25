@@ -46,6 +46,7 @@ Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
 
+
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
