@@ -13,6 +13,6 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('frontent'); // Pastikan file view sesuai dengan struktur proyek Anda
+        return view('frontend'); // Pastikan file view sesuai dengan struktur proyek Anda
     }
 }

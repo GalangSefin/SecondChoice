@@ -33,9 +33,9 @@ use App\Http\Controllers\CheckoutController;
 // routes/web.php
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('frontend.home');
+// })->name('home');
 
 // login route
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login

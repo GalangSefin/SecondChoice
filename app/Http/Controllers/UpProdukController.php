@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use App\Models\ProductImage;
+use App\Models\Category;
+use App\Models\Jenis;
 
 
 class UpProdukController extends Controller
@@ -22,7 +24,7 @@ class UpProdukController extends Controller
     // Validasi inputan
     $validated = $request->validate([
         'category' => 'required|string',
-        'type' => 'required|string',
+        'jenis' => 'required|string',
         'name' => 'required|string|max:255',
         'description' => 'nullable|string',
         'price' => 'required|numeric|min:0',
@@ -32,17 +34,33 @@ class UpProdukController extends Controller
         'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
-    // Membuat produk baru
-    $produk = Product::create([
-        'user_id' => auth()->id(),
-        'category' => $validated['category'],
-        'type' => $validated['type'],
-        'name' => $validated['name'],
-        'description' => $validated['description'] ?? '',
-        'price' => $validated['price'],
-        'stock' => $validated['stock'],
-        'condition' => $validated['condition'],
-    ]);
+    // Cek apakah kategori sudah ada, jika belum tambahkan
+    $category = Category::firstOrCreate(
+        ['category_nama' => $request->category],  // mencari berdasarkan nama
+        ['category_nama' => $request->category]   // jika tidak ada, buat dengan nama yang diterima
+    );
+
+    // Cek apakah jenis sudah ada, jika belum tambahkan
+$jenis = Jenis::firstOrCreate(
+    ['jenis_nama' => $request->jenis],  // mencari berdasarkan 'jenis_nama'
+    [
+        'jenis_nama' => $request->jenis,  // nama jenis
+        'category_id' => $category->id   // Menyertakan ID kategori
+    ]
+);
+
+// Membuat produk baru
+$produk = Product::create([
+    'user_id' => auth()->id(),
+    'category_id' => $category->id,
+    'jenis_id' => $jenis->id,
+    'name' => $validated['name'],
+    'description' => $validated['description'] ?? '',
+    'price' => $validated['price'],
+    'stock' => $validated['stock'],
+    'condition' => $validated['condition'],
+]);
+
 
     // Menangani unggahan gambar
     if ($request->hasFile('images')) {

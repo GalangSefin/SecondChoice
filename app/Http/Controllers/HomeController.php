@@ -3,27 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product; // pastikan ada model Product
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Menampilkan daftar produk.
      *
-     * @return void
+     * @return \Illuminate\View\View
      */
-    public function __construct()
+    public function home()
     {
-        $this->middleware('auth');
-    }
+       // Mengambil 12 produk terbaru dari database
+       $products = Product::with('images')->latest()->take(12)->get();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
+        // Mengirimkan data ke view
+        return view('frontend.home', compact('products'));
     }
 }
-

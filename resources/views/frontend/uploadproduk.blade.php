@@ -45,14 +45,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="type">Jenis</label>
-                    <select name="type" id="type">
-                        <option value="" disabled selected>Pilih Jenis</option>
-                        <option value="baju">Baju</option>
-                        <option value="celana">Celana</option>
-                        <option value="jaket">Jaket</option>
-                        <option value="sweater">Sweater</option>
-                    </select>
+                    <label for="jenis">Jenis Produk</label>
+                    <input type="text" id="jenis" name="jenis" placeholder="Jenis">
                 </div>
                 <div class="form-group">
                     <label for="name">Nama Produk</label>

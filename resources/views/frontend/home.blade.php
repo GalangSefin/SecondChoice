@@ -73,80 +73,39 @@
               </a>
               
           </div>
-          <div class="grid grid-cols-4 gap-6">
-              <div class="text-center clickable">
-                  <img alt="Black hoodie" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/WqIYEfoFlAQpI6uPfyOEN90Z2ZRhElyiGui9XXLed7jVi3knA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 140.000</p>
-                  <p>Champion</p>
-                  <p>M</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Brown pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/HBf8C9TNaehH7kecDe2SRyfnlmsNAazKcGmE0MS6Y7avIem8E.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 150.000</p>
-                  <p>Uniqlo</p>
-                  <p>Other</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Black jeans" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/2tRYoh3hsbKKEhqsflYQjVTVCM7h2ztq2Iezse1elRPyEvJPB.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 250.000</p>
-                  <p>Agnès B</p>
-                  <p>XS</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Black vintage top" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/fqsValKY6hU6YiiI6eOy6Qlz2Tfj4amhjTi2gsQXlhLhi3knA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 65.000</p>
-                  <p>Vintage</p>
-                  <p>One size</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Black vintage jacket" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/tf3yWeUiMeFZQJXzcfDkzeTF41VBhAq6BvuBsifsJZzUQ8m8E.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 95.000</p>
-                  <p>Vintage</p>
-                  <p>M</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Leopard print cardigan" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/fpzjbZFZNg0KV6peOByUBonVpsbiJxgk5MYD9lUG1dpGxbyTA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 100.000</p>
-                  <p>Uniqlo</p>
-                  <p>M</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Colorful vintage shirt" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/ZHswUrwhGD5fK6ZyPbNaGeb20dkkawycyg9IGVCzH1ENxbyTA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 55.000</p>
-                  <p>Vintage</p>
-                  <p>M</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Green sweater" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/Q1SezFJlmmTELCwTPHnB3Mfx3ZbUJOcGe6e78iCY4o1hEvJPB.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 95.000</p>
-                  <p>Uniqlo</p>
-                  <p>M</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Black pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/lTus5TfOKFWzV60ORNhakY4ue6HGeoZvgZP60mbGqzXeEvJPB.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 300.000</p>
-                  <p>Uniqlo</p>
-                  <p>One size</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Black vintage shirt" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/HKJxQk9ObX4rDRramed6aCjzY0EPeJ0kHaHdCGajHWHJxbyTA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 200.000</p>
-                  <p>Vintage</p>
-                  <p>XL</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Levi's jeans and hoodie" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/SJ91OvuzihoCOZTPHgIyyeV7bkbFGC0Wq0a3iheZUObfh3knA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 230.000</p>
-                  <p>Levi's</p>
-                  <p>Other</p>
-              </div>
-              <div class="text-center clickable">
-                  <img alt="Red and black vintage pants" class="w-full h-auto rounded-lg" height="300" src="https://storage.googleapis.com/a1aa/image/TAXRm3vIR3JXJF6ddc9WW8zS93yKFcVIf6HzqVSlRVyh4N5JA.jpg" width="300"/>
-                  <p class="mt-2 font-bold">Rp 375.000</p>
-                  <p>Vintage</p>
-                  <p>S</p>
-              </div>
-          </div>
+
+         <!-- Menggunakan ul dan li untuk tampilan produk -->
+<ul class="grid grid-cols-4 gap-6">
+    @if (!isset($products) || $products->isEmpty())
+        <li class="no-items text-center">
+            <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
+            <p>Belum ada item</p>
+        </li>
+    @else
+        @foreach ($products as $product)
+            <li class="text-center clickable product-item">
+                <div class="product-image">
+                    @if ($product->images && $product->images->isNotEmpty())
+                        <!-- Gambar dari database -->
+                        <img class="w-full h-auto rounded-lg" 
+                             src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" 
+                             alt="{{ $product->name }}">
+                    @else
+                        <!-- Gambar default jika tidak ada -->
+                        <img class="w-full h-auto rounded-lg" 
+                             src="{{ asset('second_choice/images/no-image.png') }}" 
+                             alt="No Image">
+                    @endif
+                </div>
+                <div class="product-info mt-2">
+                    <p>{{ $product->name }}</p>
+                    <p class="mt-2 font-bold">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                </div>
+            </li>
+        @endforeach
+    @endif
+</ul>
+
       </div>
   </body>
   
