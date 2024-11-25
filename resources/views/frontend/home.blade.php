@@ -155,7 +155,7 @@
       <div class="sm:flex sm:items-center sm:justify-between">
         <h2 class="text-3xl font-bold">Kategori Populer</h2>
         <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
-          Lihat Lainya
+          Lihat Lainnya
         </a>
       </div>
 

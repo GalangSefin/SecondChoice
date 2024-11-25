@@ -16,7 +16,7 @@ class ProfileController extends Controller
     $user = auth()->user();
 
     // Mengambil daftar produk milik pengguna yang sedang login
-    $products = Product::where('user_id', $user->id)->with('images')->get();
+    $products = Product::where('user_id', $user->id)->with('images')->paginate(6);
 
     // Mengirim data pengguna dan daftar produk ke view profile
     return view('frontend.profile', compact('user', 'products'));

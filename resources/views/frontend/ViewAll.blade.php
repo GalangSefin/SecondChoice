@@ -76,7 +76,7 @@
         </div>
 
         <h1>Daftar Semua Produk</h1>
-    <form action="{{ route('home') }}" method="GET">
+    <form action="{{ route('ViewAll') }}" method="GET">
         <input type="text" name="search" placeholder="Cari produk..." value="{{ request('search') }}">
         <button type="submit">Cari</button>
     </form>
@@ -92,32 +92,38 @@
     @endi
         <!-- Menggunakan ul dan li untuk tampilan produk -->
         <ul class="grid">
-            <li>
-                <img src="{{ asset('second_choice/images/ansel.jpg') }}" alt="Product 1">
-                <p class="price">Rp 140,000</p>
-                <p class="brand">Marvel</p>
-                <p class="size">M</p>
+    @if ($products->isEmpty())
+        <li class="no-items">
+            <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
+            <p>Belum ada item</p>
+        </li>
+    @else
+        @foreach ($products as $product)
+            <li class="product-item">
+                <div class="product-image">
+                    @if ($product->images->isNotEmpty())
+                        <!-- Gambar dari database -->
+                        <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
+                    @else
+                        <!-- Gambar default jika tidak ada -->
+                        <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+                    @endif
+                </div>
+                <div class="product-info">
+                    <h3>{{ $product->name }}</h3>
+                    <p>{{ $product->description }}</p>
+                    <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                    <p><strong>Stok:</strong> {{ $product->stock }}</p>
+                    <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
+                </div>
             </li>
-            <li>
-                <img src="{{ asset('second_choice/images/dino.png') }}" alt="Product 2">
-                <p class="price">Rp 150,000</p>
-                <p class="brand">Nike</p>
-                <p class="size">M</p>
-            </li>
-            <li>
-                <img src="{{ asset('second_choice/images/kuning.jpg') }}" alt="Product 3">
-                <p class="price">Rp 130,000</p>
-                <p class="brand">Adidas</p>
-                <p class="size">L</p>
-            </li>
-            <li>
-                <img src="{{ asset('second_choice/images/flanel.jpg') }}" alt="Product 4">
-                <p class="price">Rp 120,000</p>
-                <p class="brand">Levi's</p>
-                <p class="size">S</p>
-            </li>
-            <!-- Tambahkan produk lainnya sesuai kebutuhan -->
-        </ul>
+        @endforeach
+    @endif
+</ul>
+<!-- Pagination Controls -->
+<div class="pagination">
+    {{ $products->links('pagination::bootstrap-4') }}
+</div>
     </main>
 </div>
 @endsection

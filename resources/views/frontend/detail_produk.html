@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="\public\second_choice\css\detail_produk.css">
+<title>Detail Produk Responsif</title>
+</head>
+<body>
+ 
+<div class="product-container">
+  <!-- Bagian Gambar Produk -->
+  <div class="product-image-container">
+    <img id="mainImage" src="/public/images/miu 1.png" alt="Gambar Utama" class="main-image">
+    <div class="thumbnail-container">
+      <img src="/public/images/miu 1.png" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('/public/images/miu 1.png')">
+      <img src="/public/images/miu 2.jpeg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('/public/images/miu 2.jpeg')">
+      <img src="/public/images/miu 3.jpeg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('/public/images/miu 3.jpeg')">
+      <img src="/public/images/miu 2.jpeg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('/public/images/miu 2.jpeg')">
+    </div>
+  </div>
+
+  <!-- Bagian Detail Produk -->
+  <div class="product-details">
+    <h1>Luxury Bag Summer-Series</h1>
+    <p class="condition">Kondisi: Sangat Baik</p>
+    <p class="price">Rp 100.000</p>
+    <div class="product-info scrollable">
+    <div class="product-description">
+        <span>Miu Miu, sebagai brand fashion mewah di bawah naungan Prada Group, dikenal karena desainnya yang unik, feminin, dan berkelas. Koleksi tas Miu Miu menawarkan gaya yang memadukan sentuhan elegan dengan nuansa yang playful dan modern. Setiap tas dalam koleksi ini didesain untuk menjadi pernyataan gaya yang kuat, cocok untuk wanita yang mengutamakan keanggunan dan karakter dalam penampilan sehari-hari.
+
+          Detail Produk
+          Nama Produk: Miu Miu Bag - Summer Series
+          Kondisi: Sangat Baik
+          Harga: Rp 1.000.000
+          
+          Deskripsi Produk
+          Tas ini adalah bagian dari koleksi terbaru Miu Miu, khusus dirancang untuk musim panas dengan warna-warna netral yang lembut dan desain yang stylish. Bahan kulit berkualitas tinggi memberikan tekstur halus dan tahan lama, cocok untuk berbagai kesempatan, baik untuk acara formal maupun casual. Desain lipit yang menjadi ciri khas menambah keanggunan pada tampilan tas ini, sementara pegangan yang kuat dan jahitan rapi memastikan ketahanannya.
+          
+          Tas ini tersedia dalam beberapa warna, seperti krem dan hitam, sehingga mudah dipadukan dengan berbagai gaya busana. Dengan ruang yang cukup luas dan dilengkapi inner lining, tas ini tidak hanya elegan namun juga praktis untuk menyimpan barang-barang penting Anda Miu Miu, sebagai brand fashion mewah di bawah naungan Prada Group, dikenal karena desainnya yang unik, feminin, dan berkelas. Koleksi tas Miu Miu menawarkan gaya yang memadukan sentuhan elegan dengan nuansa yang playful dan modern. Setiap tas dalam koleksi ini didesain untuk menjadi pernyataan gaya yang kuat, cocok untuk wanita yang mengutamakan keanggunan dan karakter dalam penampilan sehari-hari.
+
+          <span>Detail Produk
+          Nama Produk: Miu Miu Bag - Summer Series
+          Kondisi: Sangat Baik
+          Harga: Rp 1.000.000</span>
+          
+          <span>Deskripsi Produk
+          Tas ini adalah bagian dari koleksi terbaru Miu Miu, khusus dirancang untuk musim panas dengan warna-warna netral yang lembut dan desain yang stylish. Bahan kulit berkualitas tinggi memberikan tekstur halus dan tahan lama, cocok untuk berbagai kesempatan, baik untuk acara formal maupun casual. Desain lipit yang menjadi ciri khas menambah keanggunan pada tampilan tas ini, sementara pegangan yang kuat dan jahitan rapi memastikan ketahanannya.
+          
+          Tas ini tersedia dalam beberapa warna, seperti krem dan hitam, sehingga mudah dipadukan dengan berbagai gaya busana. Dengan ruang yang cukup luas dan dilengkapi inner lining, tas ini tidak hanya elegan namun juga praktis untuk menyimpan barang-barang penting Anda</span>
+      </div>
+    </div>
+    
+    <!-- Informasi Penjual -->
+    <div class="seller-info">
+        <img src="/public/images/miu logo.jpg" alt="Avatar Penjual" class="seller-avatar">
+        <div class="seller-details">
+          <a href="#">Miu Miu</a>
+          <p>Nganjuk</p>
+        </div>
+      </div>
+    
+    <div class="tags">
+      <span>VINTAGE</span>
+      <span>STREETWEAR</span>
+      <span>PRIA</span>
+    </div>
+    
+    <div class="product-buttons">
+      <button class="buy-now">Beli Sekarang</button>
+      <button class="add-to-cart">+ Tambahkan ke Keranjang</button>
+    </div>
+  </div>
+</div>
+<script>
+  function changeImage(imageUrl) {
+    document.getElementById("mainImage").src = imageUrl;
+  }
+</script>
+</body>
+</html>

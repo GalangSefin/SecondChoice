@@ -11,11 +11,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\pesananController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 
 
 // |--------------------------------------------------------------------------
@@ -35,6 +36,11 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/', function () {
     return view('frontend.home');
 })->name('home');
+
+// login route
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); // Proses login
+
  
 Route::get('/messages', function () {
     return view('frontend.messages');
@@ -120,3 +126,15 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Proses data pengiriman
+Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+
+// Halaman pembayaran
+Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+
+// Route untuk halaman keranjang belanja (cart)
+Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');

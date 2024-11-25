@@ -28,7 +28,7 @@ class HomeController extends Controller
             $produk = Product::where('name', 'LIKE', '%' . $search . '%')
                 ->orWhere('category', 'LIKE', '%' . $search . '%')
                 ->get();
-        } else {
+        } else {  
             $produk = Product::all(); // Ambil semua produk jika pencarian kosong
         }
 

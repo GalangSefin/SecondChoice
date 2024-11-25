@@ -6557,7 +6557,8 @@ textarea.form-control-lg {
   margin-top: 1.5rem !important; }
 
 .mt-5 {
-  margin-top: 3rem !important; }
+  /* margin-top: 3rem !important;  */
+}
 
 .mt-auto {
   margin-top: auto !important; }
@@ -9633,7 +9634,8 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  text-decoration: none; }
+  text-decoration: none; 
+}
 
 .form-control {
   font-size: 16px;

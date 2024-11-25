@@ -34,47 +34,41 @@
         <a href="#" class="tab">Reviews</a>
     </div>
 
-   <!-- Bagian Listings Produk -->
-<div id="listings-content">
-    @if ($products->isEmpty())
-        <div class="no-items">
-            <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
-            <p>Belum ada item</p>
-        </div>
-    @else
-        <div class="listings">
-            @foreach ($products as $product)
-                <div class="listing-item">
-                    <div class="listing-image">
-                        @if ($product->images->isNotEmpty())
-                            @foreach ($product->images as $image) <!-- Iterasi semua gambar -->
-                                @php
-                                    // Mengonversi gambar menjadi data URL
-                                    $imageData = base64_encode($image->image);
-                                    $imageSrc = 'data:image/jpeg;base64,' . $imageData;
-                                @endphp
-                                <img src="{{ $imageSrc }}" alt="{{ $product->name }}">
-                            @endforeach
-                        @else
-                            <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
-                        @endif
+    <!-- Bagian Listings Produk -->
+    <div id="listings-content">
+        @if ($products->isEmpty())
+            <div class="no-items">
+                <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
+                <p>Belum ada item</p>
+            </div>
+        @else
+            <div class="listings">
+                @foreach ($products as $product)
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            @if ($product->images->isNotEmpty())
+                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
+                            @else
+                                <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+                            @endif
+                        </div>
+                        <div class="listing-info">
+                            <h3>{{ $product->name }}</h3>
+                            <p>{{ $product->description }}</p>
+                            <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                            <p><strong>Stok:</strong> {{ $product->stock }}</p>
+                            <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
+                        </div>
                     </div>
-                    <div class="listing-info">
-                        <h3>{{ $product->name }}</h3>
-                        <p>{{ $product->description }}</p>
-                        <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
-                        <p><strong>Stok:</strong> {{ $product->stock }}</p>
-                        <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
+                @endforeach
+            </div>
+             <!-- Pagination Controls -->
+             <div class="pagination">
+                        {{ $products->links('pagination::bootstrap-4') }}
                     </div>
-                </div>
-            @endforeach
-        </div>
-    @endif
-</div>
+        @endif
+    </div>
 </footer>
-
     </section>
-
-
-  </div>
+    </div>
 @endsection
