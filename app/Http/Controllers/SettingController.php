@@ -48,6 +48,7 @@ class SettingController extends Controller
         $user->name = $request->input('name');
         $user->bio = $request->input('bio');
         $user->website = $request->input('website');
+        $user->alamat = $request->input('alamat');
         $user->save();
 
         // Redirect dengan pesan sukses

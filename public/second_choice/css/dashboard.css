@@ -24,8 +24,11 @@
 }
 
 .profile {
+    justify-content: center;
+    align-items: center;     /* Mengatur konten agar terpusat secara vertikal */
     text-align: center;
 }
+
 
 .avatar {
     width: 50px;

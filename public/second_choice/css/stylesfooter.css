@@ -1,10 +1,20 @@
 /* Footer styling */
 .site-footer {
-    padding: 40px 0;
-    background-color: #f8f9fa;
-    text-align: center;
-    font-family: Arial, sans-serif;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: auto; /* Memastikan footer berada di bagian bawah */
+  width: 100%; /* Pastikan lebar penuh */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Opsional: Tambahkan bayangan untuk estetika */
   }
+
+  .site-footer .container {
+    max-width: 1000px; /* Atur batas maksimal kontainer */
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
   
   .container {
     max-width: 100%;
@@ -16,9 +26,16 @@
   
   .footer-columns {
     display: flex;
+    flex-wrap: wrap; /* Pastikan kolom responsif */
     justify-content: space-around;
     padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
+  }
+
+  .footer-column{
+    flex: 1;
+    min-width: 150px; /* Minimal lebar kolom */
+    margin: 10px
   }
   
   .footer-column h3 {
