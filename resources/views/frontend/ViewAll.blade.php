@@ -10,7 +10,6 @@
             <a href="#">Home</a> > <span>Baju Vintage Pria</span>
         </div>
         <h2>Baju Vintage Pria</h2>
-        <p class="product-count">30,204 barang</p>
         <div class="filters">
             <button>Tops</button>
             <button>Outerwear</button>
@@ -21,94 +20,71 @@
         </div>
 
         <div class="sorting">
-            <select>
-                <option>Category</option>
-                <option>Perabotan</option>
-                <option>Pakaian</option>
-                <option>Elektronik</option>
-                <option>Aksesoris</option>
-                <option>Perkakas</option>
+            <form action="{{ route('products.viewall') }}" method="GET">
+                <!-- Filter Kategori -->
+            <select name="category" onchange="this.form.submit()">
+                <option value="">Pilih Kategori</option>
+                    @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                {{ $category->category_nama }} <!-- Tampilkan nama kategori -->
+                </option>
+                     @endforeach
             </select>
-            <select>
-                <option>Size</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-            </select>
-            <select>
-                <option>Color</option>
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Green</option>
-                <option>Black</option>
-                <option>White</option>
-            </select>
-            <select>
-                <option>Brand</option>
-                <option>Nike</option>
-                <option>Adidas</option>
-                <option>Levi's</option>
-                <option>Puma</option>
-                <option>Gucci</option>
-            </select>
-            <select>
-                <option>Price</option>
-                <option>Under Rp 50,000</option>
-                <option>Rp 50,000 - Rp 100,000</option>
-                <option>Rp 100,000 - Rp 200,000</option>
-                <option>Above Rp 200,000</option>
-            </select>
-            <select>
-                <option>Condition</option>
-                <option>New</option>
-                <option>Good</option>
-                <option>Used</option>
-            </select>
-            <select>
-                <option>Sortir</option>
-                <option>Lowest Price</option>
-                <option>Highest Price</option>
-                <option>Newest</option>
-                <option>Oldest</option>
-            </select>
+
+                <!-- Filter Harga -->
+                <select name="price" onchange="this.form.submit()">
+                    <option value="">Harga</option>
+                    <option value="under_50000" {{ request('price') == 'under_50000' ? 'selected' : '' }}>Di bawah Rp 50,000</option>
+                    <option value="50k_100k" {{ request('price') == '50k_100k' ? 'selected' : '' }}>Rp 50,000 - Rp 100,000</option>
+                    <option value="100k_200k" {{ request('price') == '100k_200k' ? 'selected' : '' }}>Rp 100,000 - Rp 200,000</option>
+                    <option value="above_200k" {{ request('price') == 'above_200k' ? 'selected' : '' }}>Di atas Rp 200,000</option>
+                </select>
+
+                <!-- Filter Kondisi -->
+                <select name="condition" onchange="this.form.submit()">
+                    <option value="">Kondisi</option>
+                    <option value="New" {{ request('condition') == 'New' ? 'selected' : '' }}>Baru</option>
+                    <option value="Good" {{ request('condition') == 'Good' ? 'selected' : '' }}>Bagus</option>
+                    <option value="Used" {{ request('condition') == 'Used' ? 'selected' : '' }}>Bekas</option>
+                </select>
+
+                <!-- Pilihan Sortir -->
+                <select name="sort" onchange="this.form.submit()">
+                    <option value="">Sortir</option>
+                    <option value="lowest_price" {{ request('sort') == 'lowest_price' ? 'selected' : '' }}>Harga Terendah</option>
+                    <option value="highest_price" {{ request('sort') == 'highest_price' ? 'selected' : '' }}>Harga Tertinggi</option>
+                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Terlama</option>
+                </select>
+            </form>
         </div>
 
         <!-- Menggunakan ul dan li untuk tampilan produk -->
         <ul class="grid">
-    @if ($products->isEmpty())
-        <li class="no-items">
-            <img src="{{ asset('second_choice/images/eyes.png') }}" alt="Eyes Icon">
-            <p>Belum ada item</p>
-        </li>
-    @else
-        @foreach ($products as $product)
-            <li class="product-item">
-                <div class="product-image">
-                    @if ($product->images->isNotEmpty())
-                        <!-- Gambar dari database -->
-                        <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
-                    @else
-                        <!-- Gambar default jika tidak ada -->
-                        <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
-                    @endif
-                </div>
-                <div class="product-info">
-                    <h3>{{ $product->name }}</h3>
-                    <p>{{ $product->description }}</p>
-                    <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
-                    <p><strong>Stok:</strong> {{ $product->stock }}</p>
-                    <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
-                </div>
-            </li>
-        @endforeach
-    @endif
-</ul>
-<!-- Pagination Controls -->
-<div class="pagination">
-    {{ $products->links('pagination::bootstrap-4') }}
-</div>
+            @forelse($products as $product)
+                <li class="product-item">
+                    <div class="product-image">
+                        @if ($product->images->isNotEmpty())
+                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
+                        @else
+                            <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+                        @endif
+                    </div>
+                    <div class="product-info">
+                        <h3>{{ $product->name }}</h3>
+                        <!-- <p>Kategori: {{ $product->category }}</p> -->
+                        <p>Harga: Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                        <!-- <p>Kondisi: {{ $product->condition }}</p> -->
+                    </div>
+                </li>
+            @empty
+                <li class="no-items">
+                    <img src="{{ asset('second_choice/images/eyes.png') }}" alt="No Items">
+                    <p>Tidak ada produk yang ditemukan.</p>
+                </li>
+            @endforelse
+        </ul>
+
     </main>
 </div>
 @endsection
