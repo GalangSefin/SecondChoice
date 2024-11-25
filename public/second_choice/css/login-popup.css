@@ -1,4 +1,7 @@
-.login-popup {
+/* Import font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.login-popup, .register-popup {
   display: none;
   position: fixed;
   top: 50%;
@@ -10,6 +13,7 @@
   width: 400px;
   z-index: 1001;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-popup-overlay {
@@ -23,11 +27,12 @@
   z-index: 1000;
 }
 
-.login-popup h2 {
-  font-family: 'Wonder Woman', sans-serif;
+.login-popup h2, .register-popup h2 {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 .close-button {
@@ -53,21 +58,24 @@
   gap: 10px;
   cursor: pointer;
   margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .divider {
   text-align: center;
   margin: 20px 0;
   color: #666;
+  font-family: 'Poppins', sans-serif;
 }
 
-.login-form input {
+.login-form input, .register-form input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 14px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .forgot-password {
@@ -79,18 +87,20 @@
   color: #000;
   text-decoration: none;
   font-size: 14px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.login-btn {
+.login-btn, .signup-btn {
   width: 100%;
   padding: 12px;
-  background: #000;
+  background: #870017;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .login-btn:disabled {
@@ -98,60 +108,22 @@
   cursor: not-allowed;
 }
 
-.signup-link {
+.signup-link, .login-link {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.signup-link a {
-  color: #000;
+.signup-link a, .login-link a {
+  color: #870017;
   text-decoration: none;
   font-weight: 500;
-}
-
-/* Tambahkan styles untuk register popup */
-.register-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 400px;
-  z-index: 1001;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.register-popup h2 {
-  font-family: 'Wonder Woman', sans-serif;
-  font-size: 28px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.register-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.signup-btn {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  font-family: 'Wonder Woman', sans-serif;
-  font-size: 16px;
+}
+
+.signup-link a:hover, .login-link a:hover {
+  text-decoration: underline;
 }
 
 .terms-text {
@@ -159,48 +131,21 @@
   margin-top: 20px;
   font-size: 12px;
   color: #666;
+  font-family: 'Poppins', sans-serif;
 }
 
 .terms-text a {
   color: #000;
   text-decoration: none;
   font-weight: 500;
-}
-
-.login-link {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.login-link a {
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
 }
 
 .error-message {
-  color: #dc3545;
+  color: #870017;
   font-size: 14px;
   margin-bottom: 10px;
   display: none;
   text-align: left;
+  font-family: 'Poppins', sans-serif;
 }
-
-/* Update styling untuk link di popup */
-.login-link, .signup-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.login-link a, .signup-link a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.login-link a:hover, .signup-link a:hover {
-    text-decoration: underline;
-} 
