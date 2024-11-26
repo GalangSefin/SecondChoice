@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DetailProductController;
 
 
 // |--------------------------------------------------------------------------
@@ -33,9 +34,9 @@ use App\Http\Controllers\CheckoutController;
 // routes/web.php
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-// Route::get('/', function () {
-//     return view('frontend.home');
-// })->name('home');
+    // Route::get('/', function () {
+    //     return view('frontend.home');
+    // })->name('home');
 
 // login route
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
@@ -68,7 +69,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::get('/purchases', 'PurchaseController@index')->name('purchases');
+    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // Routes untuk halaman profil pengguna
@@ -87,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 
     // Routes untuk PurchaseController
-    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
+   
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
     // Produk Routes
@@ -95,6 +96,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
     Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
 
+     // Rute untuk detail produk
+     Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
+     
 });
 
 // Admin Routes
