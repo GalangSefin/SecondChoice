@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\DetailProductController;
+use Laravel\Socialite\Facades\Socialite;
 
 
 // |--------------------------------------------------------------------------
@@ -34,9 +34,9 @@ use App\Http\Controllers\DetailProductController;
 // routes/web.php
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-    // Route::get('/', function () {
-    //     return view('frontend.home');
-    // })->name('home');
+// Route::get('/', function () {
+//     return view('frontend.home');
+// })->name('home');
 
 // login route
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
@@ -124,8 +124,11 @@ Route::post('/login', function (Request $request) {
 })->name('login.submit');
 
 
-Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
-Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.redirect');
+
+Route::get('/auth/callback', [App\Http\Controllers\Auth\GoogleController::class, 'handleCallback']);
 
 
 //jual
@@ -142,3 +145,9 @@ Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->nam
 
 // Route untuk halaman keranjang belanja (cart)
 Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+// Google Login Routes
+Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
+    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
+});
