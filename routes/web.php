@@ -20,6 +20,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 
+use App\Http\Controllers\CartController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -152,3 +153,25 @@ Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(func
     Route::get('auth/google', 'redirectToGoogle')->name('google.login');
     Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
 });
+
+//about
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+Route::get('/tutorial', function () {
+    return view('frontend.tutorialjual');
+})->name('tutorial');
+
+//keranjang
+Route::get('/keranjang', function () {
+    return view('frontend.keranjang');
+})->name('keranjang'); // Route resource untuk keranjang
+// Route::prefix('cart')->group(function () {
+//     Route::get('/', [CartController::class, 'index'])->name('cart.index'); // Menampilkan isi keranjang
+//     Route::post('/add', [CartController::class, 'store'])->name('cart.store'); // Menambahkan item ke keranjang
+//     Route::put('/update/{id}', [CartController::class, 'update'])->name('cart.update'); // Mengupdate item di keranjang
+//     Route::delete('/remove/{id}', [CartController::class, 'destroy'])->name('cart.destroy'); // Menghapus item dari keranjang
+// });
+
+
+

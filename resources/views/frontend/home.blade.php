@@ -8,13 +8,15 @@
             <div class="slider-section">
                 <div class="slider-wrapper" style="background-image: url('images/sell.jpg');">
                     <div class="slide">
-                        <div class="slide-content-left">
-                            <div class="slide-label-left">Sell</div>
-                            <h2>Mulai berjualan</h2>
-                            <div class="slide-buttons">
-                              <a href="{{ route('jual') }}" class="btn btn-Jual">Jual</a>
+                        <div class="slide-content">
+                            <div class="slide-label">Jual</div>
+                            <h2>Jual Produkmu Sendiri</h2>
+                            <div class="slide-button">
+                              <a href="{{ route('jual') }}" class="btn-secondary rounded-full hover:bg-red hover:text-white transition-colors duration-300">Jual</a>
                               
-                                <a href="#" class="btn-secondary">Lihat tutorial</a>
+                              <a href="#" class="btn-secondary rounded-full hover:bg-black hover:text-white transition-colors duration-300">
+                                <span href="{{ route('tutorial') }}"class="hover:text-white">Cara Jualan</span>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -25,11 +27,11 @@
             <div class="slider-section">
                 <div class="slider-wrapper" style="background-image: url('images/explore.jpg');">
                     <div class="slide">
-                        <div class="slide-content-right">
-                            <div class="slide-label-right">New</div>
-                            <h3>Explore item terbaru</h3>
+                        <div class="slide-content">
+                            <div class="slide-label">Baru</div>
+                            <h2>Telusuri Item Terbaru</h2>
                             <div class="slide-buttons">
-                                <a href="#" class="btn-primary">Shop now</a>
+                                <a href="#" class="btn-primary">Belanja Sekarang</a>
                             </div>
                         </div>
                     </div>
