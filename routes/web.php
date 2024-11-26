@@ -56,12 +56,19 @@ Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 Auth::routes(['login' => false, 'register' => false]); // Disable default auth routes
+Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
+Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+Auth::routes(['login' => false, 'register' => false]); // Disable default auth routes
 
 // Rute untuk logout
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rute untuk halaman home (jika dibutuhkan)
 Route::get('/home', function () {
+    return view('frontend.home'); // Mengarahkan ke layout.blade.php
     return view('frontend.home'); // Mengarahkan ke layout.blade.php
 })->name('home');
 
