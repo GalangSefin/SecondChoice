@@ -3,26 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product; // pastikan ada model Product
+use Illuminate\Support\Facades\Log;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Menampilkan daftar produk.
      *
-     * @return void
+     * @return \Illuminate\View\View
      */
-    public function __construct()
+    public function home()
     {
-        $this->middleware('auth');
-    }
+        if (auth()->check() && !auth()->user()->email_verified_at) {
+            return redirect()->route('verification.notice');
+        }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
+        // Mengambil 12 produk terbaru dari database
+        $products = Product::with('images')->latest()->take(12)->get();
+
+        // Mengirimkan data ke view
+        return view('frontend.home', compact('products'));
     }
 }

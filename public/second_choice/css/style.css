@@ -76,6 +76,16 @@
   :root {
     scroll-behavior: smooth; } }
 
+    /* public/css/app.css */
+.content-wrapper {
+  padding-left: 2000px;
+  padding-right: 20px;
+  /* Atau bisa pakai persentase */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Maksimal lebar halaman */
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -2529,63 +2539,63 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #00204a;
-  border-color: #00204a; }
+  background-color: #8700166b;
+  border-color: #870017; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #001b3f;
-    border-color: #001a3b; }
+    background-color: #8700166b;
+    border-color: #870017; }
   .btn-check:focus + .btn-primary, .btn-primary:focus {
     color: #fff;
-    background-color: #001b3f;
-    border-color: #001a3b;
-    -webkit-box-shadow: 0 0 0 0.25rem rgba(38, 65, 101, 0.5);
-    box-shadow: 0 0 0 0.25rem rgba(38, 65, 101, 0.5); }
+    background-color: #870017;
+    border-color: #870017;
+    -webkit-box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5); }
   .btn-check:checked + .btn-primary,
   .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #001a3b;
-    border-color: #001838; }
+    background-color: #870017;
+    border-color: #870017; }
     .btn-check:checked + .btn-primary:focus,
     .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
-      -webkit-box-shadow: 0 0 0 0.25rem rgba(38, 65, 101, 0.5);
-      box-shadow: 0 0 0 0.25rem rgba(38, 65, 101, 0.5); }
+      -webkit-box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5);
+      box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5); }
   .btn-primary:disabled, .btn-primary.disabled {
     color: #fff;
-    background-color: #00204a;
-    border-color: #00204a; }
+    background-color: #870017;
+    border-color: #870017; }
 
 .btn-secondary {
   color: #fff;
-  background-color: #005555;
-  border-color: #005555; }
+  background-color: #8700166b;
+  border-color: #870017; }
   .btn-secondary:hover {
     color: #fff;
-    background-color: #004848;
-    border-color: #004444; }
+    background-color: #8700166b;
+    border-color: #870017; }
   .btn-check:focus + .btn-secondary, .btn-secondary:focus {
     color: #fff;
-    background-color: #004848;
-    border-color: #004444;
-    -webkit-box-shadow: 0 0 0 0.25rem rgba(38, 111, 111, 0.5);
-    box-shadow: 0 0 0 0.25rem rgba(38, 111, 111, 0.5); }
+    background-color: #870017;
+    border-color: #870017;
+    -webkit-box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5); }
   .btn-check:checked + .btn-secondary,
   .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active,
   .show > .btn-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #004444;
-    border-color: #004040; }
+    background-color: #870017;
+    border-color: #870017; }
     .btn-check:checked + .btn-secondary:focus,
     .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus,
     .show > .btn-secondary.dropdown-toggle:focus {
-      -webkit-box-shadow: 0 0 0 0.25rem rgba(38, 111, 111, 0.5);
-      box-shadow: 0 0 0 0.25rem rgba(38, 111, 111, 0.5); }
+      -webkit-box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5);
+      box-shadow: 0 0 0 0.25rem rgba(97, 0, 16, 0.5); }
   .btn-secondary:disabled, .btn-secondary.disabled {
     color: #fff;
-    background-color: #005555;
-    border-color: #005555; }
+    background-color: #870017;
+    border-color: #870017; }
 
 .btn-success {
   color: #fff;
@@ -6547,7 +6557,8 @@ textarea.form-control-lg {
   margin-top: 1.5rem !important; }
 
 .mt-5 {
-  margin-top: 3rem !important; }
+  /* margin-top: 3rem !important;  */
+}
 
 .mt-auto {
   margin-top: auto !important; }
@@ -6848,7 +6859,7 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important; }
+  color: #870017 !important; }
 
 .text-secondary {
   --bs-text-opacity: 1;
@@ -9194,7 +9205,11 @@ textarea.form-control-lg {
 .logo {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.8) !important;
-  font-weight: 500; }
+  font-weight: 500;
+  
+ }
+  
+
   .logo:hover {
     color: #fff !important; }
 
@@ -9587,7 +9602,7 @@ html {
   overflow-x: hidden; }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 14px;
   overflow-x: hidden; }
@@ -9609,15 +9624,18 @@ body {
     opacity: 1;
     visibility: visible; }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
-  font-family: "Work Sans", sans-serif;
-  color: #00204a; }
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
+      font-family: "Poppins", sans-serif;
+      color: #870017;
+    }
+    
 
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  text-decoration: none; }
+  text-decoration: none; 
+}
 
 .form-control {
   font-size: 16px;
@@ -9680,10 +9698,10 @@ textarea {
       top: 0;
       z-index: 1; }
   .hero, .hero > .container > .row {
-    height: 100vh;
-    min-height: 600px; }
+    height: 65vh;
+    min-height: 400px; }
   .hero.page-inner, .hero.page-inner > .container > .row {
-    height: 70vh;
+    height: 65vh;
     min-height: 300px; }
   .hero > .container {
     position: relative;
@@ -9714,7 +9732,7 @@ textarea {
   .hero .form-search .form-control {
     margin-right: 10px; }
   .hero .form-search .btn {
-    background-color: #005555;
+    background-color: #870017;
     padding-left: 30px;
     padding-right: 30px;
     color: #fff; }
@@ -9729,8 +9747,8 @@ textarea {
   left: 0;
   right: 0; }
   .hero-slide .img {
-    height: 100vh;
-    min-height: 600px;
+    height: 65vh;
+    min-height: 400px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; }
@@ -9795,7 +9813,7 @@ textarea {
   -o-transition: .3s all ease;
   transition: .3s all ease; }
   .btn.btn-primary {
-    background: #005555;
+    background: #870017;
     color: #fff; }
   .btn:hover {
     top: -2px;
@@ -10125,19 +10143,19 @@ textarea {
     padding: 7px 20px;
     border-radius: 30px;
     background: rgba(0, 32, 74, 0.1);
-    color: #00204a;
+    color: #870017;
     text-align: center;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease; }
     #property-nav span:hover, #property-nav span.active {
-      background: #00204a;
+      background: #870017;
       color: #fff !important; }
   #property-nav .prev, #property-nav .next {
     position: absolute;
     cursor: pointer; }
     #property-nav .prev:hover, #property-nav .next:hover {
-      color: #00204a; }
+      color: #870017; }
   #property-nav .prev {
     left: 0; }
   #property-nav .next {
@@ -10376,7 +10394,7 @@ textarea {
         -o-transition: .3s all ease;
         transition: .3s all ease; }
       .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
-        background-color: #00204a; }
+        background-color: #870017; }
 
 #testimonial-nav span {
   display: inline-block;
@@ -10384,13 +10402,13 @@ textarea {
   padding: 7px 20px;
   border-radius: 30px;
   background: rgba(0, 32, 74, 0.1);
-  color: #00204a;
+  color: #870017;
   text-align: center;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease; }
   #testimonial-nav span:hover, #testimonial-nav span.active {
-    background: #00204a;
+    background: #870017;
     color: #fff !important; }
 
 .custom-mb {
@@ -10616,4 +10634,290 @@ input.num-product::-webkit-outer-spin-button,
 input.num-product::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; 
+}
+
+.brand-section .logo img {
+  width: 250px;       /* Atur ukuran lebar logo */
+  height: auto;       /* Menjaga proporsi tinggi logo */
+  transition: transform 0.3s ease;  /* Menambahkan animasi transisi */
+}
+
+.brand-section .logo img:hover {
+  transform: scale(1.1);  /* Logo akan membesar 10% saat di-hover */
+}
+
+/* Section Styling */
+.bg0 {
+  background-color: #f8f8f8;
+}
+
+.p-t-23 {
+  padding-top: 23px;
+}
+
+.p-b-140 {
+  padding-bottom: 140px;
+}
+
+.ltext-103 {
+  font-size: 28px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cl5 {
+  color: #5e5e5e;
+}
+
+.stext-106 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stext-106:hover {
+  color: #333;
+}
+
+.hov1 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.how-active1 {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.flex-w {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-sb-m {
+  justify-content: space-between;
+}
+
+.m-tb-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.m-r-32 {
+  margin-right: 32px;
+}
+
+.m-tb-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.flex-c-m {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-show-filter, .js-show-search {
+  cursor: pointer;
+}
+
+.stext-106.cl6 {
+  color: #555;
+}
+
+.size-104 {
+  font-size: 14px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.zmdi {
+  font-size: 16px;
+}
+
+/* Panel Search */
+.panel-search {
+  display: none;
+}
+
+.panel-search .bor8 {
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.panel-search input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.panel-search button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+/* Panel Filter */
+.panel-filter {
+  display: none;
+}
+
+.wrap-filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f1f1f1;
+}
+
+.filter-col1, .filter-col2, .filter-col3, .filter-col4 {
+  width: 22%;
+}
+
+.filter-col1 ul, .filter-col2 ul, .filter-col3 ul, .filter-col4 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-col1 li, .filter-col2 li, .filter-col3 li, .filter-col4 li {
+  margin-bottom: 6px;
+}
+
+.filter-link {
+  text-decoration: none;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.filter-link:hover {
+  color: #007bff;
+}
+
+.filter-link-active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.filter-col3 .fs-15 {
+  font-size: 15px;
+}
+
+.mtext-102 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.mtext-107 {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Product Item */
+.isotope-item {
+  padding-bottom: 35px;
+}
+
+.block2 {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.block2-pic {
+  position: relative;
+}
+
+.block2-pic img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.block2-pic:hover img {
+  transform: scale(1.1);
+}
+
+.block2-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.block2-btn:hover {
+  background-color: #0056b3;
+}
+
+.block2-txt {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block2-txt-child1 a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.block2-txt-child1 a:hover {
+  color: #007bff;
+}
+
+.block2-txt-child1 .stext-105 {
+  font-size: 14px;
+  color: #777;
+}
+
+.block2-txt-child2 {
+  text-align: right;
+}
+
+.btn-addwish-b2 {
+  position: relative;
+}
+
+.icon-heart1 {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-heart2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.btn-addwish-b2:hover .icon-heart1 {
+  display: none;
+}
+
+.btn-addwish-b2:hover .icon-heart2 {
+  display: block;
 }

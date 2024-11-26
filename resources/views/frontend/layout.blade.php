@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="shortcut icon" href="favicon.png" />
 
     <meta name="description" content="" />
@@ -27,11 +29,24 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/navbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/fonts.css') }}" />
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{{ asset('second_choice/css/login-popup.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
+
+    <!-- Di bagian head -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Di bagian head, tambahkan CSS slider -->
+    <link rel="stylesheet" href="{{ asset('second_choice/css/slider.css') }}">
   </head>
   <body>
     <nav class="site-nav">
@@ -42,43 +57,11 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-                SECOND CHOICE
+                <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
               </a>
             </div>
+            
 
-<<<<<<< Updated upstream
-    <nav class="site-nav" style="background-color: rgba(255, 255, 255, 0.0); color: #333;">
-  <div class="container">
-    <div class="menu-bg-wrap" style="background-color: rgba(255, 255, 255, 0.83); color: #333;">
-      <div class="site-navigation" style="box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.0); padding-bottom: 1.5px;">
-        <a href="index.html" class="logo m-0 float-start">
-          <img src="images/logo scnd.png" style="width: 205px; height: auto;">
-        </a>
-
-        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-          <li><a href="{{ route('home') }}" style="color: black;">Home</a></li>
-          <li><a href="{{ route('messages') }}" style="color: black;">Messages</a></li>
-          <li><a href="about.html" style="color: black;">Categories</a></li>
-          <li><a href="/second_choice/login.html" style="color: black;">Login</a></li>
-          <li><a href="/second_choice/cobareg.html" style="color: black;">Register</a></li>
-        </ul>
-
-        <a
-          href="#"
-          class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
-          data-toggle="collapse"
-          data-target="#main-navbar"
-          style="color: black;"
-        >
-          <span></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-    <!-- Konten Utama -->
-=======
             <!-- Search Bar -->
             <div class="search-section">
               <form action="#" class="d-flex search-form">
@@ -109,35 +92,68 @@
 
             <!-- Login/Signup Buttons -->
             <div class="auth-buttons">
-              <!-- Mobile Search Button -->
-              <button title="Search products" class="search-mobile d-md-none">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                  <path d="M20 20L16.05 16.05M18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11Z" 
-                    stroke-width="2" 
-                    stroke-linecap="round">
-                  </path>
-                </svg>
-              </button>
-              
-              <a href="{{ route('login') }}" class="btn d-none d-md-flex">
-                Login
-              </a>
-              <a href="{{ route('register') }}" class="btn">
-                Sign up
-              </a>
+                @guest
+                    <a href="#" class="btn login-trigger">Login</a>
+                    <a href="#" class="btn register-trigger">Sign up</a>
+                @else
+                    <div class="nav-icons">
+                        <a href="{{ route('messages') }}" class="icon-link">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                        <a href="{{ route('checkout.index') }}" class="icon-link">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <div class="user-dropdown">
+                            <a href="#" class="icon-link" id="userDropdownToggle">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu" id="userDropdownMenu">
+                              <a href="{{ route('profile.index') }}" class="dropdown-item">
+                                  <i class="fa-regular fa-user"></i> Profile
+                              </a>
+                                <a href="{{ route('purchases.index') }}" class="dropdown-item">
+                                    <i class="fa-solid fa-bag-shopping"></i> Purchases
+                                </a>
+                                <a href="{{ route('settings') }}" class="dropdown-item">
+                                    <i class="fa-solid fa-gear"></i> Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <form id="logoutForm" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @endguest
             </div>
           </div>
         </div>
       </div>
 
       <!-- Bagian bawah navbar -->
+       
       <div class="nav-bottom">
         <div class="container">
           <div class="categories">
             <ul>
-              <li><a href="#">Wanita</a></li>
-              <li><a href="#">Pria</a></li>
-              <li><a href="#">Branded</a></li>
+              <li><a href="{{ route('home') }}">Home</a></li>
+              <div data-v-95b28ccd class="category__trigger flex" onclick="toggleDropdown()">
+                <svg data-v-95b28ccd xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                  <!-- Tambahkan konten SVG di sini -->
+                </svg>
+                <span data-v-95b28ccd class="category__trigger__name font-white">Kategori</span>
+              </div>
+              
+              <div class="dropdown-content">
+                <a href="#">Subkategori 1</a>
+                <a href="#">Subkategori 2</a>
+                <a href="#">Subkategori 3</a>
+              </div>
+
+              <li><a href="{{ route('jual') }}">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>
           </div>
@@ -145,60 +161,76 @@
       </div>
     </nav>
 
+    <!-- Tambahkan setelah nav dan sebelum content -->
+    <div class="login-popup-overlay"></div>
+    <div class="login-popup">
+        <button class="close-button">&times;</button>
+        <h2>Login</h2>
+        
+        <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
+          <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
+          Continue with Google
+      </button>
+      
+        
+        <div class="divider">atau</div>
+        
+        <form class="login-form" id="loginForm">
+            @csrf
+            <input type="text" name="email" placeholder="Username atau email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div class="error-message" style="color: red; margin-bottom: 10px; display: none;"></div>
+            
+            <div class="forgot-password">
+                <a href="{{ route('password.request') }}">Lupa password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        
+        <div class="signup-link">
+            Belum punya akun? <a href="#" class="signup-trigger">Signup</a>
+        </div>
+    </div>
+
+    <!-- Tambahkan setelah login popup -->
+    <div class="register-popup">
+        <button class="close-button">&times;</button>
+        <h2>Create account</h2>
+        
+        <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
+          <img src="{{ asset('second_choice/images/google-icon.svg') }}" alt="Google" width="20">
+          Continue with Google
+      </button>
+        
+        <div class="divider">atau</div>
+        
+        <form class="register-form" id="registerForm">
+            @csrf
+            <input type="text" name="name" placeholder="Nama lengkap" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div class="error-message"></div>
+            
+            <button type="submit" class="signup-btn">Sign up</button>
+        </form>
+        
+        <div class="login-link">
+            Sudah punya akun? <a href="#" class="login-trigger">Login</a>
+        </div>
+        
+        <div class="terms-text">
+            By joining, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+        </div>
+    </div>
+
     <!-- Langsung mulai konten setelah navbar -->
->>>>>>> Stashed changes
     @yield('content')
-
+    
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-columns">
-          <!-- Column 1: Preloved -->
-          <div class="footer-column">
-            <h3>Preloved</h3>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 2: Discover -->
-          <div class="footer-column">
-            <h3>Discover</h3>
-            <ul>
-              <li><a href="#">Cara kerjanya</a></li>
-              <li><a href="#">Mulai jualan</a></li>
-              <li><a href="#">Thrift shops</a></li>
-              <li><a href="#">Nama olshop</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Help -->
-          <div class="footer-column">
-            <h3>Help</h3>
-            <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Social Media Icons -->
-        <div class="social-icons">
-          <a href="#"><span class="icon-instagram"></span></a>
-          <a href="#"><span class="icon-tiktok"></span></a>
-          <a href="#"><span class="icon-facebook"></span></a>
-          <a href="#"><span class="icon-x"></span></a>
-          <a href="#"><span class="icon-linkedin"></span></a>
-        </div>
-
-        <!-- Privacy and Terms -->
-        <div class="footer-bottom">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-        </div>
-      </div>
-    </footer>
+    @include('frontend.footer')
+    
 
     <!-- Scripts -->
     <script src="{{ asset('second_choice/js/bootstrap.bundle.min.js') }}"></script>
@@ -207,5 +239,9 @@
     <script src="{{ asset('second_choice/js/navbar.js') }}"></script>
     <script src="{{ asset('second_choice/js/counter.js') }}"></script>
     <script src="{{ asset('second_choice/js/custom.js') }}"></script>
+    <script src="{{ asset('second_choice/js/login-popup.js') }}"></script>
+
+    <!-- Di bagian bawah sebelum closing body, tambahkan JS slider -->
+    <script src="{{ asset('second_choice/js/slider.js') }}"></script>
   </body>
 </html>
