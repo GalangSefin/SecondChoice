@@ -27,6 +27,7 @@
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
         <p><strong>Bio:</strong> {{ Auth::user()->bio }}</p>
+        <p><strong>No.Telp:</strong> {{ Auth::user()->phone_number }}</p>
         <p><strong>Website:</strong> <a href="{{ Auth::user()->website }}" target="_blank">{{ Auth::user()->website }}</a></p>
         <p><strong>Alamat:</strong> {{ Auth::user()->alamat }}</p>
     </div>

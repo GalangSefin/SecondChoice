@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AddressController;
 
 
 // |--------------------------------------------------------------------------
@@ -137,3 +138,7 @@ Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->nam
 
 // Route untuk halaman keranjang belanja (cart)
 Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+// Route untuk ubah alamat pada checkout
+Route::get('/ubah-alamat', [AddressController::class, 'edit'])->name('address.edit');
+Route::put('/ubah-alamat', [AddressController::class, 'update'])->name('address.update');

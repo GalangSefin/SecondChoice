@@ -15,14 +15,14 @@
         <div class="row">
             <!-- Alamat Section -->
             <div class="col-md-6">
-                <h4>Alamat</h4>
-                <div class="card p-3">
-                    <p><strong>Eki Nanda (Jember Mini Zoo)</strong></p>
-                    <p>087765959541</p>
-                    <p>Jl. Brawijaya, Kompleks RedjoAgung, Tanjung, Mangli, Kaliwates, Jember Regency, East Java 68131, Indonesia</p>
-                    <a href="#" class="btn btn-link">Edit Alamat</a>
-                </div>
-            </div>
+    <h4>Alamat</h4>
+    <div class="card p-3">
+        <p><strong>{{ Auth::user()->name }}</strong></p> <!-- Nama & Bio -->
+        <p>{{ Auth::user()->phone_number ?? 'Nomor telepon belum diisi' }}</p> <!-- Nomor Telepon -->
+        <p>{{ Auth::user()->alamat }}</p> <!-- Alamat -->
+        <a href="{{ route('address.edit') }}" class="btn btn-link">Edit Alamat</a> <!-- Link untuk edit -->
+    </div>
+</div>
 
             <!-- Order Section -->
             <div class="col-md-6">
