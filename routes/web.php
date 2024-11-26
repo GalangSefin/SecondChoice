@@ -106,6 +106,9 @@ Route::get('/jual', [JualController::class, 'index'])->name('jual');
 Route::get('/about', function () {
     return view('frontend.about');
 })->name('about');
+Route::get('/tutorial', function () {
+    return view('frontend.tutorialjual');
+})->name('tutorial');
 
 //keranjang
 Route::get('/keranjang', function () {

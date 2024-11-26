@@ -15,7 +15,7 @@
                               <a href="{{ route('jual') }}" class="btn-secondary rounded-full hover:bg-red hover:text-white transition-colors duration-300">Jual</a>
                               
                               <a href="#" class="btn-secondary rounded-full hover:bg-black hover:text-white transition-colors duration-300">
-                                <span class="hover:text-white">Cara Jualan</span>
+                                <span href="{{ route('tutorial') }}"class="hover:text-white">Cara Jualan</span>
                             </a>
                             </div>
                         </div>
