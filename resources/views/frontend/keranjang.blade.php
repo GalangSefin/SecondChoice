@@ -42,7 +42,7 @@
                 Checkout
             </button>
         </div>
-        <button class="text-gray-500 text-xl ml-4">×</button>
+        <!-- <button class="text-gray-500 text-xl ml-4">×</button> -->
     </div>
 </div>
 
@@ -84,7 +84,7 @@
             <p class="line-through">Rp 1.299.000</p>
             <p class="text-sm">- 25%</p>
         </div>
-        <button class="text-gray-500 text-xl ml-4">×</button>
+        <!-- <button class="text-gray-500 text-xl ml-4">×</button> -->
     </div>
 </div>
 

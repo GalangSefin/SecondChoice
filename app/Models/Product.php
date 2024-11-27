@@ -52,6 +52,16 @@ class Product extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function namacategory()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function namajenis()
+    {
+        return $this->belongsTo(Jenis::class, 'jenis_id');
+    }
 }
 
 

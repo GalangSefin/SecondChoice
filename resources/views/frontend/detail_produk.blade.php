@@ -6,10 +6,10 @@
 <div class="product-container">
     <!-- Bagian Gambar Produk -->
     <div class="product-image-container">
-        <img id="mainImage" src="{{ $product->images->first()->decoded_image }}" alt="{{ $product->name }}" class="main-image">
+        <img id="mainImage" src="data:image/jpeg;base64,{{ base64_encode($products->images->first()->image) }}" alt="{{ $products->name }}" class="main-image">
         <div class="thumbnail-container">
-            @foreach ($product->images as $image)
-                <img src="{{ $image->decoded_image }}" alt="Thumbnail" class="thumbnail" onclick="changeImage('{{ $image->decoded_image }}')">
+            @foreach ($products->images as $image)
+                <img src="data:image/jpeg;base64,{{ base64_encode($image->image) }}" alt="Thumbnail" class="thumbnail" onclick="changeImage('data:image/jpeg;base64,{{ base64_encode($image->image) }}')">
             @endforeach
         </div>
     </div>
@@ -26,14 +26,17 @@
             </div>
         </div>
 
-        <!-- Informasi Penjual -->
-        <div class="seller-info">
-            <!-- Gambar Avatar Penjual -->
-            @if($product->seller->avatar)
-                <img src="data:image/jpeg;base64,{{ base64_encode($product->seller->avatar) }}" alt="Avatar Penjual" class="seller-avatar">
-            @else
-                <img src="{{ asset('default-avatar.jpg') }}" alt="Avatar Default" class="seller-avatar">
-            @endif
+        <p class="jenis_nama"> {{ $products->namajenis->jenis_nama }}</p>
+        <p class="category_nama"> {{ $products->namacategory->category_nama }}</p>
+
+       <!-- Informasi Penjual -->
+<div class="seller-info">
+    <!-- Gambar Avatar Penjual -->
+    @if($products->seller->avatar)
+        <img src="data:image/jpeg;base64,{{ base64_encode($products->seller->avatar) }}" alt="Avatar Penjual" class="seller-avatar">
+    @else
+        <img src="{{ asset('default-avatar.jpg') }}" alt="Avatar Default" class="seller-avatar">
+    @endif
 
             <!-- Detail Penjual -->
             <div class="seller-details">
