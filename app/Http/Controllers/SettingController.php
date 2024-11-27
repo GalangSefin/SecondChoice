@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Models\User;
 
 class SettingController extends Controller
 {
@@ -48,7 +47,9 @@ class SettingController extends Controller
         // Update data profil pengguna
         $user->name = $request->input('name');
         $user->bio = $request->input('bio');
+        $user->phone_number = $request->input('phone_number');
         $user->website = $request->input('website');
+        $user->alamat = $request->input('alamat');
         $user->save();
 
         // Redirect dengan pesan sukses

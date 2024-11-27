@@ -6,6 +6,8 @@
     <meta name="author" content="Untree.co" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="shortcut icon" href="favicon.png" />
 
     <meta name="description" content="" />
@@ -56,8 +58,8 @@
           <div class="site-navigation">
             <!-- Logo -->
             <div class="brand-section">
-              <a href="{{ route('home') }}" class="logo"> 
-              <img src="{{ asset('images/logo scnd.png') }}" alt="Logo" />
+              <a href="{{ route('home') }}" class="logo">
+                <img src="images/logo scnd.png" alt="Logo">
               </a>
             </div>
             

@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();  // Kolom ID otomatis
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->binary('image');
+            $table->string('image_name');  // Nama file gambar
+            $table->string('image_path');  // Path gambar di direktori server
+            $table->string('image_url');   // URL gambar untuk akses via HTTP
             $table->timestamps();
         });
     }

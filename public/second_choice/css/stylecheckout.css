@@ -1,14 +1,50 @@
-/* Global Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Soft gray background */
+/* Reset dan Global Styling */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Background abu-abu lembut */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Wrapper Styling */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Pastikan wrapper setinggi layar */
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Bisa diubah sesuai kebutuhan */
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Main Content */
+main {
+    flex: 1; /* Konten utama memenuhi ruang */
+    padding: 20px;
 }
 
 /* Container Styling */
 .container {
-    margin-top: 20px;
+    margin: auto; /* Pusatkan container */
+    max-width: 1200px;
 }
 
 /* Card Styling */
@@ -17,6 +53,8 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .card p {
@@ -51,6 +89,8 @@ h4 {
     font-weight: bold;
     color: #fff;
     cursor: pointer;
+    text-align: center;
+    display: block;
 }
 
 .btn-primary:hover {
@@ -98,6 +138,30 @@ hr {
     border-top: 1px solid #ddd;
 }
 
+/* Footer Styling */
+footer {
+    background-color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Memastikan footer selalu berada di bawah */
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    color: #333;
+    font-size: 14px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -113,3 +177,4 @@ hr {
         font-size: 18px;
     }
 }
+ 

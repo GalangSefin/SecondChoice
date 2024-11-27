@@ -34,13 +34,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="phone_number">No.Telp</label>
+                    <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ Auth::user()->phone_number }}" placeholder="Isi nomor telepon">
+                </div>
+
+                <div class="form-group">
                     <label for="website">Website</label>
                     <input type="text" id="website" name="website" class="form-control" value="{{ Auth::user()->website }}" placeholder="Link ke Instagram atau website pribadimu">
                 </div>
 
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <input type="text" id="website" name="website" class="form-control" value="{{ Auth::user()->website }}" placeholder="Link ke Instagram atau website pribadimu">
+                    <input type="text" id="alamat" name="alamat" class="form-control" value="{{ Auth::user()->alamat }}" placeholder="Link ke Instagram atau website pribadimu">
                 </div>
 
 

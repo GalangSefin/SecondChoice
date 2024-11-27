@@ -14,18 +14,16 @@ class Product extends Model
 
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
-        'category_id',
-        'jenis_id',
         'user_id',
-        'name',
+        'type',
         'description',
+        'name', 
         'price', 
+        'category', 
         'stock', 
         'condition', 
+        'image'
     ];
-
-    public $timestamps = true;
-
 
     // Relasi dengan model ProductImage (jika ada)
     public function images()
@@ -37,21 +35,4 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function jenis()
-    {
-        return $this->belongsTo(Jenis::class);
-    }
-
-    public function seller()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }
-
-

@@ -28,6 +28,7 @@
             <div class="profile">
             <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
             <h2>{{ Auth::user()->name }}</h2>
+            <p>@{{ Auth::user()->username }}</p>
         </div>
             <a href="{{ route('produk.upload') }}"><button>+ Upload produk</button></a>
             <nav>

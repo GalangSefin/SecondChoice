@@ -17,6 +17,44 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AddressController;
+
+
+// |--------------------------------------------------------------------------
+// | Web Routes
+// |--------------------------------------------------------------------------
+// |
+// | Here is where you can register web routes for your application. These
+// | routes are loaded by the RouteServiceProvider and all of them will
+// | be assigned to the "web" middleware group. Make something great!
+// |
+
+
+
+// routes/web.php
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
+Route::get('/', function () {
+    return view('frontend.home');
+})->name('home');
+
+// login route
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); // Proses login
+
+ 
+use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\JualController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -67,11 +105,9 @@ Auth::routes(['login' => false, 'register' => false]); // Disable default auth r
 
 // Rute untuk logout
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rute untuk halaman home (jika dibutuhkan)
 Route::get('/home', function () {
-    return view('frontend.home'); // Mengarahkan ke layout.blade.php
     return view('frontend.home'); // Mengarahkan ke layout.blade.php
 })->name('home');
 
@@ -243,3 +279,27 @@ Route::middleware(['auth'])->group(function () {
         return back()->with('message', 'Link verifikasi telah dikirim ulang!');
     })->middleware('throttle:6,1')->name('verification.send');
 });
+
+
+Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
+Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
+
+
+//jual
+Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Proses data pengiriman
+Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+
+// Halaman pembayaran
+Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+
+// Route untuk halaman keranjang belanja (cart)
+Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+// Route untuk ubah alamat pada checkout
+Route::get('/ubah-alamat', [AddressController::class, 'edit'])->name('address.edit');
+Route::put('/ubah-alamat', [AddressController::class, 'update'])->name('address.update');

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);  // Harga produk
             $table->integer('stock');  // Jumlah stok produk
             $table->string('condition');  // Kondisi produk (baru/bekas)
+            $table->string('image');
             $table->timestamps();  // Kolom created_at dan updated_at
         });
     }
