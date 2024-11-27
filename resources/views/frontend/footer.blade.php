@@ -5,7 +5,7 @@
         <div class="footer-column">
           <h3>Preloved</h3>
           <ul>
-            <li><a href="#">About</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="#">Blog</a></li>
           </ul>
         </div>

@@ -22,6 +22,8 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishlistController;
 
 
 
@@ -148,6 +150,17 @@ Route::get('/auth/callback', [App\Http\Controllers\Auth\GoogleController::class,
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
 
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+Route::get('/tutorial', function () {
+    return view('frontend.tutorialjual');
+})->name('tutorial');
+
+//keranjang
+Route::get('/keranjang', function () {
+    return view('frontend.keranjang');
+})->name('keranjang');
 // Route untuk halaman checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
