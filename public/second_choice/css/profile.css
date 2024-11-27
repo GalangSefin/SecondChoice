@@ -85,25 +85,24 @@ main {
 }
 
 .profile-header {
-        display: flex;
-        flex-direction: column; /* Susun elemen secara vertikal */
-        align-items: center; /* Pusatkan secara horizontal */
-        justify-content: center; /* Pusatkan secara vertikal */
-        margin-bottom: 20px;
-        text-align: center; /* Buat teks menjadi rata tengah */
-    }
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
 .profile-icon-large {
     background-color: #4db6ac;
-    width: 80px; /* Sesuaikan ukuran logo */
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; /* Buat logo berbentuk lingkaran */
-    font-size: 26px;
+    padding: 40px;
+    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+    height: 25px; /* Pastikan lebar dan tinggi sama */
+    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    justify-content: center; /* Menyelaraskan item secara horizontal */
+    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
+    font-size: 26px; /* Ukuran font yang sesuai */
+    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
     color: white;
-    margin-bottom: 10px; /* Jarak antara logo dan teks */
+    margin-right: 20px;
 }
 
 .profile-info h1 {

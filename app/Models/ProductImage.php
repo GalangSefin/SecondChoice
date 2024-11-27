@@ -11,9 +11,7 @@ class ProductImage extends Model
     
     protected $fillable = [
         'product_id',
-        'image_name',
-        'image_path',
-        'image_url',
+        'image',
     ];
 
     // Relasi balik ke produk

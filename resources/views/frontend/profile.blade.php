@@ -3,13 +3,12 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('second_choice/css/profile.css') }}" />
 <div class="container mt-5">
+    <h2>Profile Pengguna</h2>
 
     <!-- Bagian Profile Section -->
     <section class="profile-section">
-    <h2>Profile Pengguna</h2>
         <div class="profile-header">
-        <div class="profile d-flex flex-column align-items-center ">
-
+        <div class="profile">
             <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
             <h2>{{ Auth::user()->name }}</h2>
             <!-- <p>@{{ Auth::user()->username }}</p> -->
@@ -26,10 +25,6 @@
         <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
-        <p><strong>Bio:</strong> {{ Auth::user()->bio }}</p>
-        <p><strong>No.Telp:</strong> {{ Auth::user()->phone_number }}</p>
-        <p><strong>Website:</strong> <a href="{{ Auth::user()->website }}" target="_blank">{{ Auth::user()->website }}</a></p>
-        <p><strong>Alamat:</strong> {{ Auth::user()->alamat }}</p>
     </div>
 
         <!-- Bagian Tab Menu -->
@@ -52,7 +47,7 @@
                     <div class="listing-item">
                         <div class="listing-image">
                             @if ($product->images->isNotEmpty())
-                                <img src="{{ asset('storage/' . $product->images->first()->path) }}" alt="{{ $product->name }}">
+                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
                             @else
                                 <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
                             @endif

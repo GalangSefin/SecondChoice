@@ -17,12 +17,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
+
+
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -38,33 +38,32 @@ use Illuminate\Auth\Events\Verified;
 // routes/web.php
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-// Login routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::get('/', function () {
+//     return view('frontend.home');
+// })->name('home');
 
-// Ajax routes
+// login route
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); // Proses login
+
+ 
+Route::get('/messages', function () {
+    return view('frontend.messages');
+})->name('messages');
+
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Auth::routes(['login' => false, 'register' => false]);
+Auth::routes(['login' => false, 'register' => false]); // Disable default auth routes
 
-// Google Login Routes
-Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
-    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
-    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
-});
+// Rute untuk logout
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Checkout routes
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
-Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
-Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
-
-// Address routes
-Route::get('/ubah-alamat', [AddressController::class, 'edit'])->name('address.edit');
-Route::put('/ubah-alamat', [AddressController::class, 'update'])->name('address.update');
+// Rute untuk halaman home (jika dibutuhkan)
+Route::get('/home', function () {
+    return view('frontend.home'); // Mengarahkan ke layout.blade.php
+})->name('home');
 
 // Protected Routes (Requires Auth, Verified Email & Active User)
 Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
@@ -137,51 +136,12 @@ Route::post('/login', function (Request $request) {
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 })->name('google.redirect');
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-})->name('google.redirect');
 
 Route::get('/auth/callback', [App\Http\Controllers\Auth\GoogleController::class, 'handleCallback']);
 
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
-
-// Route untuk halaman checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-
-// Proses data pengiriman
-Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
-
-// Halaman pembayaran
-Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
-
-// Route untuk halaman keranjang belanja (cart)
-Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
-
-// Google Login Routes
-Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
-    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
-    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
-});
-
-// Route untuk halaman checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-
-// Proses data pengiriman
-Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
-
-// Halaman pembayaran
-Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
-
-// Route untuk halaman keranjang belanja (cart)
-Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
-
-// Google Login Routes
-Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
-    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
-    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
-});
 
 // Route untuk halaman checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
@@ -234,27 +194,3 @@ Route::middleware(['auth'])->group(function () {
         return back()->with('message', 'Link verifikasi telah dikirim ulang!');
     })->middleware('throttle:6,1')->name('verification.send');
 });
-
-
-Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
-Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
-
-
-//jual
-Route::get('/jual', [JualController::class, 'index'])->name('jual');
-
-// Route untuk halaman checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-
-// Proses data pengiriman
-Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
-
-// Halaman pembayaran
-Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
-
-// Route untuk halaman keranjang belanja (cart)
-Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
-
-// Route untuk ubah alamat pada checkout
-Route::get('/ubah-alamat', [AddressController::class, 'edit'])->name('address.edit');
-Route::put('/ubah-alamat', [AddressController::class, 'update'])->name('address.update');

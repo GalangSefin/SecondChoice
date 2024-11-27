@@ -40,10 +40,6 @@ class ProfileController extends Controller
         auth()->user()->update([
             'name' => $request->name,
             'email' => $request->email,
-            'bio' => $request->bio,
-            'phone_number' => $request->phone_number,
-            'website' => $request->website,
-            'alamat' => $request->alamat,
         ]);
 
         return redirect()->back()->with('success', 'Profil berhasil diperbarui.');

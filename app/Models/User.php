@@ -15,15 +15,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
-        'nomor',
-        'bio',
-        'website',
-        'profile_picture',
-        'google_id',
-        'google_token',
-        'google_refresh_token',
-        'alamat',
         'is_active',
         'email_verified_at'
     ];
@@ -60,11 +53,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getEmailForVerification()
     {
         return $this->email;
-    }
-
-
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'user_id');
     }
 }
