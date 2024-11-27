@@ -10,7 +10,7 @@ class DetailProductController extends Controller
     public function show($id)
     {
         // Mengambil data produk dengan relasi
-        $products = Product::with(['images', 'seller'])->findOrFail($id);
+        $products = Product::with(['images', 'seller', 'namacategory', 'namajenis'])->findOrFail($id);
 
         // Mengembalikan view dengan data produk
         return view('frontend.detail_produk', compact('products'));

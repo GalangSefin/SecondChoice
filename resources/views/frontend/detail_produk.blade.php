@@ -6,10 +6,10 @@
 <div class="product-container">
     <!-- Bagian Gambar Produk -->
     <div class="product-image-container">
-        <img id="mainImage" src="data:image/jpeg;base64,{{ base64_encode($products->images->first()->image_data) }}" alt="{{ $products->name }}" class="main-image">
+        <img id="mainImage" src="data:image/jpeg;base64,{{ base64_encode($products->images->first()->image) }}" alt="{{ $products->name }}" class="main-image">
         <div class="thumbnail-container">
             @foreach ($products->images as $image)
-                <img src="data:image/jpeg;base64,{{ base64_encode($image->image_data) }}" alt="Thumbnail" class="thumbnail" onclick="changeImage('data:image/jpeg;base64,{{ base64_encode($image->image_data) }}')">
+                <img src="data:image/jpeg;base64,{{ base64_encode($image->image) }}" alt="Thumbnail" class="thumbnail" onclick="changeImage('data:image/jpeg;base64,{{ base64_encode($image->image) }}')">
             @endforeach
         </div>
     </div>
@@ -25,6 +25,9 @@
                 {!! nl2br(e($products->description)) !!}
             </div>
         </div>
+
+        <p class="jenis_nama"> {{ $products->namajenis->jenis_nama }}</p>
+        <p class="category_nama"> {{ $products->namacategory->category_nama }}</p>
 
        <!-- Informasi Penjual -->
 <div class="seller-info">

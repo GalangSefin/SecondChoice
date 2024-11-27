@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
@@ -19,7 +18,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
-
 use App\Http\Controllers\CartController;
 
 // |--------------------------------------------------------------------------
