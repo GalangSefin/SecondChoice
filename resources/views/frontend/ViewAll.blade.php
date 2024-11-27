@@ -59,6 +59,21 @@
             </form>
         </div>
 
+        <!-- <h1>Daftar Semua Produk</h1>
+    <form action="{{ route('products.viewall') }}" method="GET">
+        <input type="text" name="search" placeholder="Cari produk..." value="{{ request('search') }}">
+        <button type="submit">Cari</button>
+    </form>
+
+    @if($products->isNotEmpty())
+        <ul>
+            @foreach($products as $item)
+                <li>{{ $item->name }} - {{ $item->category }}</li>
+            @endforeach
+        </ul>
+    @else
+        <p>Tidak ada produk ditemukan.</p>
+    @endif -->
         <!-- Menggunakan ul dan li untuk tampilan produk -->
         <ul class="grid">
             @forelse($products as $product)
@@ -75,6 +90,8 @@
                         <!-- <p>Kategori: {{ $product->category }}</p> -->
                         <p>Harga: Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                         <!-- <p>Kondisi: {{ $product->condition }}</p> -->
+                         <!-- Link ke halaman detail produk -->
+                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-detail">Lihat Detail</a>
                     </div>
                 </li>
             @empty

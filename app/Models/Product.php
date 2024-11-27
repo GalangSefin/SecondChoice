@@ -47,4 +47,11 @@ class Product extends Model
     {
         return $this->belongsTo(Jenis::class);
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
+
+

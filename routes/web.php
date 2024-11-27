@@ -13,9 +13,19 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UpProdukController;
+use App\Http\Controllers\pesananController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DetailProductController;
+use Laravel\Socialite\Facades\Socialite;
+
 use App\Http\Controllers\CheckoutController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -50,6 +60,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); 
 Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
+
+
 
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
@@ -143,12 +155,51 @@ Route::post('/login', function (Request $request) {
 Route::get('/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 })->name('google.redirect');
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.redirect');
 
 Route::get('/auth/callback', [App\Http\Controllers\Auth\GoogleController::class, 'handleCallback']);
 
 
 //jual
 Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
+// Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Proses data pengiriman
+Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+
+// Halaman pembayaran
+Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+
+// Route untuk halaman keranjang belanja (cart)
+Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+// Google Login Routes
+Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
+    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
+});
+
+// Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Proses data pengiriman
+Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+
+// Halaman pembayaran
+Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+
+// Route untuk halaman keranjang belanja (cart)
+Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+// Google Login Routes
+Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
+    Route::get('auth/google', 'redirectToGoogle')->name('google.login');
+    Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
+});
 
 // Route untuk halaman checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
