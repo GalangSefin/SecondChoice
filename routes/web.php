@@ -17,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Models\User;
@@ -51,6 +52,7 @@ Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
 
+
 Route::post('/ajax-login', [LoginController::class, 'ajaxLogin'])->name('ajax.login')->middleware('web');
 Route::post('/ajax-register', [RegisterController::class, 'ajaxRegister'])->name('ajax.register')->middleware('web');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
@@ -73,16 +75,15 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::get('/purchases', 'PurchaseController@index')->name('purchases');
-    
-    // Profile routes
-    Route::prefix('profile')->group(function () {
-        Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
-        Route::get('/edit', [ProfileController::class, 'show'])->name('profile.show');
-        Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
-    });
+    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    // Settings routes
+    // Routes untuk halaman profil pengguna
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    // Routes untuk halaman pengaturan (Settings)
     Route::get('/settings', [SettingController::class, 'editProfile'])->name('settings');
     Route::post('/update-profile', [SettingController::class, 'updateProfile'])->name('updateProfile');
 
@@ -94,10 +95,10 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
 
     // Pesanan & Purchase routes
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
-    Route::prefix('purchases')->group(function () {
-        Route::get('/', [PurchaseController::class, 'index'])->name('purchases.index');
-        Route::post('/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
-    });
+
+    // Routes untuk PurchaseController
+   
+    Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
     // Product routes
     Route::prefix('produk')->group(function () {
@@ -105,6 +106,10 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
         Route::post('/', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
     });
     Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
+
+     // Rute untuk detail produk
+     Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
+     
 });
 
 // Admin Routes dengan pengecekan is_active

@@ -24,6 +24,9 @@ class HomeController extends Controller
         // Mengambil 12 produk terbaru dari database
         $products = Product::with('images')->latest()->take(12)->get();
 
+       // Debugging
+        Log::info('Products fetched: ', ['products' => $products]);
+
         // Mengirimkan data ke view
         return view('frontend.home', compact('products'));
     }
