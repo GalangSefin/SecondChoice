@@ -40,6 +40,8 @@ use App\Http\Controllers\WishlistController;
 
 // routes/web.php
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/product/{id}', [HomeController::class, 'show'])->name('product.show');
 
 // Route::get('/', function () {
 //     return view('frontend.home');
@@ -65,9 +67,7 @@ Auth::routes(['login' => false, 'register' => false]); // Disable default auth r
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rute untuk halaman home (jika dibutuhkan)
-Route::get('/home', function () {
-    return view('frontend.home'); // Mengarahkan ke layout.blade.php
-})->name('home');
+
 
 // Protected Routes (Requires Auth, Verified Email & Active User)
 Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
@@ -212,3 +212,7 @@ Route::middleware(['auth'])->group(function () {
         return back()->with('message', 'Link verifikasi telah dikirim ulang!');
     })->middleware('throttle:6,1')->name('verification.send');
 });
+
+Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage'])
+    ->name('product.image')
+    ->middleware('web');

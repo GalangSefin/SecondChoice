@@ -3,31 +3,76 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product; // pastikan ada model Product
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-
 
 class HomeController extends Controller
 {
-    /**
-     * Menampilkan daftar produk.
-     *
-     * @return \Illuminate\View\View
-     */
     public function home()
     {
-        if (auth()->check() && !auth()->user()->email_verified_at) {
-            return redirect()->route('verification.notice');
+        // Mengambil semua kategori
+        $categories = Category::all();
+
+        // Query dasar untuk mengambil produk beserta relasinya
+        $query = Product::with('images', 'category');
+
+        // Mengambil produk berdasarkan query (termasuk filter jika ada)
+        $newproducts = $query->latest()->take(12)->get();
+
+        foreach ($newproducts as $product) {
+            if ($product->images->isNotEmpty()) {
+                foreach ($product->images as $image) {
+                    try {
+                        $path = 'public/products/' . basename($image->image);
+                        if (Storage::exists($path)) {
+                            $encryptedContent = Storage::get($path);
+                            $decryptedContent = decrypt($encryptedContent);
+                            $base64Image = base64_encode($decryptedContent);
+                            $image->decoded_image = 'data:image/jpeg;base64,' . $base64Image;
+                        } else {
+                            Log::warning('Image file not found: ' . $path);
+                            $image->decoded_image = asset('second_choice/images/no-image.png');
+                        }
+                    } catch (\Exception $e) {
+                        Log::error('Error decrypting image: ' . $e->getMessage());
+                        $image->decoded_image = asset('second_choice/images/no-image.png');
+                    }
+                }
+            }
         }
 
-        // Mengambil 12 produk terbaru dari database
-        $products = Product::with('images')->latest()->take(12)->get();
+        // Kirim data produk ke view dengan nama variabel baru
+        return view('frontend.home', [
+            'newproducts' => $newproducts,
+            'categories' => $categories,
+        ]);
+    }
 
-       // Debugging
-        Log::info('Products fetched: ', ['products' => $products]);
+    public function show($id)
+    {
+        $product = Product::with('images', 'category')->findOrFail($id);
 
-        // Mengirimkan data ke view
-        return view('frontend.home', compact('products'));
+        if ($product->images->isNotEmpty()) {
+            foreach ($product->images as $image) {
+                try {
+                    $path = 'public/products/' . basename($image->image);
+                    if (Storage::exists($path)) {
+                        $encryptedContent = Storage::get($path);
+                        $decryptedContent = decrypt($encryptedContent);
+                        $base64Image = base64_encode($decryptedContent);
+                        $image->decoded_image = 'data:image/jpeg;base64,' . $base64Image;
+                    } else {
+                        $image->decoded_image = asset('second_choice/images/no-image.png');
+                    }
+                } catch (\Exception $e) {
+                    Log::error('Error decrypting image: ' . $e->getMessage());
+                    $image->decoded_image = asset('second_choice/images/no-image.png');
+                }
+            }
+        }
+
+        return view('frontend.product-detail', compact('product'));
     }
 }

@@ -136,19 +136,14 @@
           <div class="categories">
             <ul>
               <li><a href="{{ route('home') }}">Home</a></li>
-              <div data-v-95b28ccd class="category__trigger flex" onclick="toggleDropdown()">
-                <svg data-v-95b28ccd xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                  <!-- Tambahkan konten SVG di sini -->
-                </svg>
-                <span data-v-95b28ccd class="category__trigger__name font-white">Kategori</span>
-              </div>
-              
-              <div class="dropdown-content">
-                <a href="#">Subkategori 1</a>
-                <a href="#">Subkategori 2</a>
-                <a href="#">Subkategori 3</a>
-              </div>
-
+              <li class="category__trigger" onclick="toggleDropdown()">
+                <span class="category__trigger__name">Kategori</span>
+                <div class="dropdown-content">
+                  <a href="#">Subkategori 1</a>
+                  <a href="#">Subkategori 2</a>
+                  <a href="#">Subkategori 3</a>
+                </div>
+              </li>
               <li><a href="{{ route('jual') }}">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>

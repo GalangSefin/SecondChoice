@@ -80,18 +80,16 @@
                 <li class="product-item">
                     <div class="product-image">
                         @if ($product->images->isNotEmpty())
-                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
+                            <img src="{{ $product->images->first()->decoded_image }}" 
+                                 alt="{{ $product->name }}"
                         @else
                             <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
                         @endif
                     </div>
                     <div class="product-info">
                         <h3>{{ $product->name }}</h3>
-                        <!-- <p>Kategori: {{ $product->category }}</p> -->
                         <p>Harga: Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-                        <!-- <p>Kondisi: {{ $product->condition }}</p> -->
-                         <!-- Link ke halaman detail produk -->
-                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-detail">Lihat Detail</a>
+                        <a href="{{ route('product.show', $product->id) }}" class="btn btn-detail">Lihat Detail</a>
                     </div>
                 </li>
             @empty

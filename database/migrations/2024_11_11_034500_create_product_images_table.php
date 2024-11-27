@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_images', function (Blueprint $table) {
-            $table->id();  // Kolom ID otomatis
+            $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->binary('image');
+            $table->string('image');
             $table->timestamps();
         });
     }

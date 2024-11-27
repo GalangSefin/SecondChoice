@@ -133,6 +133,40 @@
 				});
 			});
 		}
+
+		// Fungsi untuk dropdown kategori
+		const categoryTrigger = document.querySelector('.category__trigger');
+		const dropdownContent = document.querySelector('.dropdown-content');
+		
+		function toggleDropdown() {
+			if (dropdownContent.classList.contains('show')) {
+				dropdownContent.classList.remove('show');
+				setTimeout(() => {
+					dropdownContent.style.display = 'none';
+				}, 300); // Sesuaikan dengan durasi animasi
+			} else {
+				dropdownContent.style.display = 'block';
+				// Trigger reflow
+				dropdownContent.offsetHeight;
+				dropdownContent.classList.add('show');
+			}
+		}
+
+		// Event listener untuk click di kategori
+		if (categoryTrigger) {
+			categoryTrigger.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				toggleDropdown();
+			});
+		}
+
+		// Menutup dropdown ketika mengklik di luar
+		document.addEventListener('click', function(e) {
+			if (!categoryTrigger.contains(e.target) && !dropdownContent.contains(e.target)) {
+				dropdownContent.style.display = 'none';
+			}
+		});
 	});
 
 })()

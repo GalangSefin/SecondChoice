@@ -30,7 +30,7 @@ class Product extends Model
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {
-        return $this->hasMany(ProductImage::class, 'product_id');  // Relasi satu ke banyak (one-to-many)
+        return $this->hasMany(ProductImage::class);
     }
 
     public function user()

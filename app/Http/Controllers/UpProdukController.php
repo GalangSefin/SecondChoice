@@ -20,64 +20,84 @@ class UpProdukController extends Controller
 
    // Menangani pengiriman produk
    public function kirimProduk(Request $request)
-{
-    // Validasi inputan
-    $validated = $request->validate([
-        'category' => 'required|string',
-        'jenis' => 'required|string',
-        'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric|min:0',
-        'stock' => 'required|integer|min:0',
-        'condition' => 'required|string',
-        'images' => 'nullable|array',
-        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
+   {
+       // Validasi request
+       $request->validate([
+           'category' => 'required',
+           'jenis' => 'required',
+           'name' => 'required',
+           'description' => 'required',
+           'price' => 'required|numeric',
+           'stock' => 'required|integer',
+           'condition' => 'required',
+           'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+       ]);
 
-    // Cek apakah kategori sudah ada, jika belum tambahkan
-    $category = Category::firstOrCreate(
-        ['category_nama' => $request->category],  // mencari berdasarkan nama
-        ['category_nama' => $request->category]   // jika tidak ada, buat dengan nama yang diterima
-    );
+       // Simpan data produk
+       $product = Product::create([
+           'category' => $request->category,
+           'jenis' => $request->jenis,
+           'user_id' => auth()->id(),
+           'name' => $request->name,
+           'description' => $request->description,
+           'price' => $request->price,
+           'stock' => $request->stock,
+           'condition' => $request->condition,
+       ]);
 
-    // Cek apakah jenis sudah ada, jika belum tambahkan
-$jenis = Jenis::firstOrCreate(
-    ['jenis_nama' => $request->jenis],  // mencari berdasarkan 'jenis_nama'
-    [
-        'jenis_nama' => $request->jenis,  // nama jenis
-        'category_id' => $category->id   // Menyertakan ID kategori
-    ]
-);
+       // Proses upload gambar
+       if ($request->hasFile('images')) {
+           foreach ($request->file('images') as $image) {
+               // Baca file sebagai binary
+               $imageContent = file_get_contents($image->getRealPath());
+               
+               // Enkripsi konten gambar (opsional)
+               $encryptedContent = encrypt($imageContent);
+               
+               // Generate nama file yang unik
+               $filename = time() . '_' . uniqid() . '.bin';
+               
+               // Simpan file terenkripsi
+               Storage::put('public/products/' . $filename, $encryptedContent);
 
-// Membuat produk baru
-$produk = Product::create([
-    'user_id' => auth()->id(),
-    'category_id' => $category->id,
-    'jenis_id' => $jenis->id,
-    'name' => $validated['name'],
-    'description' => $validated['description'] ?? '',
-    'price' => $validated['price'],
-    'stock' => $validated['stock'],
-    'condition' => $validated['condition'],
-]);
+               // Simpan informasi gambar ke database
+               ProductImage::create([
+                   'product_id' => $product->id,
+                   'image' => 'storage/products/' . $filename
+               ]);
+           }
+       }
 
+       return redirect()->back()->with('success', 'Produk berhasil ditambahkan!');
+   }
 
-    // Menangani unggahan gambar
-    if ($request->hasFile('images')) {
-        foreach ($request->file('images') as $image) {
-            // Mengambil konten gambar dalam format binary
-            $imageContent = file_get_contents($image);
+   // Tambahkan method untuk menampilkan gambar
+   public function showImage($filename)
+   {
+       try {
+           $path = 'public/products/' . $filename;
+           
+           if (!Storage::exists($path)) {
+               return response()->file(public_path('second_choice/images/no-image.png'));
+           }
 
-            // Menyimpan gambar sebagai binary ke tabel product_images
-            ProductImage::create([
-                'product_id' => $produk->id,
-                'image' => $imageContent,  // Menyimpan gambar dalam bentuk binary
-            ]);
-        }
-    }
-
-       // Arahkan ke halaman produk yang baru dibuat, atau halaman sukses
-       return redirect()->route('produk.upload', $produk->id)
-                        ->with('success', 'Produk berhasil ditambahkan!');
+           // Ambil konten terenkripsi
+           $encryptedContent = Storage::get($path);
+           
+           // Dekripsi konten
+           $imageContent = decrypt($encryptedContent);
+           
+           // Deteksi mime type
+           $finfo = new \finfo(FILEINFO_MIME_TYPE);
+           $mimeType = $finfo->buffer($imageContent);
+           
+           return response($imageContent)
+               ->header('Content-Type', $mimeType)
+               ->header('Cache-Control', 'public, max-age=3600');
+               
+       } catch (\Exception $e) {
+           \Illuminate\Support\Facades\Log::error('Error showing image: ' . $e->getMessage());
+           return response()->file(public_path('second_choice/images/no-image.png'));
+       }
    }
 }
