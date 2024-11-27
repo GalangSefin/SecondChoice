@@ -14,14 +14,14 @@ class Product extends Model
 
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
-        'category_id',
-        'jenis_id',
         'user_id',
+        'category',
+        'jenis',
         'name',
         'description',
-        'price', 
-        'stock', 
-        'condition', 
+        'price',
+        'stock',
+        'condition'
     ];
 
     public $timestamps = true;

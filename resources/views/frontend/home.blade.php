@@ -127,7 +127,7 @@
                 </a>
             @empty
                 <div class="no-products">
-                    <img src="{{ asset('second_choice/images/eyes.png') }}" alt="No Items">
+                    <!-- <img src="{{ asset('second_choice/images/eyes.png') }}" alt="No Items"> -->
                     <p>Tidak ada produk yang ditemukan.</p>
                 </div>
             @endforelse

@@ -77,6 +77,20 @@
     margin-bottom: 1rem;
 }
 
+.btn-detail {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #8B0000;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-detail:hover {
+    background-color: #660000;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .product-grid {
@@ -89,4 +103,31 @@
     .product-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.no-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 200px;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.no-products img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.no-products p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 0;
 } 
