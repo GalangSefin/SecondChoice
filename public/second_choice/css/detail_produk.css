@@ -354,3 +354,26 @@ button:hover {
 .tab.active i {
   color: black;
 }
+
+.message-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.message-btn:hover {
+    background-color: #218838;
+}
+
+.contact-seller {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}

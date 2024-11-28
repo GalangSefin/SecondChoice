@@ -35,7 +35,7 @@
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
-
+    <link rel="stylesheet" href="{{ asset('second_choice/css/messages.css') }}" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <title>

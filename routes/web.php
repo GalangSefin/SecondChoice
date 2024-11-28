@@ -128,9 +128,9 @@ Route::group([
 });
 
 // Route untuk simulasi after login
-Route::get('/after-login', function () {
-    return view('frontend.layouts.after_login');
-})->name('after.login');
+// Route::get('/after-login', function () {
+//     return view('frontend.layouts.after_login');
+// })->name('after.login');
 
 // Modifikasi route login yang ada
 Route::post('/login', function (Request $request) {
@@ -215,3 +215,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage'])
     ->name('product.image')
     ->middleware('web');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+    Route::get('/messages/seller/{sellerId}', [MessageController::class, 'withSeller'])->name('messages.with.seller');
+    Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
+    Route::get('/messages/get-messages/{roomId}', [MessageController::class, 'getMessages'])->name('messages.get-messages');
+});
