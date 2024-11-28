@@ -30,7 +30,12 @@ class Product extends Model
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {
-        return $this->hasMany(ProductImage::class);
+        return $this->hasMany(ProductImage::class)->orderBy('id', 'asc');
+    }
+
+    public function getFirstImageAttribute()
+    {
+        return $this->images->first();
     }
 
     public function user()
@@ -63,5 +68,3 @@ class Product extends Model
         return $this->belongsTo(Jenis::class, 'jenis_id');
     }
 }
-
-

@@ -100,38 +100,38 @@
 
 <body class="bg-white">
   <div class="container mx-auto px-4 py-8">
-  <div class="product-latest-container">
-        <div class="product-header">
-            <h2 class="product-title">Produk Terbaru</h2>
-            <a href="{{ route('products.viewall') }}" class="btn-detail">Lihat Lainnya</a>
-        </div>
+    <div class="product-latest-container">
+      <div class="product-header">
+        <h2 class="product-title">Produk Terbaru</h2>
+        <a href="{{ route('products.viewall') }}" class="btn-detail">Lihat Lainnya</a>
+      </div>
 
-        <div class="product-grid">
-            @forelse($newproducts as $product)
-                <a href="{{ route('product.show', $product->id) }}" class="product-card">
-                    <div class="product-image-container">
-                        @if ($product->images->isNotEmpty())
-                            <img class="product-image"
-                                src="{{ $product->images->first()->decoded_image }}"
-                                alt="{{ $product->name }}">
-                        @else
-                            <img class="product-image"
-                                src="{{ asset('second_choice/images/no-image.png') }}"
-                                alt="No Image">
-                        @endif
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">{{ $product->name }}</h3>
-                        <p class="product-price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-                    </div>
-                </a>
-            @empty
-                <div class="no-products">
-                    <!-- <img src="{{ asset('second_choice/images/eyes.png') }}" alt="No Items"> -->
-                    <p>Tidak ada produk yang ditemukan.</p>
-                </div>
-            @endforelse
+      <div class="product-grid">
+        @forelse($newproducts as $product)
+        <a href="{{ route('product.show', $product->id) }}" class="product-card">
+          <div class="product-image-container">
+            @if ($product->images->isNotEmpty())
+            <img class="product-image"
+              src="{{ $product->images->first()->decoded_image }}"
+              alt="{{ $product->name }}">
+            @else
+            <img class="product-image"
+              src="{{ asset('second_choice/images/no-image.png') }}"
+              alt="No Image">
+            @endif
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ $product->name }}</h3>
+            <p class="product-price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+          </div>
+        </a>
+        @empty
+        <div class="no-products">
+          <!-- <img src="{{ asset('second_choice/images/eyes.png') }}" alt="No Items"> -->
+          <p>Tidak ada produk yang ditemukan.</p>
         </div>
+        @endforelse
+      </div>
     </div>
   </div>
 </body>

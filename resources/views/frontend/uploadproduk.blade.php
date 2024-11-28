@@ -29,7 +29,7 @@
                         <!-- "Tambah foto" button slot -->
                     <div class="image-slot add-photo" onclick="document.getElementById('fileInput').click()">
                         <span>Foto</span>
-                        <input type="file" id="fileInput" name="images[]" accept="image/*" style="display: none;" onchange="previewImages()">
+                        <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;" onchange="previewImages()">
                     </div>
                     </div>
                 </div>
