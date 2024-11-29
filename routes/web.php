@@ -9,6 +9,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JualController;
+<<<<<<<<< Temporary merge branch 1
+use App\Http\Controllers\HomeController;
+=========
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\pesananController;
