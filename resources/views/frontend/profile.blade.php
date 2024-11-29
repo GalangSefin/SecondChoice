@@ -43,24 +43,36 @@
             </div>
         @else
             <div class="listings">
-                @foreach ($products as $product)
-                    <div class="listing-item">
-                        <div class="listing-image">
-                            @if ($product->images->isNotEmpty())
-                            <img src="data:image/jpeg;base64,{{ base64_encode($product->images->first()->image) }}" alt="{{ $product->name }}">
-                            @else
-                                <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
-                            @endif
-                        </div>
-                        <div class="listing-info">
-                            <h3>{{ $product->name }}</h3>
-                            <p>{{ $product->description }}</p>
-                            <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
-                            <p><strong>Stok:</strong> {{ $product->stock }}</p>
-                            <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
-                        </div>
-                    </div>
-                @endforeach
+            @foreach ($products as $product)
+                <div class="listing-item">
+                <div class="listing-image">
+            @if ($product->images->isNotEmpty())
+                @php
+                    $decodedImage = $product->images->first()->decoded_image ?? null;
+                @endphp
+
+                @if ($decodedImage)
+                    <!-- Menampilkan gambar hasil dekripsi -->
+                    <img src="{{ $decodedImage }}" alt="{{ $product->name }}">
+                @else
+                    <!-- Fallback jika decoding gagal -->
+                    <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+                @endif
+            @else
+                <!-- Fallback jika produk tidak memiliki gambar -->
+                <img src="{{ asset('second_choice/images/no-image.png') }}" alt="No Image">
+            @endif
+        </div>
+        <div class="listing-info">
+            <h3>{{ $product->name }}</h3>
+            <p>{{ $product->description }}</p>
+            <p><strong>Harga:</strong> Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+            <p><strong>Stok:</strong> {{ $product->stock }}</p>
+            <p><strong>Kondisi:</strong> {{ $product->condition === 'new' ? 'Barang Baru' : 'Barang Bekas' }}</p>
+        </div>
+    </div>
+@endforeach
+
             </div>
              <!-- Pagination Controls -->
              <div class="pagination">
