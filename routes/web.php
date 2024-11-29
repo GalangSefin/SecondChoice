@@ -19,6 +19,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use App\Http\Controllers\CartController;
@@ -215,3 +216,16 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage'])
     ->name('product.image')
     ->middleware('web');
+
+    //admin
+    Route::middleware('admin')->group(function () {
+        Route::get('/admin', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
+    });
+    Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+        Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    });
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::resource('categories', CategoryController::class);
+    });
