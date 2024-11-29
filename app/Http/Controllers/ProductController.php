@@ -18,17 +18,15 @@ class ProductController extends Controller
      */
     public function viewAll(Request $request)
     {
-        // Mengambil semua kategori
-        $categories = Category::all();
-        
-        // Query dasar untuk mengambil produk beserta relasinya
-        $query = Product::with('images', 'category');
+        // Ambil daftar kategori unik dari tabel 'products'
+        $categories = Product::select('category')->distinct()->pluck('category');
 
-       // Filter berdasarkan nama kategori (bukan id kategori)
+    // Query dasar untuk mengambil produk
+    $query = Product::with('images');
+
+    // Filter berdasarkan kolom 'category'
     if ($request->has('category') && $request->category != '') {
-        $query->whereHas('category', function ($q) use ($request) {
-            $q->where('id', $request->category); // Filter berdasarkan nama kategori
-        });
+        $query->where('category', $request->category);
     }
 
         // Filter Price

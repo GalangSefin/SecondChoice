@@ -22,14 +22,14 @@
         <div class="sorting">
             <form action="{{ route('products.viewall') }}" method="GET">
                 <!-- Filter Kategori -->
-            <select name="category" onchange="this.form.submit()">
-                <option value="">Pilih Kategori</option>
-                    @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
-                {{ $category->category_nama }} <!-- Tampilkan nama kategori -->
-                </option>
-                     @endforeach
-            </select>
+                <select name="category" onchange="this.form.submit()">
+    <option value="">Pilih Kategori</option>
+    @foreach($categories as $category)
+        <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>
+            {{ $category }}
+        </option>
+    @endforeach
+</select>
 
                 <!-- Filter Harga -->
                 <select name="price" onchange="this.form.submit()">
