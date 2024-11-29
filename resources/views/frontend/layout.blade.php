@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
+    <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -215,10 +216,15 @@
             By joining, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
         </div>
     </div>
+   
 
     <!-- Langsung mulai konten setelah navbar -->
     @yield('content')
-    
+    <!-- tombol kembali keatas -->
+<button id="backToTop" title="Kembali ke Atas">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
     <!-- Footer -->
     @include('frontend.footer')
     
@@ -234,5 +240,6 @@
 
     <!-- Di bagian bawah sebelum closing body, tambahkan JS slider -->
     <script src="{{ asset('second_choice/js/slider.js') }}"></script>
+    <script src="{{ asset('second_choice/js/backtoup.js') }}"></script>
   </body>
 </html>

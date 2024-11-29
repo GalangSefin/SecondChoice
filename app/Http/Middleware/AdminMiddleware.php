@@ -13,15 +13,11 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        if (!auth()->check()) {
-            return redirect('/');
-        }
-        if (auth()->user()->roles()->where('title', 'user')->count() > 0) {
-            return redirect('/');
-        }
-        
+    public function handle($request, Closure $next)
+{
+    if (auth()->check() && auth()->user()->is_admin) {
         return $next($request);
     }
+    return redirect('/'); // Redirect jika bukan admin
+}
 }
