@@ -15,24 +15,53 @@ class Product extends Model
     // Tentukan kolom yang bisa diisi secara massal
     protected $fillable = [
         'user_id',
-        'type',
+        'category',
+        'jenis',
+        'name',
         'description',
-        'name', 
-        'price', 
-        'category', 
-        'stock', 
-        'condition', 
-        'image'
+        'price',
+        'stock',
+        'condition'
     ];
+
+    public $timestamps = true;
+
 
     // Relasi dengan model ProductImage (jika ada)
     public function images()
     {
-        return $this->hasMany(ProductImage::class, 'product_id');  // Relasi satu ke banyak (one-to-many)
+        return $this->hasMany(ProductImage::class);
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function jenis()
+    {
+        return $this->belongsTo(Jenis::class);
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function namacategory()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function namajenis()
+    {
+        return $this->belongsTo(Jenis::class, 'jenis_id');
+    }
 }
+
+

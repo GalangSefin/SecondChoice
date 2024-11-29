@@ -11,10 +11,14 @@ class ProductImage extends Model
     
     protected $fillable = [
         'product_id',
-        'image_name',
-        'image_path',
-        'image_url',
+        'image',
     ];
+
+    // Accessor untuk mendapatkan full URL gambar
+    public function getImageUrlAttribute()
+    {
+        return asset($this->image);
+    }
 
     // Relasi balik ke produk
     public function product()

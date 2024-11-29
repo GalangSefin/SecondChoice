@@ -1,5 +1,6 @@
 /* Footer styling */
 .site-footer {
+<<<<<<< HEAD
   padding: 20px 0;
   background-color: #f8f9fa;
   text-align: center;
@@ -13,8 +14,13 @@
     max-width: 1200px; /* Atur batas maksimal kontainer */
     margin: 0 auto;
     padding: 0 15px;
+=======
+    padding: 40px 0;
+    background-color: #f8f9fa;
+>>>>>>> 60d2dbd1a03345fbe487082f8d64ad9432c81df3
     text-align: center;
-}
+    font-family: Arial, sans-serif;
+  }
   
   .container {
     max-width: 100%;
@@ -26,17 +32,23 @@
   
   .footer-columns {
     display: flex;
+<<<<<<< HEAD
     flex-wrap: wrap; 
+=======
+>>>>>>> 60d2dbd1a03345fbe487082f8d64ad9432c81df3
     justify-content: space-around;
     padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
   }
+<<<<<<< HEAD
 
   .footer-column{
     flex: 1;
     min-width: 180px; /* Minimal lebar kolom */
     margin: 10px
   }
+=======
+>>>>>>> 60d2dbd1a03345fbe487082f8d64ad9432c81df3
   
   .footer-column h3 {
     font-size: 16px;

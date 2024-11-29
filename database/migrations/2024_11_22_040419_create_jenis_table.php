@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->after('condition');  // Menambahkan kolom user_id setelah kolom condition
+        Schema::create('jenis', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id')->constrained('category')->onDelete('cascade'); // Foreign key ke tabel category
+            $table->string('name')->unique(); // Nama jenis unik
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('user_id');  // Menghapus kolom user_id jika migrasi dibatalkan
-        });
+        Schema::dropIfExists('jenis');
     }
 };

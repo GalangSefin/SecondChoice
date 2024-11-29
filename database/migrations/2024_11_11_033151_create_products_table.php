@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();  // Kolom ID otomatis
-            $table->string('category');  // Kategori produk
-            $table->string('type');  // Jenis produk
-            $table->string('name');  // Nama produk
-            $table->text('description')->nullable();  // Deskripsi produk (nullable)
-            $table->decimal('price', 10, 2);  // Harga produk
-            $table->integer('stock');  // Jumlah stok produk
-            $table->string('condition');  // Kondisi produk (baru/bekas)
-            $table->string('image');
-            $table->timestamps();  // Kolom created_at dan updated_at
+            $table->id();
+            $table->string('category');
+            $table->string('jenis');
+            $table->foreignId('user_id')->constrained();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->integer('stock');
+            $table->string('condition');
+            $table->timestamps();
         });
     }
 

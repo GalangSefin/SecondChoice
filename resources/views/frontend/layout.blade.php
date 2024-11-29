@@ -57,23 +57,19 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-                <img src="images/logo scnd.png" alt="Logo">
+                <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
               </a>
             </div>
             
 
             <!-- Search Bar -->
             <div class="search-section">
-              <form action="#" class="d-flex search-form">
+              <form action="" class="d-flex search-form" method="get">
                 <div class="search-input-wrapper">
                   <svg class="search-icon" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" stroke="#A1A0A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                  />
+                  <input type="text" class="form-control" placeholder="" name="search"/>
                   <div class="search-placeholder-animation">
                     <span class="placeholder-text">
                       <ul class="placeholder-slide">
@@ -100,7 +96,7 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <a href="{{ route('checkout.index') }}" class="icon-link">
+                        <a href="{{ route('keranjang') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <div class="user-dropdown">
@@ -140,19 +136,14 @@
           <div class="categories">
             <ul>
               <li><a href="{{ route('home') }}">Home</a></li>
-              <div data-v-95b28ccd class="category__trigger flex" onclick="toggleDropdown()">
-                <svg data-v-95b28ccd xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                  <!-- Tambahkan konten SVG di sini -->
-                </svg>
-                <span data-v-95b28ccd class="category__trigger__name font-white">Kategori</span>
-              </div>
-              
-              <div class="dropdown-content">
-                <a href="#">Subkategori 1</a>
-                <a href="#">Subkategori 2</a>
-                <a href="#">Subkategori 3</a>
-              </div>
-
+              <li class="category__trigger" onclick="toggleDropdown()">
+                <span class="category__trigger__name">Kategori</span>
+                <div class="dropdown-content">
+                  <a href="#">Subkategori 1</a>
+                  <a href="#">Subkategori 2</a>
+                  <a href="#">Subkategori 3</a>
+                </div>
+              </li>
               <li><a href="{{ route('jual') }}">Jual</a></li>
               <li><a href="#">Anak</a></li>
             </ul>

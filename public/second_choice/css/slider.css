@@ -47,50 +47,36 @@
     z-index: 2;
 }
 
-/* .slide-label {
+.slide-label {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: uppercase;
-} */
-
-.slide-label-left {
-    color: rgb(138, 138, 138);
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.slide-label-right {
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.slide-content-left h2 {
-    font-family: 'Wonder Woman', sans-serif;
     color: #870017;
-    font-size: 32px;
-    margin-bottom: 20px;
-    line-height: 1.2;
 }
 
-.slide-content-right h2 {
-    font-family: 'Wonder Woman', sans-serif;
-    color: #fff;
-    font-size: 32px;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.slide-label2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
 }
 
-.slide h3 {
+.slide h2 {
     font-family: 'Wonder Woman', sans-serif;
     font-size: 32px;
     margin-bottom: 20px;
     line-height: 1.2;
+    color: #870017;
+}
+
+.slider-section:last-child h3 {
+    font-family: 'Wonder Woman', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #ffffff;
 }
 
 /* Styling khusus untuk slide kanan (Explore item) */
@@ -113,26 +99,33 @@
 }
 
 .btn-primary {
-    background: white; 
-    color: #870017;
-    border: 1px solid #870017;
+    background: #000;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #870017;
+    color: #fff;
+    text-decoration: none;
 }
 
 .btn-secondary {
-    background: white;
-    color: #870017;
+    background: transparent;
+    color: #870017; 
     border: 1px solid #870017;
 }
 
 /* Styling khusus untuk tombol di slide kanan */
 .slider-section:last-child .btn-primary {
-    background: #fff;
-    color: #870017;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 .slider-section:last-child .btn-primary:hover {
     background: #fff;
-    color: #870017;
+    color: #000;
+    text-decoration: none;
 }
 
 /* Responsive Design */
