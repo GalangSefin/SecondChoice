@@ -74,12 +74,10 @@
                   <div class="search-placeholder-animation">
                     <span class="placeholder-text">
                       <ul class="placeholder-slide">
-                        <li>Stussy</li>
-                        <li>Baggy jeans</li>
-                        <li>Tas</li>
-                        <li>Jersey</li>
-                        <li>Nike</li>
-                        <li>Stussy</li>
+                        <li>Elektronik</li>
+                        <li>Pakaian</li>
+                        <li>Pecah Belah</li>
+                        <li>Perabotan</li>
                       </ul>
                     </span>
                   </div>
@@ -93,26 +91,72 @@
                     <a href="#" class="btn login-trigger">Login</a>
                     <a href="#" class="btn register-trigger">Sign up</a>
                 @else
-                    <div class="nav-icons">
+                <div class="nav-icons">
+                  <a href="#" class="icon-link" onclick="fetchNotifications(event)">
+                    <i class="fa-solid fa-bell"></i>
+                  </a>
+
+                        <!-- Dropdown Notifikasi -->
+                        <div class="notification-dropdown" style="display: none;">
+                            <div class="dropdown-notif" id="notif-menu">
+                                <p>Memuat notifikasi...</p>
+                            </div>
+                        </div>
+
+                        <script>
+                            function fetchNotifications(event) {
+                                event.preventDefault();
+
+                                // Tampilkan dropdown
+                                const dropdown = document.querySelector('.notification-dropdown');
+                                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+
+                                // Ambil elemen tempat notifikasi akan dimasukkan
+                                const notifMenu = document.getElementById('notif-menu');
+
+                                // Jika dropdown dibuka, lakukan AJAX request
+                                if (dropdown.style.display === 'block') {
+                                    // Tambahkan spinner/loading state (opsional)
+                                    notifMenu.innerHTML = '<p>Sedang memuat...</p>';
+
+                                    // AJAX request menggunakan Fetch API
+                                    fetch('{{ route("send.notification") }}')
+                                      .then(response => response.json())
+                                      .then(data => {
+                                          const notifMenu = document.getElementById('notif-menu');
+                                          notifMenu.innerHTML = data.html; // Gunakan data.html untuk mengisi konten
+                                      })
+                                      .catch(error => {
+                                          const notifMenu = document.getElementById('notif-menu');
+                                          notifMenu.innerHTML = `<p>Error: ${error.message}</p>`;
+                                      });
+
+                                }
+                            }
+                        </script>
+
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
                         <a href="{{ route('cart') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
+                          
+                        
+
                         <div class="user-dropdown">
                             <a href="#" class="icon-link" id="userDropdownToggle">
                                 <i class="fa-regular fa-user"></i>
                             </a>
                             <div class="dropdown-menu" id="userDropdownMenu">
                               <a href="{{ route('profile.index') }}" class="dropdown-item">
-                                  <i class="fa-regular fa-user"></i> Profile
+                                  <i class="fa-regular fa-user"></i> Profil
                               </a>
                                 <a href="{{ route('purchases') }}" class="dropdown-item">
-                                    <i class="fa-solid fa-bag-shopping"></i> Purchases
+                                    <i class="fa-solid fa-bag-shopping"></i> Pembelian
                                 </a>
                                 <a href="{{ route('settings') }}" class="dropdown-item">
-                                    <i class="fa-solid fa-gear"></i> Settings
+                                    <i class="fa-solid fa-gear"></i> Pengaturan
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <form id="logoutForm" action="{{ route('logout') }}" method="POST">
@@ -133,29 +177,33 @@
       <!-- Bagian bawah navbar -->
        
       <div class="nav-bottom">
-        <div class="container">
-          <div class="categories">
+    <div class="container">
+        <div class="categories">
             <ul>
-              <li><a href="{{ route('home') }}">Home</a></li>
-              <div data-v-95b28ccd class="category__trigger flex" onclick="toggleDropdown()">
-                <svg data-v-95b28ccd xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                  <!-- Tambahkan konten SVG di sini -->
-                </svg>
-                <span data-v-95b28ccd class="category__trigger__name font-white">Kategori</span>
-              </div>
-              
-              <div class="dropdown-content">
-                <a href="#">Subkategori 1</a>
-                <a href="#">Subkategori 2</a>
-                <a href="#">Subkategori 3</a>
-              </div>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                
+                <!-- Kategori Dropdown -->
+                <li class="category__trigger flex">
+                    <a href="#" onclick="toggleDropdown()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                            <!-- Tambahkan konten SVG di sini -->
+                        </svg>
+                        Kategori
+                    </a>
+                    <!-- Dropdown content -->
+                    <div class="dropdown-content">
+                        <a href="#">Elektronik</a>
+                        <a href="#">Pakaian</a>
+                        <a href="#">Pecah Belah</a>
+                        <a href="#">Perabotan</a>
+                    </div>
+                </li>
 
-              <li><a href="{{ route('jual') }}">Jual</a></li>
-              <li><a href="#">Anak</a></li>
+                <li><a href="{{ route('jual') }}">Jual</a></li>
             </ul>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
     </nav>
 
     <!-- Tambahkan setelah nav dan sebelum content -->

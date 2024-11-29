@@ -382,8 +382,8 @@
 <section class="features-1">
   <div class="container">
     <div style="display: flex; justify-content: flex-start;">
-      <div class="box" style="padding: 20px; border: 0px solid #ffffff; background-color: #ffffff;">
-        <h3 style="color: black; font-weight: 650;">Belanja sesuai budget</h3>
+      <div class="box" style="padding: 20px; border: 0px solid #ffffff; background-color: ##e5e7eb;">
+        <h3 style="color: black; font-weight: 650; font-size: 24px;">Belanja sesuai budget</h3>
       </div>
     </div>
 

@@ -14,6 +14,7 @@ use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationController;
   
 
 // |--------------------------------------------------------------------------
@@ -76,6 +77,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/user-stats', [DashboardController::class, 'showUserStats'])->name('dashboard.user-stats');
 
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
+
+    // Route notifikasi
+    Route::get('/send-notification', [NotificationController::class, 'sendNotification'])
+     ->name('send.notification')
+     ->middleware('auth');
+
+
 });
 
 // Admin Routes
@@ -115,3 +123,4 @@ Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('p
 
 // Route untuk mengirimkan produk (POST request)
 Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
+
