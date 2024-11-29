@@ -4,7 +4,6 @@ body {
     background-color: #f8f9fa; /* Soft gray background */
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -37,8 +36,6 @@ header h1 {
 main {
     flex: 1; /* Konten utama memenuhi ruang */
     padding: 20px;
-=======
->>>>>>> 60d2dbd1a03345fbe487082f8d64ad9432c81df3
 }
 
 /* Container Styling */

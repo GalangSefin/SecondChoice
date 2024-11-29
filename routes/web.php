@@ -215,3 +215,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage'])
     ->name('product.image')
     ->middleware('web');
+
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view'); // Untuk melihat keranjang
+
+    
+

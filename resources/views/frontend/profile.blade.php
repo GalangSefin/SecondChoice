@@ -3,11 +3,11 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('second_choice/css/profile.css') }}" />
 <div class="container mt-5">
-    <h2>Profile Pengguna</h2>
 
     <!-- Bagian Profile Section -->
     <section class="profile-section">
         <div class="profile-header">
+        <h2>Profile Pengguna</h2>
         <div class="profile">
             <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
             <h2>{{ Auth::user()->name }}</h2>
@@ -25,6 +25,10 @@
         <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
+        <p><strong>Bio:</strong> {{ Auth::user()->bio }}</p>
+        <p><strong>No. Telp:</strong> {{ Auth::user()->phone_number }}</p>
+        <p><strong>Website:</strong> <a href="{{ Auth::user()->website }}" target="_blank">{{ Auth::user()->website }}</a></p>
+        <p><strong>Alamat:</strong> {{ Auth::user()->alamat }}</p>
     </div>
 
         <!-- Bagian Tab Menu -->
