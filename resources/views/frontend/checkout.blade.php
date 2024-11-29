@@ -9,20 +9,21 @@
     <header>
         <!-- Konten header bisa disesuaikan atau ditambahkan sesuai kebutuhan -->
     </header>
+</div>
 
     <!-- Main Container -->
     <main class="container">
         <div class="row">
             <!-- Alamat Section -->
             <div class="col-md-6">
-    <h4>Alamat</h4>
-    <div class="card p-3">
-        <p><strong>{{ Auth::user()->name }}</strong></p> <!-- Nama & Bio -->
-        <p>{{ Auth::user()->phone_number ?? 'Nomor telepon belum diisi' }}</p> <!-- Nomor Telepon -->
-        <p>{{ Auth::user()->alamat }}</p> <!-- Alamat -->
-        <a href="{{ route('address.edit') }}" class="btn btn-link">Edit Alamat</a> <!-- Link untuk edit -->
-    </div>
-</div>
+                <h4>Alamat</h4>
+                <div class="card p-3">
+                    <p><strong>{{ Auth::user()->name }}</strong></p> <!-- Nama & Bio -->
+                    <p>{{ Auth::user()->phone_number ?? 'Nomor telepon belum diisi' }}</p> <!-- Nomor Telepon -->
+                    <p>{{ Auth::user()->alamat }}</p> <!-- Alamat -->
+                    <a href="{{ route('address.edit') }}" class="btn btn-link">Edit Alamat</a> <!-- Link untuk edit -->
+                </div>
+            </div>
 
             <!-- Order Section -->
             <div class="col-md-6">
@@ -48,36 +49,35 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mt-4">
-            <!-- Pengiriman Section -->
-            <div class="col-md-6">
-                <h4>Pengiriman</h4>
-                <div class="card p-3">
-                    <select class="form-select">
-                        <option selected>Pilih metode pengiriman</option>
-                        <option value="1">JNE</option>
-                        <option value="2">J&T</option>
-                        <option value="3">SiCepat</option>
-                    </select>
+            <div class="row mt-4">
+                <!-- Pengiriman Section -->
+                <div class="col-md-6">
+                    <h4>Pengiriman</h4>
+                    <div class="card p-3">
+                        <select class="form-select">
+                            <option selected>Pilih metode pengiriman</option>
+                            <option value="1">JNE</option>
+                            <option value="2">J&T</option>
+                            <option value="3">SiCepat</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Pilih Pembayaran -->
+                <div class="col-md-6 d-flex align-items-end">
+                    <button class="btn btn-primary w-100">Pilih Pembayaran</button>
                 </div>
             </div>
-
-            <!-- Pilih Pembayaran -->
-            <div class="col-md-6 d-flex align-items-end">
-                <button class="btn btn-primary w-100">Pilih Pembayaran</button>
+            <div class="text-center mt-3">
+                <small class="text-muted">✔ Aman dengan Garansi Pembelian Preloved</small>
             </div>
-        </div>
-        <div class="text-center mt-3">
-            <small class="text-muted">✔ Aman dengan Garansi Pembelian Preloved</small>
-        </div>
-    </main>
+        </main>
 
-    <!-- Footer -->
-    <footer>
-        <!-- Konten footer -->
-        <p>&copy; 2024 Second Choice. All rights reserved.</p>
-    </footer>
+    <!-- footer -->
+     <footer>
+        <p>&copy; 2024 Website Anda. <a href="#">Kebijakan Privasi</a></p>
+     </footer>
+
 </div>
 @endsection

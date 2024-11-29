@@ -21,7 +21,7 @@
             
         </div>
 
-        Bagian Informasi Profile Detail
+        <strong>Bagian Informasi Profile Detail</strong>
     <div class="profile-details mt-4">
         <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>

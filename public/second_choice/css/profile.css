@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     margin: 0;
+    padding: 80px;
 }
 
 .nav-bar {
@@ -118,7 +119,8 @@ main {
 button {
     padding: 10px 15px;
     font-size: 14px;
-    margin: 5px;
+    margin: 9px;
+    margin-top: 20px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -281,6 +283,9 @@ footer {
     margin-bottom: 8px;
     font-size: 0.9rem;
     color: #555;
+    overflow: hidden; /* Potong konten yang melebihi batas */
+    white-space: nowrap; /* Hindari konten membungkus ke baris baru */
+    text-overflow: ellipsis; /* Tambahkan tanda "..." pada konten yang terpotong */
 }
 
 .listing-info strong {
