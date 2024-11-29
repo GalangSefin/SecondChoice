@@ -208,8 +208,8 @@
     <section class="features-1 pt-20 pb-16 px-8">
   <div class="container">
     <div style="display: flex; justify-content: flex-start;">
-      <div class="box" style="padding: 20px; border: 0px solid;">
-        <h1 class="text-3xl font-bold">Produk Terbaru</h1>
+      <div class="box" style="padding: 20px; border: 0px solid #ffffff; background-color: #ffffff;">
+        <h3 style="color: black; font-weight: 650;">Belanja sesuai budget</h3>
       </div>
     </div>
 
