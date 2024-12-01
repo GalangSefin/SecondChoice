@@ -7,10 +7,10 @@
     <div class="form-container">
         <h2 class="collection-title">Tambah Produk</h2>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="idproduk">ID Produk</label>
             <input type="text" id="idproduk" name="idproduk" value="PROD-12345" readonly>
-        </div>
+        </div> -->
 
         <!-- Product Detail Section -->
         <div class="detail-section">
@@ -77,10 +77,10 @@
                         <option value="pecah belah">Pecah Belah</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="images">Upload Gambar</label>
                     <input type="file" id="images" name="images[]" multiple>
-                </div>
+                </div> -->
                 <button type="submit" class="submit-btn">Tambah Produk</button>
             </form>
         </div>

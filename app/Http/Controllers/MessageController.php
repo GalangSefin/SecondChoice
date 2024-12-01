@@ -36,12 +36,6 @@ class MessageController extends Controller
             $buyer = auth()->user();
             $seller = User::findOrFail($sellerId);
 
-            // Debug info
-            Log::info('Chat participants:', [
-                'buyer' => $buyer->id,
-                'seller' => $sellerId
-            ]);
-
             // Cek apakah chat room sudah ada
             $chatRoom = ChatRoom::where(function($query) use ($buyer, $seller) {
                 $query->where('user1_id', $buyer->id)
@@ -51,33 +45,36 @@ class MessageController extends Controller
                       ->where('user2_id', $buyer->id);
             })->first();
 
-            // Debug info
-            Log::info('Existing chat room:', ['room' => $chatRoom]);
-
             // Jika belum ada, buat chat room baru
             if (!$chatRoom) {
                 $chatRoom = ChatRoom::create([
                     'user1_id' => $buyer->id,
                     'user2_id' => $seller->id
                 ]);
-                Log::info('Created new chat room:', ['room' => $chatRoom]);
             }
 
+            // Ambil semua chat room untuk sidebar
+            $chatRooms = ChatRoom::where('user1_id', $buyer->id)
+                                ->orWhere('user2_id', $buyer->id)
+                                ->with(['user1', 'user2', 'lastMessage'])
+                                ->get()
+                                ->map(function($room) use ($buyer) {
+                                    $room->other_user = $room->user1_id == $buyer->id ? $room->user2 : $room->user1;
+                                    return $room;
+                                });
+            
             $messages = Message::where('chat_room_id', $chatRoom->id)
                              ->orderBy('created_at', 'asc')
                              ->get();
 
             return view('frontend.messages', [
+                'chatRooms' => $chatRooms,
                 'currentRoom' => $chatRoom,
                 'messages' => $messages,
                 'otherUser' => $seller
             ]);
 
         } catch (\Exception $e) {
-            Log::error('Error in chat:', [
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
-            ]);
             return back()->with('error', 'Terjadi kesalahan saat membuka chat');
         }
     }
@@ -86,63 +83,58 @@ class MessageController extends Controller
     {
         DB::beginTransaction();
         try {
-            // Debug request
-            Log::info('Message request:', $request->all());
-
-            // Validasi input
             $validated = $request->validate([
                 'chat_room_id' => 'required|exists:chat_rooms,id',
                 'message' => 'required|string'
             ]);
 
             $userId = auth()->id();
-            
-            // Debug user
-            Log::info('Sender:', ['user_id' => $userId]);
-
-            // Verifikasi chat room
             $chatRoom = ChatRoom::findOrFail($validated['chat_room_id']);
+
             if (!in_array($userId, [$chatRoom->user1_id, $chatRoom->user2_id])) {
                 throw new \Exception('Unauthorized access to chat room');
             }
 
-            // Debug chat room
-            Log::info('Chat room:', $chatRoom->toArray());
-
-            // Simpan pesan
-            $message = new Message();
-            $message->chat_room_id = $validated['chat_room_id'];
-            $message->sender_id = $userId;
-            $message->message = $validated['message'];
-            $message->save();
-
-            // Debug saved message
-            Log::info('Saved message:', $message->toArray());
+            $message = Message::create([
+                'chat_room_id' => $chatRoom->id,
+                'sender_id' => $userId,
+                'message' => $validated['message']
+            ]);
 
             DB::commit();
 
-            return response()->json([
-                'status' => 'success',
-                'message' => [
-                    'id' => $message->id,
-                    'message' => $message->message,
-                    'created_at' => $message->created_at->format('h:i A'),
-                    'sender_id' => $message->sender_id
-                ]
-            ]);
+            // Cek apakah request dari AJAX
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => [
+                        'id' => $message->id,
+                        'message' => $message->message,
+                        'created_at' => $message->created_at->format('h:i A'),
+                        'sender_id' => $message->sender_id
+                    ]
+                ]);
+            }
+
+            // Jika bukan AJAX, redirect kembali ke halaman chat
+            return redirect()->route('messages.with.seller', ['sellerId' => $chatRoom->user1_id == $userId ? $chatRoom->user2_id : $chatRoom->user1_id])
+                            ->with('success', 'Pesan terkirim');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Error saving message:', [
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-                'request' => $request->all()
+            Log::error('Error in sendMessage:', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
             ]);
+            
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Gagal mengirim pesan: ' . $e->getMessage()
+                ], 500);
+            }
 
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Gagal mengirim pesan: ' . $e->getMessage()
-            ], 500);
+            return back()->with('error', 'Gagal mengirim pesan');
         }
     }
 

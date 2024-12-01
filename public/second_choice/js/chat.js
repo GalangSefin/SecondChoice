@@ -2,30 +2,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageForm = document.getElementById('messageForm');
     const messageInput = document.getElementById('messageInput');
     const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const messageContainer = document.getElementById('messageContainer');
 
-    if (!messageForm || !messageInput || !sendMessageBtn || !messageContainer) {
-        console.error('Required elements not found:', {
-            form: messageForm,
-            input: messageInput,
-            button: sendMessageBtn,
-            container: messageContainer
-        });
+    if (!messageForm || !messageInput || !sendMessageBtn) {
+        console.error('Required elements not found');
         return;
     }
 
     function sendMessage() {
         const message = messageInput.value.trim();
-        const token = messageForm.querySelector('input[name="_token"]').value;
         const roomId = messageForm.querySelector('input[name="chat_room_id"]').value;
+        const token = document.querySelector('meta[name="csrf-token"]').content;
 
-        if (!message) return;
+        if (!message || !roomId) {
+            console.error('Message or room ID is missing');
+            return;
+        }
 
-        // Debug info
         console.log('Sending message:', {
-            chat_room_id: roomId,
-            message: message,
-            token: token
+            message,
+            roomId,
+            hasToken: !!token
         });
 
         fetch('/messages/send', {
@@ -41,30 +37,25 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         })
         .then(response => {
-            console.log('Raw response:', response);
-            if (!response.ok) {
-                return response.json().then(err => Promise.reject(err));
-            }
+            console.log('Response status:', response.status);
             return response.json();
         })
         .then(data => {
-            console.log('Success response:', data);
+            console.log('Response data:', data);
             if (data.status === 'success') {
                 messageInput.value = '';
                 appendMessage(data.message);
                 scrollToBottom();
             } else {
-                console.error('Server error:', data.message);
-                alert('Gagal mengirim pesan: ' + data.message);
+                throw new Error(data.message || 'Unknown error');
             }
         })
         .catch(error => {
-            console.error('Error details:', error);
-            alert('Gagal mengirim pesan');
+            console.error('Error:', error);
+            alert('Gagal mengirim pesan: ' + error.message);
         });
     }
 
-    // Event Listeners
     sendMessageBtn.addEventListener('click', sendMessage);
     
     messageInput.addEventListener('keypress', function(e) {
@@ -73,25 +64,4 @@ document.addEventListener('DOMContentLoaded', function() {
             sendMessage();
         }
     });
-
-    function appendMessage(message) {
-        const html = `
-            <div class="message-bubble outgoing">
-                <div class="message-content">
-                    ${message.message}
-                </div>
-                <div class="message-time">
-                    ${message.created_at}
-                </div>
-            </div>
-        `;
-        messageContainer.insertAdjacentHTML('beforeend', html);
-    }
-
-    function scrollToBottom() {
-        messageContainer.scrollTop = messageContainer.scrollHeight;
-    }
-
-    // Auto scroll saat halaman dimuat
-    scrollToBottom();
 }); 

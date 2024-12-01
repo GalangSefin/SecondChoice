@@ -155,7 +155,7 @@
     <!-- Tambahkan setelah nav dan sebelum content -->
     <div class="login-popup-overlay"></div>
     <div class="login-popup">
-        <button class="close-button">&times;</button>
+        <!-- <button class="close-button">&times;</button> -->
         <h2>Login</h2>
         
         <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
@@ -186,7 +186,7 @@
 
     <!-- Tambahkan setelah login popup -->
     <div class="register-popup">
-        <button class="close-button">&times;</button>
+        <!-- <button class="close-button">&times;</button> -->
         <h2>Create account</h2>
         
         <button onclick="window.location.href='/auth/redirect'" class="google-login-btn">
@@ -234,5 +234,41 @@
 
     <!-- Di bagian bawah sebelum closing body, tambahkan JS slider -->
     <script src="{{ asset('second_choice/js/slider.js') }}"></script>
+
+    @push('scripts')
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cek apakah ada parameter showLogin di URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('showLogin')) {
+            // Tampilkan popup login
+            document.querySelector('.login-popup-overlay').style.display = 'block';
+            document.querySelector('.login-popup').style.display = 'block';
+            
+            // Hapus parameter dari URL tanpa reload
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
+    </script>
+    @endpush
+
+    <script>
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('showLogin')) {
+            // Tampilkan overlay dan popup
+            const overlay = document.querySelector('.login-popup-overlay');
+            const popup = document.querySelector('.login-popup');
+            
+            if (overlay && popup) {
+                overlay.style.display = 'block';
+                popup.style.display = 'block';
+                
+                // Hapus parameter dari URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+    });
+    </script>
   </body>
 </html>

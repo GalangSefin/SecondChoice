@@ -6,7 +6,7 @@
 <div class="product-container">
     <!-- Bagian Gambar Produk -->
     <div class="product-image-container">
-        <img id="mainImage" src="{{ $product->images->first()->decoded_image }}" alt="{{ $product->name }}" class="main-image">
+        <img id="mainImage" src="{{ $product->images->first()->decoded_image }}" alt="{{ $product->name }}" class="main-image" onclick="openLightbox(this.src)">
         <div class="thumbnail-container">
             @foreach ($product->images as $image)
                 <img src="{{ $image->decoded_image }}" alt="Thumbnail" class="thumbnail" onclick="changeImage('{{ $image->decoded_image }}')">
@@ -66,7 +66,7 @@
         <div class="product-buttons">
             @if(auth()->check() && auth()->id() !== $product->user_id)
                 <!-- Tombol hanya muncul jika user login dan bukan pemilik produk -->
-                <form action="{{ route('cart', $product->id) }}" method="POST">
+                <form action="{{ route('cart.add', $product->id) }}" method="POST">
                     @csrf
                     <button type="submit" class="buy-now">Beli Sekarang</button>
                     <button type="button" class="add-to-cart" data-product-id="{{ $product->id }}">+ Tambahkan ke Keranjang</button>
@@ -81,6 +81,13 @@
                 </a>
             @endif
         </div>
+    </div>
+</div>
+
+<div class="lightbox-overlay" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-image" class="lightbox-image" src="" alt="Enlarged product image">
     </div>
 </div>
 
@@ -113,6 +120,52 @@
                 }
             });
         });
+    });
+
+    function changeImage(imageUrl) {
+        document.getElementById('mainImage').src = imageUrl;
+    }
+
+    $(document).ready(function() {
+        // Tambahkan class active pada thumbnail yang sedang ditampilkan
+        $('.thumbnail').first().addClass('active');
+        
+        $('.thumbnail').click(function() {
+            // Hapus class active dari semua thumbnail
+            $('.thumbnail').removeClass('active');
+            // Tambah class active ke thumbnail yang diklik
+            $(this).addClass('active');
+            
+            // Ganti gambar utama
+            const newImageUrl = $(this).attr('src');
+            $('#mainImage').attr('src', newImageUrl);
+        });
+    });
+
+    function openLightbox(imageUrl) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-image');
+        lightboxImg.src = imageUrl;
+        lightbox.style.display = 'block';
+        
+        // Prevent scrolling when lightbox is open
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this || e.target.className === 'lightbox-close') {
+            this.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close lightbox with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('lightbox').style.display === 'block') {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     });
 </script>
 

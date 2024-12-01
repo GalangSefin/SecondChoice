@@ -103,7 +103,7 @@
     <div class="product-latest-container">
       <div class="product-header">
         <h2 class="product-title">Produk Terbaru</h2>
-        <a href="{{ route('products.viewall') }}" class="btn-detail">Lihat Lainnya</a>
+        <a href="{{ route('products.viewall') }}" class="btn-detail no-underline hover:no-underline">Lihat Lainnya</a>
       </div>
 
       <div class="product-grid">
@@ -140,7 +140,7 @@
   <!-- Header Section -->
   <div class="sm:flex sm:items-center sm:justify-between">
     <h2 class="text-3xl font-bold">Kategori Populer</h2>
-    <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
+    <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block autodecoration-none">
       Lihat Lainnya
     </a>
   </div>

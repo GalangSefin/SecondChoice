@@ -9,15 +9,43 @@
         <div class="profile-header">
         <h2>Profile Pengguna</h2>
         <div class="profile">
-            <div class="avatar">{{ substr(Auth::user()->name, 0, 1) }}</div>
-            <h2>{{ Auth::user()->name }}</h2>
-            <!-- <p>@{{ Auth::user()->username }}</p> -->
-            <a href="{{ route('settings') }}">
-                    <button class="edit-profile">Edit profil</button>
-                </a>
+            <div class="avatar">
+                @if($user->profile_picture)
+                    @php
+                        $base64Content = Storage::get('public/profile_pictures/' . $user->profile_picture);
+                    @endphp
+                    <img src="data:image/jpeg;base64,{{ $base64Content }}" 
+                         alt="Profile Picture"
+                         class="profile-image">
+                @else
+                    <div class="avatar-placeholder">
+                        {{ substr($user->name, 0, 1) }}
+                    </div>
+                @endif
             </div>
+            <div class="profile-info">
+                <h2>{{ $user->name }}</h2>
+                @if($user->bio)
+                    <p>{{ $user->bio }}</p>
+                @endif
+                @if($user->phone_number)
+                    <p><i class="fas fa-phone"></i> {{ $user->phone_number }}</p>
+                @endif
+                @if($user->website)
+                    <p><i class="fas fa-globe"></i> {{ $user->website }}</p>
+                @endif
+                @if($user->alamat)
+                    <p><i class="fas fa-map-marker-alt"></i> {{ $user->alamat }}</p>
+                @endif
 
-            
+                @if(Auth::id() == $user->id)
+                    <div class="edit-profile-btn">
+                        <a href="{{ route('settings') }}" class="btn btn-primary">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </a>
+                    </div>
+                @endif
+            </div>
         </div>
 
         <strong>Bagian Informasi Profile Detail</strong>

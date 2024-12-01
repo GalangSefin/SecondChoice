@@ -50,7 +50,7 @@ Route::get('/product/{id}', [HomeController::class, 'show'])->name('product.show
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Tampilkan form login
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit'); // Proses login
 
- 
+
 Route::get('/messages', function () {
     return view('frontend.messages');
 })->name('messages');
@@ -98,7 +98,7 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 
     // Routes untuk PurchaseController
-   
+
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
     // Product routes
@@ -108,15 +108,14 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     });
     Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
 
-     // Rute untuk detail produk
-     Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
-     
+    // Rute untuk detail produk
+    Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
 });
 
 // Admin Routes dengan pengecekan is_active
 Route::group([
-    'middleware' => ['isAdmin', 'user.active'], 
-    'prefix' => 'admin', 
+    'middleware' => ['isAdmin', 'user.active'],
+    'prefix' => 'admin',
     'as' => 'admin.'
 ], function () {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
@@ -173,7 +172,7 @@ Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->nam
 Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
 
 // Google Login Routes
-Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
+Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function () {
     Route::get('auth/google', 'redirectToGoogle')->name('google.login');
     Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
 });
@@ -190,7 +189,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         try {
             $request->fulfill();
-            
+
             // Update is_active setelah verifikasi berhasil
             $user = Auth::user();
             $user->is_active = true;
@@ -222,8 +221,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
     Route::get('/messages/get-messages/{roomId}', [MessageController::class, 'getMessages'])->name('messages.get-messages');
 });
-    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view'); // Untuk melihat keranjang
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view'); // Untuk melihat keranjang
 
-    
-
+Route::middleware(['auth'])->group(function () {
+    Route::post('/update-profile-picture', [SettingController::class, 'updateProfilePicture'])->name('updateProfilePicture');
+    Route::post('/delete-profile-picture', [SettingController::class, 'deleteProfilePicture'])->name('deleteProfilePicture');
+});
