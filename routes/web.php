@@ -27,6 +27,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 
 
+use App\Http\Controllers\NotificationController;
+  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -98,6 +100,13 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
 
     // Pesanan & Purchase routes
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
+
+    // Route notifikasi
+    Route::get('/send-notification', [NotificationController::class, 'sendNotification'])
+     ->name('send.notification')
+     ->middleware('auth');
+
+
 
     // Routes untuk PurchaseController
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');

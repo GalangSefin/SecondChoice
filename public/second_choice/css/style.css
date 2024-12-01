@@ -10921,3 +10921,13 @@ input.num-product::-webkit-inner-spin-button {
 .btn-addwish-b2:hover .icon-heart2 {
   display: block;
 }
+.notification-badge {
+  background-color: red;
+  color: white;
+  border-radius: 70%;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
