@@ -124,3 +124,8 @@ Route::get('/produk/upload', [UpProdukController::class, 'tampilForm'])->name('p
 // Route untuk mengirimkan produk (POST request)
 Route::post('/produk', [UpProdukController::class, 'kirimProduk'])->name('kirimProduk');
 
+//route tentang kami file html
+Route::get('/tentang', function () {
+    return view('frontend.tentangkami');
+});
+

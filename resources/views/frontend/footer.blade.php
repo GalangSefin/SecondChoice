@@ -5,12 +5,12 @@
         <div class="footer-column">
           <h3>Second Choice</h3>
           <ul>
-            <li><a href="#">Tentang</a></li>
+            <li><a href="{{ url('/tentang') }}">Tentang</a></li>
           </ul>
         </div>
 
         <!-- Column 2: Discover -->
-        <div class="footer-column">
+        <!-- <div class="footer-column">
           <h3>Discover</h3>
           <ul>
             <li><a href="#">Cara kerjanya</a></li>
@@ -18,7 +18,7 @@
             <li><a href="#">Thrift shops</a></li>
             <li><a href="#">Nama olshop</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- Column 3: Bantuan -->
         <div class="footer-column">
