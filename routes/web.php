@@ -222,3 +222,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
     Route::get('/messages/get-messages/{roomId}', [MessageController::class, 'getMessages'])->name('messages.get-messages');
 });
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view'); // Untuk melihat keranjang
+
+    
+

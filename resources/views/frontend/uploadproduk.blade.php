@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="{{ asset('second_choice/css/uploadproduk.css') }}">
 
 <div class="UploadProduk">
-    
     <div class="form-container">
         <h2 class="collection-title">Tambah Produk</h2>
 
@@ -12,13 +11,12 @@
             <label for="idproduk">ID Produk</label>
             <input type="text" id="idproduk" name="idproduk" value="PROD-12345" readonly>
         </div>
-        
-        
 
-        
         <!-- Product Detail Section -->
         <div class="detail-section">
             <h3>Detail</h3>
+
+            <!-- Form Baru -->
             <form action="{{ route('kirimProduk') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
@@ -50,32 +48,40 @@
                 </div>
                 <div class="form-group">
                     <label for="name">Nama Produk</label>
-                    <input type="text" id="name" name="name" placeholder="Nama">
+                    <input type="text" id="name" name="name" placeholder="Nama Produk" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Deskripsi</label>
-                    <textarea id="description" name="description" rows="5" placeholder="Berikan deskripsi mengenai detail produk"></textarea>
+                    <textarea id="description" name="description" rows="5" placeholder="Deskripsi Produk" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Harga Produk</label>
-                    <input type="number" id="price" name="price" placeholder="000" min="0" step="0.01" style="width: 100%; box-sizing: border-box;">
+                    <input type="number" id="price" name="price" placeholder="0" min="0" required>
                 </div>
                 <div class="form-group">
                     <label for="stock">Stok</label>
-                    <input type="number" id="stock" name="stock" placeholder="0" min="0" step="1" style="width: 100%; box-sizing: border-box;">
+                    <input type="number" id="stock" name="stock" placeholder="0" min="1" required>
                 </div>
                 <div class="form-group">
                     <label for="condition">Kondisi</label>
-                    <select name="condition" id="condition">
-                        <option value="" disabled selected>Pilih Kondisi</option>
+                    <select name="condition" id="condition" required>
                         <option value="new">Barang Baru</option>
                         <option value="used">Barang Bekas</option>
                     </select>
                 </div>
-                <div class="form-actions">
-                 <button type="button" class="save-draft">Save as draft</button>
-                 <button type="submit" class="submit-btn" onclick="showPopup('Produk berhasil ditambahkan!')">Tambah Produk</button>
-                 </div>
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <select name="category" id="category" required>
+                        <option value="pakaian">Pakaian</option>
+                        <option value="elektronik">Elektronik</option>
+                        <option value="pecah belah">Pecah Belah</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="images">Upload Gambar</label>
+                    <input type="file" id="images" name="images[]" multiple>
+                </div>
+                <button type="submit" class="submit-btn">Tambah Produk</button>
             </form>
         </div>
     </div>
@@ -89,7 +95,7 @@
         Array.from(fileInput.files).forEach(file => {
             if (file.type.startsWith("image/")) {
                 const reader = new FileReader();
-                
+
                 reader.onload = function (e) {
                     const imageSlot = document.createElement('div');
                     imageSlot.classList.add('image-slot');
@@ -101,7 +107,7 @@
 
                     imageGrid.insertBefore(imageSlot, imageGrid.querySelector('.add-photo'));
                 };
-                
+
                 reader.readAsDataURL(file);
             }
         });

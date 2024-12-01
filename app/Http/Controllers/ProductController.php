@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -18,17 +19,15 @@ class ProductController extends Controller
      */
     public function viewAll(Request $request)
     {
-        // Mengambil semua kategori
-        $categories = Category::all();
-        
-        // Query dasar untuk mengambil produk beserta relasinya
-        $query = Product::with('images', 'category');
+        // Ambil daftar kategori unik dari tabel 'products'
+        $categories = Product::select('category')->distinct()->pluck('category');
 
-       // Filter berdasarkan nama kategori (bukan id kategori)
+    // Query dasar untuk mengambil produk
+    $query = Product::with('images');
+
+    // Filter berdasarkan kolom 'category'
     if ($request->has('category') && $request->category != '') {
-        $query->whereHas('category', function ($q) use ($request) {
-            $q->where('id', $request->category); // Filter berdasarkan nama kategori
-        });
+        $query->where('category', $request->category);
     }
 
         // Filter Price
@@ -90,5 +89,47 @@ class ProductController extends Controller
             'filters' => $request->all(),
             'categories' => $categories, // Kirim data kategori ke view
         ]);
+    }
+
+    //
+    public function store(Request $request)
+    {
+        // Validasi data produk
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'condition' => 'required|string|in:new,used',
+            'category' => 'required|string',
+            'images' => 'array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Simpan gambar produk (jika ada)
+        $images = [];
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $images[] = $file->store('products', 'public');
+            }
+        }
+
+        // Simpan produk ke database (opsional)
+        // $product = Product::create([...]);
+
+        // Kirim produk ke keranjang
+        $cart = Session::get('cart', []);
+        $cart[] = [
+            'id' => uniqid(),
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'quantity' => 1,
+            'image' => count($images) > 0 ? asset('storage/' . $images[0]) : asset('default-image.jpg'),
+        ];
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.show')->with('success', 'Produk berhasil ditambahkan ke keranjang.');
     }
 }
