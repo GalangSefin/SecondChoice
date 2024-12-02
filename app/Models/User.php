@@ -39,6 +39,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Role::class, 'role_user');
     }
 
+    public function notifiable() {
+        return $this->belongsToMany(User::class, 'user_id');
+    }
+
     public function getIsActiveAttribute($value)
     {
         return $value ?? $this->hasVerifiedEmail();

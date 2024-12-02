@@ -16,15 +16,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 
 
+use App\Http\Controllers\NotificationController;
+  
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -97,9 +101,23 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     // Pesanan & Purchase routes
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 
+    // Route notifikasi
+    Route::get('/send-notification', [NotificationController::class, 'sendNotification'])
+     ->name('send.notification')
+     ->middleware('auth');
+
+
+
     // Routes untuk PurchaseController
-   
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
+
+    // Routes untuk keranjang belanja
+    Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang.show');
+    Route::post('/keranjang/add', [KeranjangController::class, 'addToKeranjang'])->name('keranjang.add');
+    Route::post('/keranjang/create', [KeranjangController::class, 'createKeranjang'])->name('keranjang.create');
+    Route::delete('/keranjang/remove/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('keranjang.remove');
+    Route::patch('/keranjang/update/{id}', [KeranjangController::class, 'updateQuantity'])->name('keranjang.update');
+
 
     // Product routes
     Route::prefix('produk')->group(function () {
@@ -169,9 +187,6 @@ Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])
 // Halaman pembayaran
 Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
 
-// Route untuk halaman keranjang belanja (cart)
-Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
-
 // Google Login Routes
 Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
     Route::get('auth/google', 'redirectToGoogle')->name('google.login');
@@ -225,3 +240,16 @@ Route::delete('/cart/{cartId}', [CartController::class, 'removeFromCart'])->name
 
     
 
+
+    //admin
+    Route::middleware('admin')->group(function () {
+        Route::get('/admin', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
+    });
+    Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+        Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    });
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::resource('categories', CategoryController::class);
+    });
