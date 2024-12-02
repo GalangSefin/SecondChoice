@@ -151,10 +151,13 @@
                               <a href="{{ route('profile.index') }}" class="dropdown-item">
                                   <i class="fa-regular fa-user"></i> Profil
                               </a>
-                                <a href="{{ route('purchases') }}" class="dropdown-item">
-                                    <i class="fa-solid fa-bag-shopping"></i> Pembelian
+<<<<<<< HEAD
                                 <a href="{{ route('purchases.index') }}" class="dropdown-item">
                                     <i class="fa-solid fa-bag-shopping"></i> Purchases
+=======
+                                <a href="{{ route('purchases') }}" class="dropdown-item">
+                                    <i class="fa-solid fa-bag-shopping"></i> Pembelian
+>>>>>>> 3e4b449952c4919302ecb4b833d724e7231f3c9c
                                 </a>
                                 <a href="{{ route('settings') }}" class="dropdown-item">
                                     <i class="fa-solid fa-gear"></i> Pengaturan

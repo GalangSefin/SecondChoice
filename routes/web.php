@@ -87,6 +87,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/pesanan', [pesananController::class, 'index'])->name('pesanan');
 
+    //route notifikasi
+    Route::get('/send-notification', [NotificationController::class, 'sendNotification'])
+     ->name('send.notification')
+     ->middleware('auth');
+
     // Routes untuk PurchaseController
    
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
@@ -142,3 +147,5 @@ Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->nam
 
 // Route untuk halaman keranjang belanja (cart)
 Route::get('/cart', [CheckoutController::class, 'cartPage'])->name('cart');
+
+

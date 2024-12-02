@@ -22,6 +22,14 @@ class HomeController extends Controller
         Log::info('Products fetched: ', ['products' => $products]);
 
         // Mengirimkan data ke view
-        return view('frontend.home', compact('products'));
+        return view('frontend.ViewAll', compact('products'));
+    }
+    public function search(Request $request){
+        $search = $request->input('search', ''); // Default ke string kosong jika tidak ada input
+        $products = Product::when($search, function ($query, $search) {
+            return $query->where('name', 'LIKE', '%'.$search.'%');
+        })->paginate(30);
+        return view('frontend.ViewAll', compact('products'));
+
     }
 }
