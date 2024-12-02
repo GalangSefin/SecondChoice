@@ -183,21 +183,43 @@
                 <li><a href="{{ route('home') }}">Home</a></li>
                 
                 <!-- Kategori Dropdown -->
-                <li class="category__trigger flex">
-                    <a href="#" onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                            <!-- Tambahkan konten SVG di sini -->
-                        </svg>
-                        Kategori
-                    </a>
-                    <!-- Dropdown content -->
-                    <div class="dropdown-content">
-                        <a href="#">Elektronik</a>
-                        <a href="#">Pakaian</a>
-                        <a href="#">Pecah Belah</a>
-                        <a href="#">Perabotan</a>
-                    </div>
-                </li>
+                <li class="category__trigger flex" id="categoryTrigger">
+                  <a href="#" class="category__link">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                          <!-- Tambahkan konten SVG di sini -->
+                      </svg>
+                      Kategori
+                  </a>
+                  <!-- Dropdown content -->
+                  <div class="dropdown-content" id="dropdownContent">
+                      <a href="#">Elektronik</a>
+                      <a href="#">Pakaian</a>
+                      <a href="#">Pecah Belah</a>
+                      <a href="#">Perabotan</a>
+                  </div>
+              </li>
+              <script>
+                // Ambil elemen yang dibutuhkan
+          const categoryTrigger = document.getElementById('categoryTrigger');
+          const dropdownContent = document.getElementById('dropdownContent');
+          
+          // Fungsi untuk menampilkan dropdown
+          function showDropdown() {
+              dropdownContent.style.display = 'block';
+          }
+          
+          // Fungsi untuk menyembunyikan dropdown
+          function hideDropdown() {
+              dropdownContent.style.display = 'none';
+          }
+          
+          // Tambahkan event listeners
+          categoryTrigger.addEventListener('mouseover', showDropdown);
+          categoryTrigger.addEventListener('mouseout', hideDropdown);
+          
+              </script>
+              
+              
 
                 <li><a href="{{ route('jual') }}">Jual</a></li>
             </ul>
@@ -294,5 +316,6 @@
     <!-- Di bagian bawah sebelum closing body, tambahkan JS slider -->
     <script src="{{ asset('second_choice/js/slider.js') }}"></script>
     <script src="{{ asset('second_choice/js/backtoup.js') }}"></script>
+    
   </body>
 </html>
