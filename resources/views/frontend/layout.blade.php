@@ -194,7 +194,7 @@
                   <div class="dropdown-content" id="dropdownContent">
                       <a href="#">Elektronik</a>
                       <a href="#">Pakaian</a>
-                      <a href="#">Pecah Belah</a>
+                      <a href="#">Barang Pecah Belah</a>
                       <a href="#">Perabotan</a>
                   </div>
               </li>
