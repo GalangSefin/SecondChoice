@@ -76,43 +76,16 @@
                 <form action="{{ route('cart.add', $product->id) }}" method="POST">
                     @csrf
                     <button type="submit" class="buy-now">Beli Sekarang</button>
-                    <button type="button" class="add-to-cart" data-product-id="{{ $product->id }}">+ Tambahkan ke Keranjang</button>
+                    <button type="button" class="add-to-cart">+ Tambahkan ke Keranjang</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
-    $(document).ready(function () {
-        // Ketika tombol "Tambahkan ke Keranjang" diklik
-        $('.add-to-cart').click(function () {
-            // Ambil ID produk dari atribut data-product-id
-            var productId = $(this).data('product-id');
-
-            // Kirim permintaan AJAX ke server
-            $.ajax({
-                url: '/add-to-cart/' + productId,  // Pastikan rute ini benar
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',  // Kirimkan CSRF token untuk keamanan
-                },
-                success: function(response) {
-                    // Tanggapan sukses
-                    alert(response.message);  // Menampilkan pesan keberhasilan
-                    // Anda bisa juga memperbarui elemen HTML di sini
-                    // Misalnya, perbarui jumlah item di keranjang:
-                    // $('#cart-count').text(response.cartCount);
-                },
-                error: function(xhr, status, error) {
-                    // Tanggapan error
-                    alert('Gagal menambahkan produk ke keranjang.');
-                }
-            });
-        });
-    });
+    function changeImage(imageUrl) {
+        document.getElementById("mainImage").src = imageUrl;
+    }
 </script>
-
 @endsection

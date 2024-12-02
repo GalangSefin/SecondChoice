@@ -1,56 +1,55 @@
 <?php
 
+// app/Http/Controllers/CartController.php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product; // Pastikan model Product diimport
-use Illuminate\Support\Facades\Session;
-
+use App\Models\Product;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function addToCart(Request $request, $id)
+    public function addToCart(Product $product)
     {
-        \Log::info("Adding product with ID: $id");
+        // Cek apakah produk sudah ada di keranjang
+        $cart = Cart::where('user_id', Auth::id())
+                    ->where('product_id', $product->id)
+                    ->first();
 
-        // Ambil data produk
-        $product = Product::find($id);
-
-        if (!$product) {
-            \Log::error("Product not found: ID $id");
-            return response()->json(['message' => 'Produk tidak ditemukan.'], 404);
-        }
-
-        // Ambil keranjang dari session
-        $cart = session()->get('cart', []);
-
-        // Tambahkan atau perbarui produk di keranjang
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        if ($cart) {
+            // Jika produk sudah ada, update quantity
+            $cart->quantity += 1;
+            $cart->save();
         } else {
-            $cart[$id] = [
-                "name" => $product->name,
-                "price" => $product->price,
-                "quantity" => 1,
-                "image" => $product->images->first()->decoded_image ?? asset('second_choice/images/no-image.png'),
-            ];
+            // Jika produk belum ada, tambahkan produk ke keranjang
+            Cart::create([
+                'user_id' => Auth::id(),
+                'product_id' => $product->id,
+                'seller_id' => $product->seller_id, // Asumsi seller_id ada di tabel produk
+                'quantity' => 1,
+                'price' => $product->price,
+            ]);
         }
 
-        // Simpan kembali ke session
-        session()->put('cart', $cart);
-
-        \Log::info("Cart updated:", $cart);
-
-        // Kirim respons sukses ke JavaScript
-        return response()->json(['message' => 'Produk berhasil ditambahkan ke keranjang.']);
+        return redirect()->route('cart.show');
     }
 
-    public function viewCart()
+    public function showCart()
     {
-        // Mengambil keranjang dari session
-        $cart = session()->get('cart', []);
+        // Ambil keranjang belanja pengguna
+        $cartItems = Cart::where('user_id', Auth::id())->get();
 
-        // Mengirim data keranjang ke view
-        return view('frontend.cart', compact('cart'));
+        return view('cart.show', compact('cartItems'));
+    }
+
+    public function removeFromCart($cartId)
+    {
+        // Hapus item dari keranjang berdasarkan ID
+        $cartItem = Cart::findOrFail($cartId);
+        $cartItem->delete();
+
+        return redirect()->route('cart.show');
     }
 }

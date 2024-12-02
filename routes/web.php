@@ -216,8 +216,12 @@ Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage']
     ->name('product.image')
     ->middleware('web');
 
-    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view'); // Untuk melihat keranjang
+// routes/web.php
+Route::post('/add-to-cart/{product}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::delete('/cart/{cartId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+
 
     
 
