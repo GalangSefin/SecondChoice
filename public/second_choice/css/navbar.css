@@ -607,9 +607,87 @@ button.dropdown-item:hover {
 .icon-link:after {
     display: none !important;
 }
-
 /*efek ptoduk awal*/
 .clickable:hover {
   transform: scale(1.05);
   transition: transform 0.2s;
 }
+
+.category__trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    text-decoration: none;
+}
+
+.category__trigger__name {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-content a {
+    color: #000000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+    color: #870017;
+}
+
+/* Tambahkan arrow indicator */
+/* .category__trigger::after {
+    content: '';
+    border: solid #000000;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.category__trigger.active::after {
+    transform: rotate(-135deg);
+} */

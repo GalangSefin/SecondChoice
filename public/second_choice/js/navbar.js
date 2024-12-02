@@ -71,69 +71,66 @@
                 mt = mtoggle.contains(event.target);
             });
 
-            if (!isClickInside && !mt) {
-                if (document.body.classList.contains("offcanvas-menu")) {
-                    document.body.classList.remove("offcanvas-menu");
-                    mtoggleTemp.classList.remove("active");
-                }
-            }
-        });
-    };
-    siteMenuClone();
+			if (!isClickInside && !mt) {
+				if ( document.body.classList.contains('offcanvas-menu') ) {
+					document.body.classList.remove('offcanvas-menu');
+					mtoggleTemp.classList.remove('active');
+				}
+			}
 
-    // User Dropdown functionality
-    document.addEventListener("DOMContentLoaded", function () {
-        const userDropdownToggle =
-            document.getElementById("userDropdownToggle");
-        const userDropdownMenu = document.getElementById("userDropdownMenu");
+		});
 
-        if (userDropdownToggle && userDropdownMenu) {
-            // Toggle dropdown saat icon user diklik
-            userDropdownToggle.addEventListener("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                userDropdownMenu.classList.toggle("show");
-            });
+	}; 
+	siteMenuClone();
 
-            // Tutup dropdown ketika mengklik di luar
-            document.addEventListener("click", function (e) {
-                if (
-                    !userDropdownToggle.contains(e.target) &&
-                    !userDropdownMenu.contains(e.target)
-                ) {
-                    userDropdownMenu.classList.remove("show");
-                }
-            });
-        }
 
-        // Handle logout
-        const logoutForm = document.getElementById("logoutForm");
-        if (logoutForm) {
-            logoutForm.addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                fetch("/logout", {
-                    method: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": document.querySelector(
-                            'meta[name="csrf-token"]'
-                        ).content,
-                        Accept: "application/json",
-                    },
-                    credentials: "same-origin",
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            window.location.href = "/";
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                    });
-            });
-        }
-    });
+	// User Dropdown functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const userDropdownToggle = document.getElementById('userDropdownToggle');
+		const userDropdownMenu = document.getElementById('userDropdownMenu');
+		
+		if (userDropdownToggle && userDropdownMenu) {
+			// Toggle dropdown saat icon user diklik
+			userDropdownToggle.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				userDropdownMenu.classList.toggle('show');
+			});
+			
+			// Tutup dropdown ketika mengklik di luar
+			document.addEventListener('click', function(e) {
+				if (!userDropdownToggle.contains(e.target) && !userDropdownMenu.contains(e.target)) {
+					userDropdownMenu.classList.remove('show');
+				}
+			});
+		}
+		
+		// Handle logout
+		const logoutForm = document.getElementById('logoutForm');
+		if (logoutForm) {
+			logoutForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				fetch('/logout', {
+					method: 'POST',
+					headers: {
+						'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+						'Accept': 'application/json'
+					},
+					credentials: 'same-origin'
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						window.location.href = '/';
+					}
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+			});
+		}
+	});
 
     // Fungsi untuk toggle dropdown
     function toggleNotificationDropdown(event) {

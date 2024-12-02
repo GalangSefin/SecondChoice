@@ -13,6 +13,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
     @stack('style-alt')
+
+    <!-- Load SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -128,5 +131,42 @@
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
 
 @stack('script-alt')
+
+<!-- Modal Verifikasi Email -->
+<div class="modal fade" id="verifyEmailModal" tabindex="-1" role="dialog" aria-labelledby="verifyEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="verifyEmailModalLabel">Verifikasi Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Email verifikasi telah dikirim ke alamat email Anda.</p>
+                <p>Silakan periksa email Anda dan klik link verifikasi untuk mengaktifkan akun.</p>
+                <p>Belum menerima email? 
+                    <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link p-0">
+                            Kirim ulang
+                        </button>
+                    </form>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if(session('showVerifyModal'))
+<script>
+$(document).ready(function() {
+    $('#verifyEmailModal').modal('show');
+});
+</script>
+@endif
 </body>
 </html>

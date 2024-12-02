@@ -13,7 +13,8 @@ class Category extends Model
 
     // Tentukan kolom yang dapat diisi
     protected $fillable = [
-        'category_nama'
+        'name',
+        'image',
     ];
 
 

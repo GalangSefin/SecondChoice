@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
     <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}" />
+    <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -57,7 +58,7 @@
             <!-- Logo -->
             <div class="brand-section">
               <a href="{{ route('home') }}" class="logo">
-                <img src="images/logo scnd.png" alt="Logo">
+                <img src="{{ asset('images/logo scnd.png') }}" alt="Logo">
               </a>
             </div>
             
@@ -137,7 +138,7 @@
                         <a href="{{ route('messages') }}" class="icon-link">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <a href="{{ route('checkout.index') }}" class="icon-link">
+                        <a href="{{ route('keranjang') }}" class="icon-link">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                           
@@ -151,13 +152,8 @@
                               <a href="{{ route('profile.index') }}" class="dropdown-item">
                                   <i class="fa-regular fa-user"></i> Profil
                               </a>
-<<<<<<< HEAD
-                                <a href="{{ route('purchases.index') }}" class="dropdown-item">
+                              <a href="{{ route('purchases.index') }}" class="dropdown-item">
                                     <i class="fa-solid fa-bag-shopping"></i> Purchases
-=======
-                                <a href="{{ route('purchases') }}" class="dropdown-item">
-                                    <i class="fa-solid fa-bag-shopping"></i> Pembelian
->>>>>>> 3e4b449952c4919302ecb4b833d724e7231f3c9c
                                 </a>
                                 <a href="{{ route('settings') }}" class="dropdown-item">
                                     <i class="fa-solid fa-gear"></i> Pengaturan
@@ -187,21 +183,43 @@
                 <li><a href="{{ route('home') }}">Home</a></li>
                 
                 <!-- Kategori Dropdown -->
-                <li class="category__trigger flex">
-                    <a href="#" onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                            <!-- Tambahkan konten SVG di sini -->
-                        </svg>
-                        Kategori
-                    </a>
-                    <!-- Dropdown content -->
-                    <div class="dropdown-content">
-                        <a href="#">Elektronik</a>
-                        <a href="#">Pakaian</a>
-                        <a href="#">Pecah Belah</a>
-                        <a href="#">Perabotan</a>
-                    </div>
-                </li>
+                <li class="category__trigger flex" id="categoryTrigger">
+                  <a href="#" class="category__link">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                          <!-- Tambahkan konten SVG di sini -->
+                      </svg>
+                      Kategori
+                  </a>
+                  <!-- Dropdown content -->
+                  <div class="dropdown-content" id="dropdownContent">
+                      <a href="#">Elektronik</a>
+                      <a href="#">Pakaian</a>
+                      <a href="#">Pecah Belah</a>
+                      <a href="#">Perabotan</a>
+                  </div>
+              </li>
+              <script>
+                // Ambil elemen yang dibutuhkan
+          const categoryTrigger = document.getElementById('categoryTrigger');
+          const dropdownContent = document.getElementById('dropdownContent');
+          
+          // Fungsi untuk menampilkan dropdown
+          function showDropdown() {
+              dropdownContent.style.display = 'block';
+          }
+          
+          // Fungsi untuk menyembunyikan dropdown
+          function hideDropdown() {
+              dropdownContent.style.display = 'none';
+          }
+          
+          // Tambahkan event listeners
+          categoryTrigger.addEventListener('mouseover', showDropdown);
+          categoryTrigger.addEventListener('mouseout', hideDropdown);
+          
+              </script>
+              
+              
 
                 <li><a href="{{ route('jual') }}">Jual</a></li>
             </ul>
@@ -273,10 +291,15 @@
             By joining, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
         </div>
     </div>
+   
 
     <!-- Langsung mulai konten setelah navbar -->
     @yield('content')
-    
+    <!-- tombol kembali keatas -->
+<button id="backToTop" title="Kembali ke Atas">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
     <!-- Footer -->
     @include('frontend.footer')
     
@@ -292,5 +315,7 @@
 
     <!-- Di bagian bawah sebelum closing body, tambahkan JS slider -->
     <script src="{{ asset('second_choice/js/slider.js') }}"></script>
+    <script src="{{ asset('second_choice/js/backtoup.js') }}"></script>
+    
   </body>
 </html>

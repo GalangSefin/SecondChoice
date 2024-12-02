@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -16,17 +18,15 @@ class ProductController extends Controller
      */
     public function viewAll(Request $request)
     {
-        // Mengambil semua kategori
-        $categories = Category::all();
-        
-        // Query dasar untuk mengambil produk beserta relasinya
-        $query = Product::with('images', 'category');
+        // Ambil daftar kategori unik dari tabel 'products'
+        $categories = Product::select('category')->distinct()->pluck('category');
 
-       // Filter berdasarkan nama kategori (bukan id kategori)
+    // Query dasar untuk mengambil produk
+    $query = Product::with('images');
+
+    // Filter berdasarkan kolom 'category'
     if ($request->has('category') && $request->category != '') {
-        $query->whereHas('category', function ($q) use ($request) {
-            $q->where('id', $request->category); // Filter berdasarkan nama kategori
-        });
+        $query->where('category', $request->category);
     }
 
         // Filter Price
@@ -61,7 +61,26 @@ class ProductController extends Controller
         }
 
         // Mengambil produk berdasarkan query (termasuk filter jika ada)
-        $products = $query->get();
+        $products = $query->with('images')->paginate(12);
+
+        foreach ($products as $product) {
+            if ($product->images->isNotEmpty()) {
+                foreach ($product->images as $image) {
+                    try {
+                        $path = 'public/products/' . basename($image->image);
+                        if (Storage::exists($path)) {
+                            $encryptedContent = Storage::get($path);
+                            $decryptedContent = decrypt($encryptedContent);
+                            $base64Image = base64_encode($decryptedContent);
+                            $image->decoded_image = 'data:image/jpeg;base64,' . $base64Image;
+                        }
+                    } catch (\Exception $e) {
+                        Log::error('Error decrypting image: ' . $e->getMessage());
+                        $image->decoded_image = asset('second_choice/images/no-image.png');
+                    }
+                }
+            }
+        }
 
         // Kirim data produk ke view bersama filter aktif
         return view('frontend.ViewAll', [

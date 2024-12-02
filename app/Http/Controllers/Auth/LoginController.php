@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -61,5 +62,35 @@ class LoginController extends Controller
             'success' => true,
             'redirect' => '/'
         ]);
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only($this->username(), 'password');
+        $user = User::where($this->username(), $credentials[$this->username()])->first();
+
+        if ($user) {
+            if (!$user->hasVerifiedEmail()) {
+                Auth::login($user);
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Email belum diverifikasi.',
+                    'redirect' => route('verification.notice')
+                ], 403);
+            }
+
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                return response()->json([
+                    'success' => true,
+                    'redirect' => route('home')
+                ]);
+            }
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Email atau password salah'
+        ], 401);
     }
 }
