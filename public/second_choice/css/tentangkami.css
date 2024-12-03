@@ -1,0 +1,95 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 100px;
+}
+
+header {
+    background: #870017;
+    color: #fff;
+    padding: 15px 5px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 2px 0 0;
+}
+
+.about {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about .content {
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    color: #870017;
+    margin-bottom: 10px;
+}
+
+.about p {
+    margin: 0;
+    text-align: justify;
+    color: black;
+    font-size: 17px;
+}
+
+footer {
+    background: #4d000d;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column; /* Menyusun gambar dan teks secara vertikal */
+    align-items: center; /* Menyusun gambar dan teks di tengah */
+    width: 200px; /* Lebar kotak */
+    height: 200px; /* Tinggi kotak sama dengan lebar untuk rasio 1:1 */
+    margin: 0 auto; /* Posisi kotak di tengah halaman */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang terpotong */
+    border-radius: 5px; /* Ujung gambar melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 80%; /* Gambar memenuhi lebar kotak */
+    height: 80%; /* Gambar memenuhi tinggi kotak */
+    object-fit: cover; /* Mengisi kotak secara proporsional dan memotong jika diperlukan */
+    border-radius: 2px; /* Ujung gambar melengkung */
+}
+
+.image-container p {
+    margin-top: 5px; /* Jarak antara gambar dan teks */
+    font-size: 1em; /* Ukuran teks */
+    color: #870017; /* Warna teks */
+    margin-bottom: 0; /* Menghilangkan margin bawah teks */
+}
+

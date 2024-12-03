@@ -1,0 +1,127 @@
+.nav-bar input[type="search"] {
+    padding: 7px 15px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    margin: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sell-link {
+    font-weight: bold;
+    color: #333;
+}
+
+.icons {
+    display: flex; /* Mengatur flexbox untuk penyelarasan */
+    justify-content: flex-end; /* Menyelaraskan konten ke kanan */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+}
+
+.icons .icon {
+    margin: 0 8px;
+    font-size: 20px; /* Ukuran font untuk ikon */
+}
+
+.icons .profile-icon {
+    margin: 0 8px;
+    width: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+    height: 25px; /* Pastikan lebar dan tinggi sama */
+    display: flex; /* Menggunakan flexbox untuk menengahkan konten */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    justify-content: center; /* Menyelaraskan item secara horizontal */
+    border-radius: 50%; /* Membuat elemen berbentuk lingkaran */
+    font-size: 13px; /* Ukuran font yang sesuai */
+    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
+    color: white;
+}
+
+/* Settings Container */
+.settings-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.settings-menu a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Profile Form */
+.profile-form {
+    margin-top: 20px;
+}
+
+.profile-picture {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-initial {
+    width: 50px;
+    height: 50px;
+    background-color: #870017;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 50%;
+}
+
+.profile-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.profile-form input,
+.profile-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-form textarea {
+    resize: none;
+}
+
+.profile-form button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: #870017;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-form button:hover {
+    background-color: #5c5b5b;
+}
+
+.avatar{
+    
+}
