@@ -1,0 +1,45 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.icon span {
+    font-size: 24px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.icon:hover .dropdown {
+    display: block;
+}

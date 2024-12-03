@@ -10,26 +10,18 @@
 body {
     background-color: #f5f5f5;
     padding: 20px;
+    margin-top: 115px; /* Sesuaikan dengan tinggi navbar */
 }
 
 .UploadProduk {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
-.image-preview-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+body {
+    font-family: Arial, sans-serif;
 }
-.image-preview {
-    width: 100%;
-    max-width: 120px;
-    max-height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
-}
+
 
 header {
     text-align: center;
@@ -40,6 +32,56 @@ header h1 {
     font-family: 'Poppins', monospace;
     font-size: 28px;
     letter-spacing: 2px;
+}
+
+.upload-photo {
+    width: 300px;
+    margin-bottom: 15px;
+
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.image-slot {
+    border: 2px dashed #ccc;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-slot .delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color:#870017;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3{
+    margin-bottom: 20px;
 }
 
 .tambah-title{

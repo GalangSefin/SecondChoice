@@ -4,7 +4,7 @@
     <div class="card-body login-card-body">
         <p class="login-box-msg">{{ __('Register') }}</p>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form id="registerForm" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="input-group mb-3">
@@ -71,4 +71,48 @@
             </div>
         </form>
     </div>
+
+    @include('auth.partials.verify-email-modal')
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#signupButton').on('click', function(e) {
+        e.preventDefault();
+        
+        $.ajax({
+            url: "{{ route('ajax.register') }}",
+            method: 'POST',
+            data: $('#registerForm').serialize(),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                if (response.success) {
+                    // Tutup modal signup jika ada
+                    $('#registerModal').modal('hide');
+                    
+                    // Tampilkan SweetAlert
+                    Swal.fire({
+                        title: 'Registrasi Berhasil!',
+                        text: 'Silakan periksa email Anda untuk verifikasi akun.',
+                        icon: 'success',
+                        showConfirmButton: true,
+                        allowOutsideClick: false
+                    });
+                }
+            },
+            error: function(xhr) {
+                if (xhr.status === 422) {
+                    var errors = xhr.responseJSON.errors;
+                    $.each(errors, function(key, value) {
+                        $('#' + key + '_error').text(value[0]);
+                    });
+                }
+            }
+        });
+    });
+});
+</script>
+@endpush

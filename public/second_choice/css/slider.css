@@ -1,0 +1,153 @@
+.dual-slider-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.slider-section {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f8f8f8;
+    height: 300px; /* Sesuaikan dengan kebutuhan */
+}
+
+.slider-wrapper {
+    height: 100%;
+}
+
+.slide {
+    position: relative;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styling untuk slide pertama (Mulai berjualan) */
+.slider-section:first-child .slide {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                url('../images/sell-banner.jpg');
+}
+
+/* Styling untuk slide kedua (Explore item) */
+.slider-section:last-child .slide {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+                url('../images/new-items-banner.jpg');
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+}
+
+.slide-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #870017;
+}
+
+.slide-label2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.slide h2 {
+    font-family: 'Wonder Woman', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #870017;
+}
+
+.slider-section:last-child h3 {
+    font-family: 'Wonder Woman', sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+/* Styling khusus untuk slide kanan (Explore item) */
+.slider-section:last-child .slide-content {
+    color: white;
+}
+
+.slide-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #000;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #870017;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #870017; 
+    border: 1px solid #870017;
+}
+
+/* Styling khusus untuk tombol di slide kanan */
+.slider-section:last-child .btn-primary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.slider-section:last-child .btn-primary:hover {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dual-slider-container {
+        flex-direction: column;
+    }
+
+    .slider-section {
+        height: 250px;
+    }
+
+    .slide {
+        padding: 30px;
+    }
+
+    .slide h2 {
+        font-size: 24px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+} 
