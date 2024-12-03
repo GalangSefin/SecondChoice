@@ -37,7 +37,7 @@
                     <option value="under_50000" {{ request('price') == 'under_50000' ? 'selected' : '' }}>Di bawah Rp 50,000</option>
                     <option value="50k_100k" {{ request('price') == '50k_100k' ? 'selected' : '' }}>Rp 50,000 - Rp 100,000</option>
                     <option value="100k_200k" {{ request('price') == '100k_200k' ? 'selected' : '' }}>Rp 100,000 - Rp 200,000</option>
-                    <option value="above_200k" {{ request('price') == 'above_200k' ? 'selected' : '' }}>Di atas Rp 200,000</option>
+                    <option value="above_200k" {{ request('price') == 'above_200k' ? 'selected' : '' }}>Di atas Rp 250,000</option>
                 </select>
 
                 <!-- Filter Kondisi -->

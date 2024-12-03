@@ -62,7 +62,7 @@
           <div class="slide-label2">Baru</div>
           <h3>Telusuri Item Terbaru</h3>
           <div class="slide-buttons">
-            <a href="#" class="btn-primary">Belanja Sekarang</a>
+            <a href="{{ route('products.viewall') }}"class="btn-primary">Belanja Sekarang</a>
           </div>
         </div>
       </div>
@@ -236,52 +236,34 @@
     </div>
 
     <div class="row">
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="box-feature" style="cursor: pointer;">
+      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+        <div class="box-feature" style="cursor: pointer;" onclick="window.location.href='http://127.0.0.1:8000/products?category=&price=under_50000&condition=&sort=';">
           <!-- <span class="flaticon-house"></span> -->
           <h3 class="mb-3">Harga dibawah</h3>
-          <h4 class="mb-3">100 Ribu</h4>
-          <!-- <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p> -->
+          <h4 class="mb-3">50 Ribu</h4>
         </div>
       </div>
       <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-        <div class="box-feature" style="cursor: pointer;">
-          <!-- <span class="flaticon-building"></span> -->
-          <h3 class="mb-3">Harga dibawah</h3>
-          <h4 class="mb-3">250 Ribu</h4>
-          <!-- <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p> -->
+        <div class="box-feature" style="cursor: pointer;" onclick="window.location.href='http://127.0.0.1:8000/products?category=&price=50k_100k&condition=&sort=';">
+            <h3 class="mb-3">Harga dibawah</h3>
+            <h4 class="mb-3">100 Ribu</h4>
         </div>
       </div>
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-        <div class="box-feature" style="cursor: pointer;">
-          <!-- <span class="flaticon-house-3"></span> -->
-          <h3 class="mb-3">Harga dibawah</h3>
-          <h4 class="mb-3">350 Ribu</h4>
-          <!-- <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p> -->
-        </div>
-      </div>
-      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-        <div class="box-feature" style="cursor: pointer;">
-          <!-- <span class="flaticon-house-1"></span> -->
-          <h3 class="mb-3">Harga dibawah</h3>
-          <h4 class="mb-3">500 Ribu</h4>
-          <!-- <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p> -->
-        </div>
-      </div>
+      <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+        <div class="box-feature" style="cursor: pointer;" onclick="window.location.href='http://127.0.0.1:8000/products?category=&price=100k_200k&condition=&sort=';">
+            <!-- <span class="flaticon-building"></span> -->
+            <h3 class="mb-3">Harga dibawah</h3>
+            <h4 class="mb-3">200 Ribu</h4>
+        </a>
     </div>
-  </div>
+    </div>
+    <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+      <div class="box-feature" style="cursor: pointer;" onclick="window.location.href='http://127.0.0.1:8000/products?category=&price=above_200k&condition=&sort=';">
+          <!-- <span class="flaticon-house-1"></span> -->
+          <h3 class="mb-3">Harga diatas</h3>
+          <h4 class="mb-3">250 Ribu</h4>
+        </div>
+      </div>
 </section>
 
 {{-- <ulasan pelanggan > --}}

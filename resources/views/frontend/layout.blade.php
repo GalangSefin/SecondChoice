@@ -38,7 +38,54 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* Container utama */
+      .kategori {
+        position: relative;
+        display: inline-block;
+      }
+    
+      /* Kategori utama */
+      .main-kategori {
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        cursor: pointer;
+        border: 1px solid #ddd;
+      }
+    
+      /* Subkategori (disembunyikan default) */
+      .sub-kategori {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+        display: none;
+        z-index: 1000;
+      }
+    
+      /* Setiap item subkategori */
+      .sub-kategori a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+    
+      .sub-kategori a:hover {
+        background-color: #f1f1f1;
+        color: #000;
+      }
+    
+      /* Tampilkan subkategori saat hover */
+      .main-kategori:hover .sub-kategori {
+        display: block;
+      }
+    </style>
 
+
+    </style>
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -175,57 +222,29 @@
       </div>
 
       <!-- Bagian bawah navbar -->
-       
       <div class="nav-bottom">
-    <div class="container">
-        <div class="categories">
-            <ul>
-                <li><a href="{{ route('home') }}">Home</a></li>
-                
-                <!-- Kategori Dropdown -->
-                <li class="category__trigger flex" id="categoryTrigger">
-                  <a href="#" class="category__link">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
-                          <!-- Tambahkan konten SVG di sini -->
-                      </svg>
-                      Kategori
-                  </a>
-                  <!-- Dropdown content -->
-                  <div class="dropdown-content" id="dropdownContent">
-                      <a href="#">Elektronik</a>
-                      <a href="#">Pakaian</a>
-                      <a href="#">Barang Pecah Belah</a>
-                      <a href="#">Perabotan</a>
-                  </div>
-              </li>
-              <script>
-                // Ambil elemen yang dibutuhkan
-          const categoryTrigger = document.getElementById('categoryTrigger');
-          const dropdownContent = document.getElementById('dropdownContent');
-          
-          // Fungsi untuk menampilkan dropdown
-          function showDropdown() {
-              dropdownContent.style.display = 'block';
-          }
-          
-          // Fungsi untuk menyembunyikan dropdown
-          function hideDropdown() {
-              dropdownContent.style.display = 'none';
-          }
-          
-          // Tambahkan event listeners
-          categoryTrigger.addEventListener('mouseover', showDropdown);
-          categoryTrigger.addEventListener('mouseout', hideDropdown);
-          
-              </script>
-              
-              
-
-                <li><a href="{{ route('jual') }}">Jual</a></li>
-            </ul>
+        <div class="container">
+            <div class="categories">
+                <ul class="menu-list">
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <div class="kategori">
+                      <div class="main-kategori">
+                        <span>Kategori</span>
+                        <div class="sub-kategori">
+                          <a href="/kategori/elektronik">Elektronik</a>
+                          <a href="/kategori/pakaian">Pakaian</a>
+                          <a href="/kategori/kesehatan">Kesehatan</a>
+                          <a href="/kategori/olahraga">Olahraga</a>
+                        </div>
+                      </div>
+                    </div>
+                    <li><a href="{{ route('jual') }}">Jual</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    
+    
     </nav>
 
     <!-- Tambahkan setelah nav dan sebelum content -->
