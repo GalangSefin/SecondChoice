@@ -243,3 +243,4 @@ Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage']
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', CategoryController::class);
     });
+    
