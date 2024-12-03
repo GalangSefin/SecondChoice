@@ -39,53 +39,65 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      /* Container utama */
-      .kategori {
-        position: relative;
-        display: inline-block;
-      }
-    
-      /* Kategori utama */
-      .main-kategori {
-        padding: 10px 20px;
-        background-color: #f8f9fa;
-        cursor: pointer;
-        border: 1px solid #ddd;
-      }
-    
-      /* Subkategori (disembunyikan default) */
-      .sub-kategori {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #ffffff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: 1px solid #ddd;
-        display: none;
-        z-index: 1000;
-      }
-    
-      /* Setiap item subkategori */
-      .sub-kategori a {
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #333;
-      }
-    
-      .sub-kategori a:hover {
-        background-color: #f1f1f1;
-        color: #000;
-      }
-    
-      /* Tampilkan subkategori saat hover */
-      .main-kategori:hover .sub-kategori {
-        display: block;
-      }
-    </style>
+
+.nav-bottom .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-bottom .menu-list li {
+    position: relative; /* Untuk posisi dropdown */
+}
+
+.nav-bottom .menu-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s; /* Animasi hover */
+}
 
 
-    </style>
+
+/* Hover untuk sub-kategori */
+.nav-bottom .main-kategori .sub-kategori {
+    display: none; /* Sembunyikan subkategori secara default */
+    position: absolute;
+    top: 100%; /* Muncul di bawah menu utama */
+    left: 0;
+    background-color: #fff; /* Latar belakang dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan dropdown */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    list-style: none;
+}
+
+.nav-bottom .main-kategori:hover .sub-kategori {
+    display: block; /* Tampilkan dropdown saat di-hover */
+}
+
+.nav-bottom .sub-kategori li {
+    margin: 5px 0;
+}
+
+.nav-bottom .sub-kategori a {
+    color: #333;
+    padding: 5px 15px;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-bottom .sub-kategori a:hover {
+    color: #fff;
+    background-color: #870017; /* Warna hover subkategori */
+    border-radius: 5px;
+}
+</style>
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -227,22 +239,21 @@
             <div class="categories">
                 <ul class="menu-list">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <div class="kategori">
-                      <div class="main-kategori">
-                        <span>Kategori</span>
-                        <div class="sub-kategori">
-                          <a href="/kategori/elektronik">Elektronik</a>
-                          <a href="/kategori/pakaian">Pakaian</a>
-                          <a href="/kategori/kesehatan">Kesehatan</a>
-                          <a href="/kategori/olahraga">Olahraga</a>
-                        </div>
-                      </div>
-                    </div>
+                    <li class="main-kategori">
+                      <span><a href="#">Kategori</a></span>
+                        <ul class="sub-kategori">
+                            <li><a href="/kategori/elektronik">Elektronik</a></li>
+                            <li><a href="/kategori/pakaian">Pakaian</a></li>
+                            <li><a href="/kategori/kesehatan">Kesehatan</a></li>
+                            <li><a href="/kategori/olahraga">Olahraga</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ route('jual') }}">Jual</a></li>
                 </ul>
             </div>
         </div>
     </div>
+    
     
     
     </nav>
