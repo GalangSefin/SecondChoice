@@ -253,3 +253,4 @@ Route::delete('/cart/{cartId}', [CartController::class, 'removeFromCart'])->name
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', CategoryController::class);
     });
+    
