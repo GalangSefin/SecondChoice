@@ -38,66 +38,6 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-
-.nav-bottom .menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px; /* Jarak antar menu */
-}
-
-.nav-bottom .menu-list li {
-    position: relative; /* Untuk posisi dropdown */
-}
-
-.nav-bottom .menu-list a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: color 0.3s, background-color 0.3s; /* Animasi hover */
-}
-
-
-
-/* Hover untuk sub-kategori */
-.nav-bottom .main-kategori .sub-kategori {
-    display: none; /* Sembunyikan subkategori secara default */
-    position: absolute;
-    top: 100%; /* Muncul di bawah menu utama */
-    left: 0;
-    background-color: #fff; /* Latar belakang dropdown */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan dropdown */
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000;
-    list-style: none;
-}
-
-.nav-bottom .main-kategori:hover .sub-kategori {
-    display: block; /* Tampilkan dropdown saat di-hover */
-}
-
-.nav-bottom .sub-kategori li {
-    margin: 5px 0;
-}
-
-.nav-bottom .sub-kategori a {
-    color: #333;
-    padding: 5px 15px;
-    display: block;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.nav-bottom .sub-kategori a:hover {
-    color: #fff;
-    background-color: #870017; /* Warna hover subkategori */
-    border-radius: 5px;
-}
-</style>
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -211,7 +151,7 @@
                               <a href="{{ route('profile.index') }}" class="dropdown-item">
                                   <i class="fa-regular fa-user"></i> Profil
                               </a>
-                                <a href="{{ route('purchases.index') }}" class="dropdown-item">
+                              <a href="{{ route('purchases.index') }}" class="dropdown-item">
                                     <i class="fa-solid fa-bag-shopping"></i> Purchases
                                 </a>
                                 <a href="{{ route('settings') }}" class="dropdown-item">
@@ -242,8 +182,8 @@
                     <li class="main-kategori">
                       <span><a href="#">Kategori</a></span>
                         <ul class="sub-kategori">
-                            <li><a href="/kategori/elektronik">Elektronik</a></li>
-                            <li><a href="/kategori/pakaian">Pakaian</a></li>
+                            <li><a href="http://127.0.0.1:8000/products?category=elektronik&price=&condition=&sort=">Elektronik</a></li>
+                            <li><a href="http://127.0.0.1:8000/products?category=pakaian&price=&condition=&sort=">Pakaian</a></li>
                             <li><a href="/kategori/kesehatan">Kesehatan</a></li>
                             <li><a href="/kategori/olahraga">Olahraga</a></li>
                         </ul>

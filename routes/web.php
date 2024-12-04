@@ -13,7 +13,7 @@ use App\Http\Controllers\UpProdukController;
 use App\Http\Controllers\pesananController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\KeranjangController;
@@ -80,8 +80,9 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/cart', 'CartController@index')->name('cart');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases.index');
+    Route::get('/purchases', [PurchasesController::class, 'index'])->name('purchases.index');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
     // Routes untuk halaman profil pengguna
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -108,8 +109,8 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
 
 
 
-    // Routes untuk PurchaseController
-    Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
+    // // Routes untuk PurchaseController
+    // Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
     // Routes untuk keranjang belanja
     Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang.show');
@@ -178,14 +179,14 @@ Route::get('/tutorial', function () {
 Route::get('/keranjang', function () {
     return view('frontend.keranjang');
 })->name('keranjang');
-// Route untuk halaman checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+// // Route untuk halaman checkout
+// Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
-// Proses data pengiriman
-Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
+// // Proses data pengiriman
+// Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
 
-// Halaman pembayaran
-Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
+// // Halaman pembayaran
+// Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
 
 // Google Login Routes
 Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
@@ -243,3 +244,4 @@ Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage']
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', CategoryController::class);
     });
+    
