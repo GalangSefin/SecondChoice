@@ -21,6 +21,7 @@ use App\Http\Controllers\DetailProductController;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\ReviewController;
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use App\Http\Controllers\CartController;
@@ -243,3 +244,5 @@ Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage']
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', CategoryController::class);
     });
+//review
+Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])->middleware('auth');

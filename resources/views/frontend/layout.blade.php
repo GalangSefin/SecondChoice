@@ -184,8 +184,8 @@
                         <ul class="sub-kategori">
                             <li><a href="http://127.0.0.1:8000/products?category=elektronik&price=&condition=&sort=">Elektronik</a></li>
                             <li><a href="http://127.0.0.1:8000/products?category=pakaian&price=&condition=&sort=">Pakaian</a></li>
-                            <li><a href="/kategori/kesehatan">Kesehatan</a></li>
-                            <li><a href="/kategori/olahraga">Olahraga</a></li>
+                            <li><a href="http://127.0.0.1:8000/products?category=pecah+belah&price=&condition=&sort=">Pecah Belah</a></li>
+                            <li><a href="http://127.0.0.1:8000/products?category=perabotan&price=&condition=&sort=">Perabotan</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('jual') }}">Jual</a></li>

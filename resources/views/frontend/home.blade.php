@@ -139,10 +139,7 @@
 <section class="px-4 pt-24 space-y-10 sm:px-6 sm:pt-20 xl:mx-auto xl:max-w-7xl lg:px-8">
   <!-- Header Section -->
   <div class="sm:flex sm:items-center sm:justify-between">
-    <h2 class="text-3xl font-bold">Kategori Populer</h2>
-    <a href="/collections" class="hidden text-sm font-semibold text-sky-700 hover:text-sky-600 sm:block">
-      Lihat Lainnya
-    </a>
+    <h2 class="text-3xl font-bold">Kategori</h2>
   </div>
 
   <!-- Collections Grid -->
