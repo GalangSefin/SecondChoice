@@ -38,54 +38,6 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      /* Container utama */
-      .kategori {
-        position: relative;
-        display: inline-block;
-      }
-    
-      /* Kategori utama */
-      .main-kategori {
-        padding: 10px 20px;
-        background-color: #f8f9fa;
-        cursor: pointer;
-        border: 1px solid #ddd;
-      }
-    
-      /* Subkategori (disembunyikan default) */
-      .sub-kategori {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #ffffff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: 1px solid #ddd;
-        display: none;
-        z-index: 1000;
-      }
-    
-      /* Setiap item subkategori */
-      .sub-kategori a {
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #333;
-      }
-    
-      .sub-kategori a:hover {
-        background-color: #f1f1f1;
-        color: #000;
-      }
-    
-      /* Tampilkan subkategori saat hover */
-      .main-kategori:hover .sub-kategori {
-        display: block;
-      }
-    </style>
-
-
-    </style>
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
@@ -227,22 +179,21 @@
             <div class="categories">
                 <ul class="menu-list">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <div class="kategori">
-                      <div class="main-kategori">
-                        <span>Kategori</span>
-                        <div class="sub-kategori">
-                          <a href="/kategori/elektronik">Elektronik</a>
-                          <a href="/kategori/pakaian">Pakaian</a>
-                          <a href="/kategori/kesehatan">Kesehatan</a>
-                          <a href="/kategori/olahraga">Olahraga</a>
-                        </div>
-                      </div>
-                    </div>
+                    <li class="main-kategori">
+                      <span><a href="#">Kategori</a></span>
+                        <ul class="sub-kategori">
+                            <li><a href="http://127.0.0.1:8000/products?category=elektronik&price=&condition=&sort=">Elektronik</a></li>
+                            <li><a href="http://127.0.0.1:8000/products?category=pakaian&price=&condition=&sort=">Pakaian</a></li>
+                            <li><a href="/kategori/kesehatan">Kesehatan</a></li>
+                            <li><a href="/kategori/olahraga">Olahraga</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ route('jual') }}">Jual</a></li>
                 </ul>
             </div>
         </div>
     </div>
+    
     
     
     </nav>
