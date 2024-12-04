@@ -10,26 +10,17 @@ use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
-    public function home(Request $request)
+    public function home()
     {
         // Mengambil semua kategori
         $categories = Category::all();
-    
-        // Menangkap parameter pencarian (jika ada)
-        $search = $request->input('search');
-    
-        // Query untuk produk baru
+
+        // Query dasar untuk mengambil produk beserta relasinya
         $query = Product::with('images', 'category');
-    
-        // Jika ada pencarian, tambahkan filter
-        if ($search) {
-            $query->where('name', 'LIKE', '%' . $search . '%')
-                  ->orWhere('description', 'LIKE', '%' . $search . '%');
-        }
-    
-        // Ambil produk terbaru (terbatas pada 12 jika tidak ada pencarian)
-        $newproducts = $query->latest()->paginate(12); // Pagination mendukung pencarian
-    
+
+        // Mengambil produk berdasarkan query (termasuk filter jika ada)
+        $newproducts = $query->latest()->take(12)->get();
+
         foreach ($newproducts as $product) {
             if ($product->images->isNotEmpty()) {
                 foreach ($product->images as $image) {
@@ -51,15 +42,13 @@ class HomeController extends Controller
                 }
             }
         }
-    
-        // Kirim data ke view
+
+        // Kirim data produk ke view dengan nama variabel baru
         return view('frontend.home', [
             'newproducts' => $newproducts,
             'categories' => $categories,
-            'search' => $search, // Kirim kata kunci pencarian untuk ditampilkan di form
         ]);
     }
-        
 
     public function show($id)
     {
@@ -86,5 +75,4 @@ class HomeController extends Controller
 
         return view('frontend.product-detail', compact('product'));
     }
-
 }

@@ -20,15 +20,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_active',
         'email_verified_at',
         'bio',
+        'phone_number',
         'website',
+        'alamat',
         'profile_picture'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -41,10 +38,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function roles() {
         return $this->belongsToMany(Role::class, 'role_user');
-    }
-
-    public function notifiable() {
-        return $this->belongsToMany(User::class, 'user_id');
     }
 
     public function getIsActiveAttribute($value)
@@ -65,5 +58,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getEmailForVerification()
     {
         return $this->email;
+    }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'user_id');
+    }
+
+    public function sellerKeranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'seller_id');
     }
 }

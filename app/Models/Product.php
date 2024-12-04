@@ -33,6 +33,11 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
 
+    public function getFirstImageAttribute()
+    {
+        return $this->images->first();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -63,5 +68,3 @@ class Product extends Model
         return $this->belongsTo(Jenis::class, 'jenis_id');
     }
 }
-
-

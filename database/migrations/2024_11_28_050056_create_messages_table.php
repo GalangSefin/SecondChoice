@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Nama kategori unik
+            $table->foreignId('chat_room_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sender_id')->constrained('users');
+            $table->text('message');
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('messages');
     }
 };

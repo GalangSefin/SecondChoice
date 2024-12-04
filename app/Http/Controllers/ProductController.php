@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -20,27 +21,49 @@ class ProductController extends Controller
     {
         // Ambil daftar kategori unik dari tabel 'products'
         $categories = Product::select('category')->distinct()->pluck('category');
-    
-        // Query dasar untuk mengambil produk
-        $query = Product::with('images');
-    
-        // Filter berdasarkan pencarian
-        if ($request->has('search') && $request->search != '') {
-            $query->where('name', 'LIKE', '%' . $request->search . '%')
-                  ->orWhere('description', 'LIKE', '%' . $request->search . '%');
+
+    // Query dasar untuk mengambil produk
+    $query = Product::with('images');
+
+    // Filter berdasarkan kolom 'category'
+    if ($request->has('category') && $request->category != '') {
+        $query->where('category', $request->category);
+    }
+
+        // Filter Price
+        if ($request->has('price') && $request->price != '') {
+            if ($request->price == 'under_50000') {
+                $query->where('price', '<', 50000);
+            } elseif ($request->price == '50k_100k') {
+                $query->whereBetween('price', [50000, 100000]);
+            } elseif ($request->price == '100k_200k') {
+                $query->whereBetween('price', [100000, 200000]);
+            } elseif ($request->price == 'above_200k') {
+                $query->where('price', '>', 200000);
+            }
         }
-    
-        // Filter berdasarkan kategori
-        if ($request->has('category') && $request->category != '') {
-            $query->where('category', $request->category);
+
+        // Filter Condition
+        if ($request->has('condition') && $request->condition != '') {
+            $query->where('condition', $request->condition);
         }
-    
-        // Filter Harga, Kondisi, dan Sorting (kode sebelumnya tetap sama)
-    
-        // Mengambil produk berdasarkan query
-        $products = $query->paginate(12);
-    
-        // Dekripsi gambar (jika ada)
+
+        // Sort Options
+        if ($request->has('sort') && $request->sort != '') {
+            if ($request->sort == 'lowest_price') {
+                $query->orderBy('price', 'asc');
+            } elseif ($request->sort == 'highest_price') {
+                $query->orderBy('price', 'desc');
+            } elseif ($request->sort == 'newest') {
+                $query->orderBy('created_at', 'desc');
+            } elseif ($request->sort == 'oldest') {
+                $query->orderBy('created_at', 'asc');
+            }
+        }
+
+        // Mengambil produk berdasarkan query (termasuk filter jika ada)
+        $products = $query->with('images')->paginate(12);
+
         foreach ($products as $product) {
             if ($product->images->isNotEmpty()) {
                 foreach ($product->images as $image) {
@@ -59,14 +82,54 @@ class ProductController extends Controller
                 }
             }
         }
-    
-        // Kirim data ke view
+
+        // Kirim data produk ke view bersama filter aktif
         return view('frontend.ViewAll', [
             'products' => $products,
             'filters' => $request->all(),
-            'categories' => $categories,
-            'search' => $request->search,
+            'categories' => $categories, // Kirim data kategori ke view
         ]);
     }
-    
+
+    //
+    public function store(Request $request)
+    {
+        // Validasi data produk
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'condition' => 'required|string|in:new,used',
+            'category' => 'required|string',
+            'images' => 'array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Simpan gambar produk (jika ada)
+        $images = [];
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $images[] = $file->store('products', 'public');
+            }
+        }
+
+        // Simpan produk ke database (opsional)
+        // $product = Product::create([...]);
+
+        // Kirim produk ke keranjang
+        $cart = Session::get('cart', []);
+        $cart[] = [
+            'id' => uniqid(),
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'quantity' => 1,
+            'image' => count($images) > 0 ? asset('storage/' . $images[0]) : asset('default-image.jpg'),
+        ];
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.show')->with('success', 'Produk berhasil ditambahkan ke keranjang.');
+    }
 }

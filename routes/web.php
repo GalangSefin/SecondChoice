@@ -112,10 +112,9 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
     // Routes untuk keranjang belanja
-    Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang.show');
+    Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang');
     Route::post('/keranjang/add', [KeranjangController::class, 'addToKeranjang'])->name('keranjang.add');
-    Route::post('/keranjang/create', [KeranjangController::class, 'createKeranjang'])->name('keranjang.create');
-    Route::delete('/keranjang/remove/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('keranjang.remove');
+    Route::delete('/keranjang/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('keranjang.remove');
     Route::patch('/keranjang/update/{id}', [KeranjangController::class, 'updateQuantity'])->name('keranjang.update');
 
 
@@ -126,15 +125,15 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     });
     Route::get('/products', [ProductController::class, 'viewAll'])->name('products.viewall');
 
-     // Rute untuk detail produk
-     Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
+    // Rute untuk detail produk
+    
      
 });
-
+Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
 // Admin Routes dengan pengecekan is_active
 Route::group([
-    'middleware' => ['isAdmin', 'user.active'], 
-    'prefix' => 'admin', 
+    'middleware' => ['isAdmin', 'user.active'],
+    'prefix' => 'admin',
     'as' => 'admin.'
 ], function () {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
@@ -146,9 +145,9 @@ Route::group([
 });
 
 // Route untuk simulasi after login
-Route::get('/after-login', function () {
-    return view('frontend.layouts.after_login');
-})->name('after.login');
+// Route::get('/after-login', function () {
+//     return view('frontend.layouts.after_login');
+// })->name('after.login');
 
 // Modifikasi route login yang ada
 Route::post('/login', function (Request $request) {
@@ -165,7 +164,7 @@ Route::get('/auth/callback', [App\Http\Controllers\Auth\GoogleController::class,
 
 
 //jual
-Route::get('/jual', [JualController::class, 'index'])->name('jual');
+
 
 Route::get('/about', function () {
     return view('frontend.about');
@@ -174,10 +173,6 @@ Route::get('/tutorial', function () {
     return view('frontend.tutorialjual');
 })->name('tutorial');
 
-//keranjang
-Route::get('/keranjang', function () {
-    return view('frontend.keranjang');
-})->name('keranjang');
 // Route untuk halaman checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
@@ -188,7 +183,7 @@ Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])
 Route::get('/checkout/payment', [CheckoutController::class, 'paymentPage'])->name('payment.index');
 
 // Google Login Routes
-Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function() {
+Route::controller(App\Http\Controllers\Auth\GoogleController::class)->group(function () {
     Route::get('auth/google', 'redirectToGoogle')->name('google.login');
     Route::get('auth/google/callback', 'handleCallback')->name('google.callback');
 });
@@ -205,7 +200,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         try {
             $request->fulfill();
-            
+
             // Update is_active setelah verifikasi berhasil
             $user = Auth::user();
             $user->is_active = true;
@@ -231,16 +226,22 @@ Route::get('/product-image/{filename}', [UpProdukController::class, 'showImage']
     ->name('product.image')
     ->middleware('web');
 
-    //admin
-    Route::middleware('admin')->group(function () {
-        Route::get('/admin', function () {
-            return view('admin.dashboard');
-        })->name('admin.dashboard');
-    });
-    Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-        Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
-    });
-    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::resource('categories', CategoryController::class);
-    });
-    
+Route::middleware(['auth'])->group(function () {
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+    Route::get('/messages/seller/{sellerId}', [MessageController::class, 'withSeller'])->name('messages.with.seller');
+    Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
+    Route::get('/messages/get-messages/{roomId}', [MessageController::class, 'getMessages'])->name('messages.get-messages');
+    Route::get('/jual', [JualController::class, 'index'])->name('jual');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/update-profile-picture', [SettingController::class, 'updateProfilePicture'])->name('updateProfilePicture');
+    Route::post('/delete-profile-picture', [SettingController::class, 'deleteProfilePicture'])->name('deleteProfilePicture');
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});

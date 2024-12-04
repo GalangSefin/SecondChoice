@@ -73,13 +73,28 @@
             </div>
 
             <div class="product-buttons">
-    <form action="{{ route('keranjang.add') }}" method="POST">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <button type="submit" name="action" value="buy-now" class="buy-now">Beli Sekarang</button>
-        <button type="submit" name="action" value="add-to-cart" class="btn btn-primary add-to-cart">+ Tambahkan ke Keranjang</button>
-    </form>
-</div>
+                @if(auth()->check() && auth()->id() !== $product->user_id)
+                    <!-- Tombol beli dan keranjang -->
+                    <form action="{{ route('keranjang.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" name="action" value="buy-now" class="buy-now">Beli Sekarang</button>
+                        <button type="submit" name="action" value="add-to-cart" class="btn btn-primary add-to-cart">+ Tambahkan ke Keranjang</button>
+                    </form>
+                    
+                    <!-- Tombol hubungi penjual di bawah -->
+                    <div style="margin-top: 10px;">
+                        <a href="{{ route('messages.with.seller', $product->user_id) }}" class="contact-seller">
+                            <button type="button" class="message-btn">Hubungi Penjual</button>
+                        </a>
+                    </div>
+                @elseif(!auth()->check())
+                    <!-- Jika belum login, arahkan ke halaman login -->
+                    <a href="{{ route('home', ['showLogin' => true]) }}" class="login-first">
+                        <button type="button" class="buy-now">Login untuk Membeli</button>
+                    </a>
+                @endif
+            </div>
         </div>
     </div>
 </div>
