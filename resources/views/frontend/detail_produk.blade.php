@@ -76,10 +76,11 @@
     <form action="{{ route('keranjang.add') }}" method="POST">
         @csrf
         <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <button type="submit" name="action" value="buy-now" class="buy-now">Beli Sekarang</button>
         <button type="submit" name="action" value="add-to-cart" class="btn btn-primary add-to-cart">+ Tambahkan ke Keranjang</button>
     </form>
+    <a href="{{ route('checkout') }}" class="btn btn-success buy-now">Beli Sekarang</a>
 </div>
+
         </div>
     </div>
 </div>
