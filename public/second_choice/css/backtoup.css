@@ -1,0 +1,46 @@
+/* Tombol kecil di pojok kanan bawah */
+#backToTop {
+  position: fixed;
+  bottom: 20px; /* Jarak dari bawah */
+  right: 20px; /* Jarak dari kanan */
+  z-index: 1000; /* Pastikan tombol berada di atas elemen lain */
+  width: 50px; /* Lebar tombol */
+  height: 50px; /* Tinggi tombol */
+  background: linear-gradient(135deg, #870017, #a1001f); /* Gradien warna */
+  color: white; /* Warna teks atau ikon */
+  font-size: 20px; /* Ukuran teks/ikon */
+  border: none; /* Tanpa border */
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  cursor: pointer; /* Ganti kursor menjadi pointer */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan tombol */
+  display: none; /* Tersembunyi secara default */
+  justify-content: center; /* Pusatkan konten horizontal */
+  align-items: center; /* Pusatkan konten vertikal */
+  transition: all 0.3s ease-in-out; /* Animasi halus */
+}
+
+/* Tombol saat ditampilkan */
+#backToTop.show {
+  display: flex; /* Tampilkan tombol */
+  opacity: 1; /* Buat terlihat */
+  transform: scale(1); /* Ukuran normal */
+}
+
+/* Efek hover */
+#backToTop:hover {
+  transform: scale(1.2); /* Membesarkan tombol sedikit saat hover */
+  background: linear-gradient(135deg, #a1001f, #d5002e); /* Gradien warna lebih terang */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Bayangan lebih jelas */
+}
+
+/* Animasi saat tombol muncul */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Geser sedikit dari bawah */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
