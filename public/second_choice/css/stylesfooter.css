@@ -7,8 +7,11 @@
   }
   
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    /* margin: 0px; */
+    padding: 0px;
+    text-align: center;
+    align-items: center;
   }
   
   .footer-columns {
@@ -22,17 +25,28 @@
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #870017;
   }
   
   .footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .footer-column li {
-    margin-bottom: 5px;
-  }
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-column ul li {
+  display: inline-block;
+  margin: 0 16px; /* Jarak antar ikon */
+}
+
+.footer-column ul li a i {
+  transition: transform 0.3s ease, color 0.3s ease; /* Transisi untuk animasi */
+}
+
+.footer-column ul li a:hover i {
+  transform: scale(1.2); /* Perbesar ikon 20% */
+  color: #ff4500; /* Ubah warna saat hover */
+}
   
   .footer-column a {
     color: #000;
@@ -52,7 +66,7 @@
   .social-icons a {
     margin: 0 10px;
     font-size: 20px;
-    color: #000;
+    color: #870017;
     text-decoration: none;
   }
   
