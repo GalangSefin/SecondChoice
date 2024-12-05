@@ -4,6 +4,22 @@ body {
     margin: 0;
 }
 
+h2 {
+ margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: "Poppins", sans-serif;
+  color: #870017;
+ }
+ 
+ h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw); }
+    @media (min-width: 1200px) {
+      h2, .h2 {
+        font-size: 2rem; } }
+
+
 .nav-bar {
     display: flex;
     justify-content: space-between;

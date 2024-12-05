@@ -16,8 +16,6 @@
                     <button class="edit-profile">Edit profil</button>
                 </a>
             </div>
-
-            
         </div>
 
         Bagian Informasi Profile Detail
