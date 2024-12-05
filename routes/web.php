@@ -119,11 +119,9 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
     // // Routes untuk PurchaseController
     // Route::post('/purchases/{id}/confirm', [PurchaseController::class, 'confirmReceived'])->name('purchases.confirm');
 
-    // Routes untuk keranjang belanja
-    Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang.show');
+    Route::get('/keranjang', [KeranjangController::class, 'showKeranjang'])->name('keranjang');
     Route::post('/keranjang/add', [KeranjangController::class, 'addToKeranjang'])->name('keranjang.add');
-    Route::post('/keranjang/create', [KeranjangController::class, 'createKeranjang'])->name('keranjang.create');
-    Route::delete('/keranjang/remove/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('keranjang.remove');
+    Route::delete('/keranjang/{id}', [KeranjangController::class, 'removeFromKeranjang'])->name('keranjang.remove');
     Route::patch('/keranjang/update/{id}', [KeranjangController::class, 'updateQuantity'])->name('keranjang.update');
 
 
@@ -182,10 +180,10 @@ Route::get('/tutorial', function () {
     return view('frontend.tutorialjual');
 })->name('tutorial');
 
-//keranjang
-Route::get('/keranjang', function () {
-    return view('frontend.keranjang');
-})->name('keranjang');
+// //keranjang
+// Route::get('/keranjang', function () {
+//     return view('frontend.keranjang');
+// })->name('keranjang');
 // // Route untuk halaman checkout
 // Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 

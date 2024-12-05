@@ -67,7 +67,7 @@
                 Checkout
             </a>
         </div>
-    @endforeach
+
 @endif
 
 @endsection

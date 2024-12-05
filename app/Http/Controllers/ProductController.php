@@ -37,9 +37,42 @@ class ProductController extends Controller
         }
     
         // Filter Harga, Kondisi, dan Sorting (kode sebelumnya tetap sama)
+        // Filter Price
+        if ($request->has('price') && $request->price != '') {
+            if ($request->price == 'under_50000') {
+                $query->where('price', '<', 50000);
+            } elseif ($request->price == '50k_100k') {
+                $query->whereBetween('price', [50000, 100000]);
+            } elseif ($request->price == '100k_200k') {
+                $query->whereBetween('price', [100000, 200000]);
+            } elseif ($request->price == 'above_200k') {
+                $query->where('price', '>', 200000);
+            }
+        }
+
+        // Filter Condition
+        if ($request->has('condition') && $request->condition != '') {
+            $query->where('condition', $request->condition);
+        }
+
+        // Sort Options
+        if ($request->has('sort') && $request->sort != '') {
+            if ($request->sort == 'lowest_price') {
+                $query->orderBy('price', 'asc');
+            } elseif ($request->sort == 'highest_price') {
+                $query->orderBy('price', 'desc');
+            } elseif ($request->sort == 'newest') {
+                $query->orderBy('created_at', 'desc');
+            } elseif ($request->sort == 'oldest') {
+                $query->orderBy('created_at', 'asc');
+            }
+        }
+
     
         // Mengambil produk berdasarkan query
         $products = $query->paginate(12);
+
+        
     
         // Dekripsi gambar (jika ada)
         foreach ($products as $product) {
