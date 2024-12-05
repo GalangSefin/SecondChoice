@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\ProductImage;
 use App\Models\Category;
 use App\Models\Jenis;
-
+use Illuminate\Support\Facades\Log;
 
 class UpProdukController extends Controller
 {
@@ -21,7 +21,6 @@ class UpProdukController extends Controller
    // Menangani pengiriman produk
    public function kirimProduk(Request $request)
    {
-       // Validasi request
        $request->validate([
            'category' => 'required',
            'jenis' => 'required',
@@ -33,42 +32,47 @@ class UpProdukController extends Controller
            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
        ]);
 
-       // Simpan data produk
+       // Buat produk baru
        $product = Product::create([
+           'user_id' => auth()->id(),
            'category' => $request->category,
            'jenis' => $request->jenis,
-           'user_id' => auth()->id(),
            'name' => $request->name,
            'description' => $request->description,
            'price' => $request->price,
            'stock' => $request->stock,
-           'condition' => $request->condition,
+           'condition' => $request->condition
        ]);
 
-       // Proses upload gambar
+       // Handle multiple images
        if ($request->hasFile('images')) {
-           foreach ($request->file('images') as $image) {
-               // Baca file sebagai binary
-               $imageContent = file_get_contents($image->getRealPath());
-               
-               // Enkripsi konten gambar (opsional)
-               $encryptedContent = encrypt($imageContent);
-               
-               // Generate nama file yang unik
-               $filename = time() . '_' . uniqid() . '.bin';
-               
-               // Simpan file terenkripsi
-               Storage::put('public/products/' . $filename, $encryptedContent);
+           foreach ($request->file('images') as $index => $image) {
+               try {
+                   // Generate nama unik untuk setiap file dengan menambahkan index
+                   $imageName = time() . '_' . $index . '_' . $image->getClientOriginalName();
+                   
+                   // Baca konten file
+                   $imageContent = file_get_contents($image->getRealPath());
+                   
+                   // Enkripsi konten
+                   $encryptedContent = encrypt($imageContent);
+                   
+                   // Simpan file terenkripsi dengan nama unik
+                   Storage::put('public/products/' . $imageName, $encryptedContent);
 
-               // Simpan informasi gambar ke database
-               ProductImage::create([
-                   'product_id' => $product->id,
-                   'image' => 'storage/products/' . $filename
-               ]);
+                   // Simpan informasi gambar ke database
+                   $product->images()->create([
+                       'image' => $imageName,
+                   ]);
+
+               } catch (\Exception $e) {
+                Log::error('Error uploading image: ' . $e->getMessage());
+                   continue;
+               }
            }
        }
 
-       return redirect()->back()->with('success', 'Produk berhasil ditambahkan!');
+       return redirect()->route('home')->with('success', 'Produk berhasil ditambahkan!');
    }
 
    // Tambahkan method untuk menampilkan gambar

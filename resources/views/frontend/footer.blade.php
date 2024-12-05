@@ -30,6 +30,13 @@
           </ul>
         </div>
 
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="#"><span class="icon-instagram"></span></a>
+        <a href="#"><span class="icon-email"></span></a>
+        <!-- <a href="#"><span class="icon-facebook"></span></a>
+        <a href="#"><span class="icon-x"></span></a>
+        <a href="#"><span class="icon-linkedin"></span></a> -->
       </div>
 
       <!-- Privacy and Terms -->

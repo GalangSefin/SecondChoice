@@ -21,22 +21,14 @@ class Keranjang extends Model
     // Relasi ke produk
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Product::class, 'product_id')->with('images');
     }
 
     // Relasi ke seller melalui Product
     public function seller()
-{
-    return $this->hasOneThrough(
-        User::class,      // Target model (seller)
-        Product::class,   // Melalui model produk
-        'id',             // Foreign key di tabel Product
-        'id',             // Foreign key di tabel User (penjual)
-        'product_id',     // Local key di tabel Keranjang
-        'user_id'         // Local key di tabel Product (menunjukkan seller)
-    );
-}
-
+    {
+        return $this->belongsTo(User::class, 'seller_id');
+    }
 
     // Relasi ke pengguna pemilik keranjang
     public function user()

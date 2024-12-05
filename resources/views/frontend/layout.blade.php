@@ -175,27 +175,55 @@
 
       <!-- Bagian bawah navbar -->
       <div class="nav-bottom">
-        <div class="container">
-            <div class="categories">
-                <ul class="menu-list">
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li class="main-kategori">
-                      <span><a href="#">Kategori</a></span>
-                        <ul class="sub-kategori">
-                            <li><a href="http://127.0.0.1:8000/products?category=elektronik&price=&condition=&sort=">Elektronik</a></li>
-                            <li><a href="http://127.0.0.1:8000/products?category=pakaian&price=&condition=&sort=">Pakaian</a></li>
-                            <li><a href="/kategori/kesehatan">Kesehatan</a></li>
-                            <li><a href="/kategori/olahraga">Olahraga</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('jual') }}">Jual</a></li>
-                </ul>
-            </div>
+    <div class="container">
+        <div class="categories">
+            <ul>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                
+                <!-- Kategori Dropdown -->
+                <li class="category__trigger flex" id="categoryTrigger">
+                  <a href="#" class="category__link">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" preserveAspectRatio="xMidYMid meet" width="24" height="24" viewBox="0 0 24 24" class="icon-white">
+                          <!-- Tambahkan konten SVG di sini -->
+                      </svg>
+                      Kategori
+                  </a>
+                  <!-- Dropdown content -->
+                  <div class="dropdown-content" id="dropdownContent">
+                      <a href="#">Elektronik</a>
+                      <a href="#">Pakaian</a>
+                      <a href="#">Pecah Belah</a>
+                      <a href="#">Perabotan</a>
+                  </div>
+              </li>
+              <script>
+                // Ambil elemen yang dibutuhkan
+          const categoryTrigger = document.getElementById('categoryTrigger');
+          const dropdownContent = document.getElementById('dropdownContent');
+          
+          // Fungsi untuk menampilkan dropdown
+          function showDropdown() {
+              dropdownContent.style.display = 'block';
+          }
+          
+          // Fungsi untuk menyembunyikan dropdown
+          function hideDropdown() {
+              dropdownContent.style.display = 'none';
+          }
+          
+          // Tambahkan event listeners
+          categoryTrigger.addEventListener('mouseover', showDropdown);
+          categoryTrigger.addEventListener('mouseout', hideDropdown);
+          
+              </script>
+              
+              
+
+                <li><a href="{{ route('jual') }}">Jual</a></li>
+            </ul>
         </div>
     </div>
-    
-    
-    
+</div>
     </nav>
 
     <!-- Tambahkan setelah nav dan sebelum content -->

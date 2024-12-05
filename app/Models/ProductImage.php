@@ -2,25 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
-    use HasFactory;
-    
-    protected $fillable = [
-        'product_id',
-        'image',
-    ];
+    protected $fillable = ['product_id', 'image'];
 
-    // Accessor untuk mendapatkan full URL gambar
     public function getImageUrlAttribute()
     {
-        return asset($this->image);
+        if ($this->image && Storage::exists('public/products/' . $this->image)) {
+            $path = Storage::path('public/products/' . $this->image);
+            $type = pathinfo($path, PATHINFO_EXTENSION);
+            $data = file_get_contents($path);
+            return 'data:image/' . $type . ';base64,' . base64_encode($data);
+        }
+        
+        // Return default image jika gambar tidak ditemukan
+        return asset('images/default-product.jpg');
     }
 
-    // Relasi balik ke produk
     public function product()
     {
         return $this->belongsTo(Product::class);
