@@ -6,7 +6,6 @@
           <h3>Second Choice</h3>
           <ul>
             <li><a href="{{ route('about') }}">About</a></li>
-            <li><a href="#">Blog</a></li>
           </ul>
         </div>
 
@@ -25,18 +24,12 @@
         <div class="footer-column">
           <h3>Bantuan</h3>
           <ul>
-            <li><a href="#">Kontak</a></li>
+            <li><a href="https://wa.me/0895414207188"><i class="fa-brands fa-whatsapp" style="font-size: 24px; color: #870017"></i></a></li>
+            <li><a href="https://www.instagram.com/wmk.secondchoice/"><i class="fa-brands fa-instagram" style="font-size: 24px; color: #870017"></i></a></li>
+            <li><a href="mailto:wmk.secondchoice@gmail.com"><i class="fa-regular fa-envelope" style="font-size: 24px; color: #870017"></i></a></li>
           </ul>
         </div>
-      </div>
 
-      <!-- Social Media Icons -->
-      <div class="social-icons">
-        <a href="#"><span class="icon-instagram"></span></a>
-        <a href="#"><span class="icon-email"></span></a>
-        <!-- <a href="#"><span class="icon-facebook"></span></a>
-        <a href="#"><span class="icon-x"></span></a>
-        <a href="#"><span class="icon-linkedin"></span></a> -->
       </div>
 
       <!-- Privacy and Terms -->
