@@ -1,0 +1,232 @@
+
+    /* Container utama */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Sidebar - Daftar Chat */
+.inbox_msg {
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+}
+
+.inbox_people {
+    width: 30%;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+.headind_srch .recent_heading h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inbox_chat {
+    margin-top: 15px;
+}
+
+.chat_list {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat_list:hover {
+    background-color: #f1f1f1;
+}
+
+.chat_list.active_chat {
+    background-color: #dbe9f4;
+}
+
+.chat_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat_ib {
+    flex: 1;
+}
+
+.chat_ib h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.chat_ib p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Chat Area */
+.mesgs {
+    width: 70%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.msg_history {
+    margin-bottom: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.outgoing_msg, .incoming_msg {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.incoming_msg {
+    justify-content: flex-start;
+}
+
+.sent_msg, .received_msg {
+    max-width: 75%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+.sent_msg {
+    background-color: #e0f7fa;
+    text-align: right;
+}
+
+.received_withd_msg {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.time_date {
+    font-size: 10px;
+    color: #aaa;
+}
+
+/* Form untuk menulis pesan */
+.input_msg_write {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+/* Lebar dan tinggi kolom input pesan */
+/* Styling untuk textarea dengan padding lebih lebar */
+.write_msg {
+    flex-grow: 1;
+    border-radius: 20px;
+    padding: 20px 30px; /* Padding lebih lebar */
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    width: 100%; /* Lebar penuh agar mengisi ruang */
+    height: 150px; /* Tinggi default textarea */
+    min-height: 60px; /* Minimal tinggi */
+    resize: vertical; /* Mengizinkan resize secara vertikal */
+    box-sizing: border-box; /* Menghitung padding dan border dalam ukuran elemen */
+    overflow-y: hidden; /* Menghindari scrollbar pada teks */
+}
+
+/* Fokus pada textarea */
+.write_msg:focus {
+    border-color: #007bff;
+}
+
+
+
+/*/* Styling untuk tombol kirim pesan */
+.msg_send_btn {
+    background-color: #870017; /* Warna latar belakang biru */
+    color: #fff; /* Warna teks putih */
+    border: none; /* Menghapus border default */
+    padding: 12px 16px; /* Padding agar tombol lebih besar dan lebih lebar */
+    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    cursor: pointer; /* Menunjukkan pointer saat hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transisi smooth untuk hover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Lebar tombol */
+    height: 48px; /* Tinggi tombol (menjaga bentuk bulat) */
+    box-sizing: border-box; /* Menghitung padding dalam ukuran tombol */
+}
+
+/* Efek saat hover */
+.msg_send_btn:hover {
+    background-color: #777; /* Warna latar belakang lebih gelap saat hover */
+    transform: scale(1.1); /* Efek sedikit membesar saat hover */
+}
+
+/* Styling untuk ikon di dalam tombol */
+.msg_send_btn i {
+    font-size: 20px; /* Menyesuaikan ukuran ikon agar lebih besar */
+    margin: 0; /* Menghapus margin default pada ikon */
+}
+
+/* Tambahan: Fokus pada tombol */
+.msg_send_btn:focus {
+    outline: none; /* Menghapus outline saat tombol diklik */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Menambahkan efek fokus dengan bayangan biru */
+}
+
+
+/* Hover effect untuk tombol Hubungi Penjual */
+.contact-seller:hover .message-btn {
+    background-color: #bdbebd; /* Hover effect untuk tombol */
+    color: #ffffff; /* Ubah warna teks saat hover */
+}
+
+.message-btn {
+    color: black; /* Warna teks default */
+    transition: color 0.3s ease; /* Transisi halus */
+}
+
+.message-btn:hover {
+    color: #333333; /* Ubah warna teks saat hover */
+}
+
+/* Pesan kosong jika belum memilih chat */
+.no-chat-selected {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    padding: 50px;
+}
+
+/* Responsivitas: Pada layar kecil, sidebar dan chat area menjadi full-width */
+@media (max-width: 768px) {
+    .inbox_msg {
+        flex-direction: column;
+    }
+
+    .inbox_people, .mesgs {
+        width: 100%;
+    }
+
+    .msg_history {
+        height: 400px; /* Tambahkan scroll untuk riwayat pesan pada layar kecil */
+    }
+}
+
+

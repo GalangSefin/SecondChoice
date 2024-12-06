@@ -4,9 +4,11 @@
 <link rel="stylesheet" href="{{ asset('second_choice/css/jual.css') }}">
 <link rel="stylesheet" href="{{ asset('second_choice/css/detail_produk.css') }}">
 
+
+<div></div>
 <div class="container mx-auto px-4 py-8">
     <div class="product-container">
-        <!-- Bagian Gambar Produk -->
+        <!-- Product Image Section -->
         <div class="product-image-container">
             @if ($product->images->isNotEmpty())
                 <img id="mainImage" 
@@ -28,7 +30,7 @@
             @endif
         </div>
 
-        <!-- Bagian Detail Produk -->
+        <!-- Product Details Section -->
         <div class="product-details">
             <h1 class="product-name">{{ $product->name }}</h1>
             <p class="condition">Kondisi: {{ $product->condition }}</p>
@@ -48,10 +50,10 @@
                 <p class="category_nama">{{ $product->namacategory->category_nama }}</p>
             @endif
 
-            <!-- Informasi Penjual -->
+            <!-- Seller Information Section -->
             <div class="seller-info">
                 @if($product->seller)
-                    <!-- Gambar Avatar Penjual -->
+                    <!-- Seller Avatar -->
                     @if($product->seller->avatar)
                         <img src="data:image/jpeg;base64,{{ base64_encode($product->seller->avatar) }}" 
                             alt="Avatar Penjual" 
@@ -62,7 +64,7 @@
                             class="seller-avatar">
                     @endif
 
-                    <!-- Detail Penjual -->
+                    <!-- Seller Details -->
                     <div class="seller-details">
                         <h3>{{ $product->seller->name }}</h3>
                         @if($product->seller->location)
@@ -72,45 +74,42 @@
                 @endif
             </div>
 
+            <!-- Product Action Buttons -->
             <div class="product-buttons">
-    <form action="{{ route('keranjang.add') }}" method="POST">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <button type="submit" name="action" value="buy-now" class="buy-now">Beli Sekarang</button>
-        <button type="submit" name="action" value="add-to-cart" class="btn btn-primary add-to-cart">+ Tambahkan ke Keranjang</button>
-    </form>
-</div>
+                @if(auth()->check())
+                    <!-- Add to Cart Button -->
+                    <form action="{{ route('keranjang.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" name="action" value="add-to-cart" class="btn btn-primary add-to-cart">+ Tambahkan ke Keranjang</button>
+                    </form>
+                    
+                    <!-- Buy Now and Contact Seller -->
+                    <div style="margin-top: 10px;">
+                        <a href="{{ route('checkout') }}" class="btn btn-primary add-to-cart">
+                            Beli Sekarang
+                        </a>
+                        <a href="{{ route('messages.with.seller', $product->user_id) }}" class="contact-seller">
+                            <button type="button" class="message-btn">
+                                <!-- Message Icon -->
+                                <i class="fas fa-comment-dots"></i> Hubungi Penjual
+                            </button>
+                        </a>
+                    </div>
+                    
+                @else
+                    <!-- If not logged in, prompt login -->
+                    <a href="{{ route('home', ['showLogin' => true]) }}" class="login-first">
+                        <button type="button" class="buy-now">Login untuk Membeli</button>
+                    </a>
+                @endif
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    function changeImage(imageUrl) {
-        document.getElementById("mainImage").src = imageUrl;
-    }
-</script>
-
-//review
-<h3>Add Your Review</h3>
-<form action="{{ url('/products/' . $product->id . '/reviews') }}" method="POST">
-    @csrf
-    <div>
-        <label for="rating">Rating (1-5):</label>
-        <input type="number" name="rating" id="rating" min="1" max="5" required>
-    </div>
-    <div>
-        <label for="comment">Comment:</label>
-        <textarea name="comment" id="comment" rows="3"></textarea>
-    </div>
-    <button type="submit">Submit Review</button>
-</form>
-
-<h3>Reviews</h3>
-@foreach ($product->reviews as $review)
-    <div>
-        <strong>{{ $review->user->name }}</strong> rated {{ $review->rating }}/5
-        <p>{{ $review->comment }}</p>
-    </div>
-@endforeach
-
+    <script>
+        function changeImage(imageUrl) {
+            document.getElementById("mainImage").src = imageUrl;
+        }
+    </script>
 @endsection

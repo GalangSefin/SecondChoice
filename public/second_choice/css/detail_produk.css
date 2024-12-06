@@ -1,356 +1,240 @@
-* {
-  /* box-sizing: border-box; */
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* General Styles */
 body {
-  /* display: flex; */
-  justify-content: center;
-  background-color: #f5f5f5;
-  padding: 20px;
-  margin-top: 115px; /* Sesuaikan dengan tinggi navbar */   
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.8; /* Increased line height for better readability */
+  font-size: 18px; /* Increased font size */
 }
 
-/* Container untuk produk */
-.product-container {
-  background-color: white;
-  width: 100%;
-  /* max-width: 1200px; */
-  margin: 0;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: flex-start;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px; /* Increased padding */
 }
 
-/* Pengaturan gambar produk */
+h1, h3 {
+  color: #333;
+  font-size: 32px; /* Larger headings */
+}
+
+h3 {
+  font-size: 24px; /* Increased size for h3 */
+}
+
+/* Product Image Section */
 .product-image-container {
-  width: 50%; /* Lebar 50% pada layar besar */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 60%; /* Increased width of the product image section */
+  margin-right: 40px; /* Increased space between image and details */
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
 }
 
 .main-image {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  max-width: 600px; /* Increased max width */
+  height: auto;
   border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
 }
 
 .thumbnail-container {
-  display: flex;
-  margin-top: 10px;
-  gap: 10px;
-  justify-content: center;
+  margin-top: 20px; /* Increased margin */
 }
 
 .thumbnail {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
+  width: 80px; /* Larger thumbnails */
+  height: 80px;
+  margin: 8px; /* Increased margin between thumbnails */
   cursor: pointer;
   border-radius: 5px;
-  border: 2px solid transparent;
-  transition: border 0.1s;
+  transition: transform 0.2s;
 }
 
 .thumbnail:hover {
-  border: 2px solid #333;
+  transform: scale(1.2); /* Larger hover effect */
 }
 
-/* Detil Produk */
+/* Product Details Section */
 .product-details {
-  width: 50%; /* Lebar 50% pada layar besar */
-  padding: 20px;
+  display: inline-block;
+  max-width: 60%; /* Keep the width wide */
+  vertical-align: top;
+  padding: 30px; /* Padding remains the same */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  min-height: 600px; /* Set a minimum height */
 }
 
-.product-details h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+/* Other elements like product name, description, etc. remain the same */
+
+
+.product-name {
+  font-size: 28px; /* Larger product name */
+  font-weight: bold;
   color: #333;
 }
 
-.product-details .condition,
-.product-details .price {
-  font-size: 18px;
-  color: #333;
-  margin: 5px 0;
+.condition {
+  font-size: 18px; /* Larger font for condition */
+  color: #777;
 }
 
+.price {
+  font-size: 24px; /* Larger price */
+  font-weight: bold;
+  color: #000000;
+  margin: 15px 0; /* Increased margin */
+}
+
+.product-info {
+  margin-top: 30px; /* Increased margin */
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.product-description {
+  font-size: 16px; /* Larger description */
+  color: #555;
+  line-height: 1.6; /* Slightly increased line height */
+}
+
+.jenis_nama,
+.category_nama {
+  font-size: 18px; /* Larger text for category and type */
+  color: #333;
+  font-weight: 500;
+  margin-top: 15px; /* Increased margin */
+}
+
+/* Seller Info */
 .seller-info {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 30px; /* Increased margin */
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.seller-avatar-container {
+  margin-right: 20px; /* Increased space between avatar and details */
 }
 
 .seller-avatar {
-  width: 40px;
-  height: 40px;
+  width: 80px; /* Larger seller avatar */
+  height: 80px;
   border-radius: 50%;
-  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid #ddd;
 }
 
 .seller-details {
-  color: #555;
-  font-size: 16px;
+  font-size: 18px; /* Larger font for seller details */
 }
 
-.seller-details a {
-  color: #000;
+.seller-details h3 {
+  font-weight: bold;
+  margin-bottom: 10px; /* Increased margin */
+}
+
+.seller-details p {
+  color: #777;
+}
+
+/* General Button Styles */
+.btn {
+  display: inline-block;
+  padding: 16px 40px; /* Larger button padding */
+  text-align: center;
   text-decoration: none;
-  font-family: "Arial";
-  font-size: 15px;
+  font-size: 18px; /* Larger text */
   font-weight: bold;
-}
-
-/* Scrollable untuk deskripsi panjang */
-.scrollable {
-  max-height: 360px;
-  overflow-y: auto;
-  padding: 10px;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  flex: 1;
-}
-
-/* Styling untuk deskripsi produk */
-.product-description span {
-  display: block;
-  margin-top: 5px;
-}
-
-.product-details .tags {
-  margin: 10px 0;
-  display: flex;
-  gap: 5px;
-}
-
-.product-details .tags span {
-  background-color: #eee;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 14px;
-  color: #555;
-}
-
-/* Tombol beli dan tambahkan ke keranjang */
-.product-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.product-buttons button {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
-.buy-now {
-  background-color: #870017;
-  color: #fff;
+.btn-primary {
+  background-color: #007bff; /* Blue background */
+  color: white;
 }
 
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+  color: #000000; /* Ubah warna teks saat hover */
+}
+
+.btn-primary:active {
+  background-color: #004085; /* Even darker blue on click */
+  transform: scale(1); /* Reset zoom effect */
+}
+
+/* Add to Cart Button */
 .add-to-cart {
-  background-color: #ccc;
-  color: #333;
+  background-color: #c0c0c0; /* Green background for add to cart */
 }
 
-/* Responsif untuk layar kecil */
-@media (max-width: 768px) {
-  .product-container {
-      flex-direction: column;
-  }
-
-  .product-image-container,
-  .product-details {
-      width: 100%;
-      padding: 10px;
-  }
-
-  .main-image {
-      max-height: 500px;
-  }
-
-  .product-details h1 {
-      font-size: 20px;
-  }
-
-  .product-details .condition,
-  .product-details .price {
-      font-size: 16px;
-  }
-
-  .product-buttons {
-      flex-direction: column;
-  }
+.add-to-cart:hover {
+  background-color: #a0a0a0; /* Darker green on hover */
+  color: #000000; /* Ubah warna teks saat hover */
 }
 
-/* Logo */
-.logo img {
-  width: 205px;
-  height: auto;
-  margin-right: 5px;
-}
-
-.sell-link {
-  font-weight: bold;
-  color: #333;
-}
-
-.icons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.icons .icon {
-  margin: 0 8px;
-  font-size: 20px;
-}
-
-.icons .profile-icon {
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 13px;
-  cursor: pointer;
+/* Message Seller Button */
+.message-btn {
+  background-color: #3f3f3f; /* Yellow background */
   color: white;
-  background-color: #4db6ac;
-}
-
-/* Profil Section */
-.profile-section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.profile-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.profile-icon-large {
-  background-color: #4db6ac;
-  padding: 40px;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-  margin-right: 20px;
-}
-
-.profile-info h1 {
-  margin: 0;
-}
-
-.profile-info p {
-  color: #888;
-  margin: 5px 0 10px;
-}
-
-button {
-  padding: 10px 15px;
-  font-size: 14px;
-  margin: 5px;
-  cursor: pointer;
   border: none;
-  border-radius: 5px;
+  padding: 16px 30px; /* Increased padding */
+  font-size: 18px; /* Larger text */
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Increased gap between icon and text */
 }
 
-.edit-profile,
-.add-product {
-  background-color: #656765;
-  color: white;
+.message-btn i {
+  font-size: 20px; /* Larger icon */
 }
 
-button:hover {
-  opacity: 0.8;
+.message-btn:hover {
+  background-color: #a0a0a0; /* Darker yellow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Tabs Styling */
-.tabs {
-  display: flex;
-  margin-bottom: 20px;
+.message-btn:active {
+  background-color: #bdbebd; /* Even darker yellow on click */
+  transform: scale(1); /* Reset zoom effect */
 }
 
-.tab {
-  text-decoration: none;
-  color: #888;
-  padding: 10px 15px;
-  margin-right: 20px;
+/* Contact Seller Link */
+.contact-seller {
+  display: inline-block;
+  text-decoration: none; /* Remove underline from link */
+  margin-top: 15px; /* Increased margin */
 }
 
-.tab.active {
-  border-bottom: 2px solid #ffffff;
-  color: black;
+.contact-seller:hover .message-btn {
+  background-color: #bdbebd; /* Hover effect for the button */
+  color: #ffffff; /* Ubah warna teks saat hover */
 }
 
-.no-items {
+.login-first {
+  display: block;
+  margin-top: 25px; /* Increased margin */
   text-align: center;
 }
 
-.no-items img {
-  width: 50px;
+.login-first .buy-now {
+  background-color: #2196F3;
+  padding: 16px 25px; /* Larger padding */
+  font-size: 20px; /* Larger font size */
 }
 
-.no-items p {
-  color: #888;
-}
-
-
-/* Tab Styling with Icons */
-.tabs {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-}
-
-.tab {
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tab i {
-  font-size: 16px;
-}
-
-.tab.active {
-  font-weight: bold;
-  color: black;
-}
-
-.tab:hover {
-  color: #007BFF;
-}
-
-.tab.active i {
-  color: black;
+.login-first .buy-now:hover {
+  background-color: #1976D2;
 }

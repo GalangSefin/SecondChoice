@@ -14,28 +14,33 @@ class KeranjangController extends Controller
     public function showKeranjang()
     {
         $user_id = auth()->id();
-        $keranjangItems = Keranjang::with(['product.images', 'seller']) // Include relasi gambar dan penjual
-                                   ->where('user_id', $user_id)
-                                   ->get()
-                                   ->groupBy('seller_id');
-    
-        // Pastikan $keranjangItems selalu ada meskipun kosong
-        if ($keranjangItems->isEmpty()) {
-            return view('frontend.keranjang', ['keranjangItems' => collect()]); // Kirim keranjang kosong
-        }
-    
-        foreach ($keranjangItems as $sellerId => $items) {
-            foreach ($items as $item) {
-                $product = $item->product;
-                if ($product && $product->images->isNotEmpty()) {
-                    foreach ($product->images as $image) {
+        
+        $keranjangItems = Keranjang::with([
+            'product.images',
+            'seller:id,name',
+        ])
+        ->where('user_id', $user_id)
+        ->get()
+        ->groupBy('seller_id');
+
+        // Debug dan decode gambar
+        foreach($keranjangItems as $items) {
+            foreach($items as $item) {
+                Log::info('Product ID: ' . $item->product_id);
+                Log::info('Product Name: ' . $item->product->name);
+                
+                if($item->product->images->isNotEmpty()) {
+                    foreach($item->product->images as $image) {
                         try {
                             $path = 'public/products/' . basename($image->image);
+                            Log::info('Checking image path: ' . $path);
+                            
                             if (Storage::exists($path)) {
                                 $encryptedContent = Storage::get($path);
                                 $decryptedContent = decrypt($encryptedContent);
                                 $base64Image = base64_encode($decryptedContent);
                                 $image->decoded_image = 'data:image/jpeg;base64,' . $base64Image;
+                                Log::info('Image successfully decoded');
                             } else {
                                 Log::warning('Image file not found: ' . $path);
                                 $image->decoded_image = asset('second_choice/images/no-image.png');
@@ -45,10 +50,12 @@ class KeranjangController extends Controller
                             $image->decoded_image = asset('second_choice/images/no-image.png');
                         }
                     }
+                } else {
+                    Log::info('No images found for product');
                 }
             }
         }
-    
+
         return view('frontend.keranjang', compact('keranjangItems'));
     }
     
@@ -98,18 +105,30 @@ class KeranjangController extends Controller
 
 
     // Menghapus produk dari keranjang
-    public function removeFromKeranjang($id)
-    {
-        $keranjangItem = Keranjang::findOrFail($id);
+    public function removeItem($itemId)
+{
+    $item = Keranjang::find($itemId);
 
-        // Pastikan item milik user yang sedang login
-        if ($keranjangItem->user_id === auth()->id()) {
-            $keranjangItem->delete();
-            return redirect()->back()->with('success', 'Item berhasil dihapus dari keranjang!');
+    if ($item) {
+        $item->delete(); // Hapus item dari keranjang
+        
+        // Hitung ulang total untuk setiap penjual
+        $keranjangItems = Keranjang::all(); // Ambil semua item keranjang terbaru
+        $totalPerPenjual = [];
+        foreach ($keranjangItems as $keranjang) {
+            // Hitung subtotal per penjual
+            $total = $keranjang->items->sum(function ($item) {
+                return $item->quantity * $item->price;
+            });
+            $totalPerPenjual[$keranjang->seller_id] = $total;
         }
-
-        return redirect()->back()->with('error', 'Anda tidak berhak menghapus item ini.');
+        
+        return response()->json(['status' => 'success', 'total' => $totalPerPenjual]);
     }
+
+    return response()->json(['status' => 'error', 'message' => 'Item tidak ditemukan']);
+}
+
 
     // Mengubah jumlah item dalam keranjang
     public function updateQuantity(Request $request, $id)

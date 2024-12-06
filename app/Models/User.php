@@ -20,7 +20,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_active',
         'email_verified_at',
         'bio',
+        'phone_number',
         'website',
+        'alamat',
         'profile_picture'
     ];
 
@@ -65,6 +67,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getEmailForVerification()
     {
         return $this->email;
+    }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'user_id');
+    }
+
+    public function sellerKeranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'seller_id');
     }
     public function reviews()
 {

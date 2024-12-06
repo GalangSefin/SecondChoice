@@ -7,4 +7,8 @@ use Illuminate\Http\Request;
 class PurchasesController extends Controller
 {
     //
+    public function index()
+    {
+        return view('frontend.purchases');
+    }
 }
