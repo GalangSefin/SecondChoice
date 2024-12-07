@@ -6,7 +6,7 @@
     <meta name="author" content="Untree.co" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="{{ asset('second_choice/css/backtoup.css') }}">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    
     <title>
       SecondChoice &mdash;  Twice the Style, Half the Price
     </title>
