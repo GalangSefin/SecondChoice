@@ -128,6 +128,11 @@ Route::middleware(['auth', 'verified', 'user.active'])->group(function () {
 
      // Rute untuk detail produk
      Route::get('/product/{id}', [DetailProductController::class, 'show'])->name('product.show');
+
+
+     // Route untuk halaman checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
      
 });
 
@@ -178,8 +183,7 @@ Route::get('/tutorial', function () {
 Route::get('/keranjang', function () {
     return view('frontend.keranjang');
 })->name('keranjang');
-// Route untuk halaman checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
 
 // Proses data pengiriman
 Route::post('/checkout/shipping', [CheckoutController::class, 'handleShipping'])->name('checkout.shipping');
