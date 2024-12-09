@@ -4,25 +4,6 @@
 <link rel="stylesheet" href="{{ asset('second_choice/css/dashboard.css') }}" />
 
 <div class="dashboard-container">
-    <!-- <nav class="navbar">
-        <div class="nav-bar">
-            <a href="#" class="logo"><img src="{{ asset('images/logo scnd.png') }}" alt=""></a>
-            <input type="search" placeholder="Search Jersey...">
-            <div class="nav-links">
-                <a href="#" class="tab active">Wanita</a>
-                <a href="#" class="tab active">Pria</a>
-                <a href="#" class="tab active">Branded</a>
-                <a href="#" class="tab active">Anak</a>
-                <a href="#" class="sell-link">Jual</a>
-                <div class="icons">
-                    <a href="#" ><img src="{{ asset('images/mail.png') }}" alt=""></a>
-                    <a href="#" ><img src="{{ asset('images/cart[1].png') }}" alt=""></a>
-                    <a href="#" class="profile-icon">C</a>
-                </div>
-            </div>        
-        </div>
-    </nav> -->
-
     <div class="dashboard">
         <aside class="sidebar">
             <div class="profile">

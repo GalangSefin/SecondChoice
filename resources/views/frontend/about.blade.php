@@ -15,9 +15,9 @@
         <div>
             <h2 class="text-3xl font-bold mb-4 text-gray-900">Tentang Kami</h2>
             <p class="text-gray-700 leading-relaxed" style="text-align: justify;">
-            Second Choice merupakan salah satu platform berbasis website yang dibuat untuk jual beli barang bekas mahasiswa di Jember.
-            Mahasiswa yang membutuhkan barang-barang untuk memenuhi kebutuhannya dengan harga yang lebih terjangkau, dan mudah dicari dapat mengakses website Second Choice.
-            Selain itu, website ini dapat membantu mahasiswa untuk menjual barang yang sudah tidak dibutuhkan namun masih bisa terpakai serta mengingikan pendapatan tambahan😊
+            Second Choice merupakan salah satu platform website yang memudahkan kamu untuk mencari barang bekas mahasiswa dengan kualitas yang baik di wilayah Jember.
+            Kami memberikan kemudahan untuk kamu yang ingin membeli ataupun menjualkan barang-barang bekas mahasiswa.
+            Second Choice dibentuk pada tahun 2024 dan percaya bahwa Second Choice dapat menjadi pilihan kamu untuk menciptakan hubungan yang berkelanjutan antara penjual dan pembeli😊
             </p>
         </div>
         <!-- Image -->
